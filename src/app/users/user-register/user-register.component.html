@@ -36,37 +36,33 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <p class="agileits2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
   </div>
   <div class="content-agile2">
-    <form action="#" method="post">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="form-group col-md-9" style="margin: auto">
-        <input autofocus type="text" class="form-control input" placeholder="Name">
+        <input autofocus type="text" id="name" formControlName="name" class="form-control input" placeholder="Name">
+        <label class="alert alert-danger" for="name" *ngIf="validators.hasOwnProperty('name')">
+          {{validators.name[0]}}
+        </label>
       </div>
       <div class="form-group col-md-9 mt-2 " style="margin: auto">
-        <input type="email" class="form-control input" placeholder="example@email.com">
+        <input type="email" formControlName="email"  class="form-control input" placeholder="example@email.com">
+        <label class="alert alert-danger" *ngIf="validators.hasOwnProperty('email')">
+          {{validators.email[0]}}
+        </label>
       </div>
       <div class="form-group col-md-9 mt-2" style="margin: auto">
-        <input type="password" class="form-control input" placeholder="password">
+        <input type="password" class="form-control input" id="password" formControlName="password" placeholder="password">
+        <label class="alert alert-danger" for="password" *ngIf="validators.hasOwnProperty('password')">
+          {{validators.password[0]}}
+        </label>
       </div>
       <div class="form-group col-md-9 mt-2" style="margin: auto">
-        <input type="password" class="form-control input" placeholder="confirm password">
+        <input type="password" class="form-control input" id="passwordConfirm" formControlName="passwordConfirm" placeholder="confirm password">
+        <label class="alert alert-danger" for="passwordConfirm" *ngIf="validators.hasOwnProperty('passwordConfirm')">
+          {{validators.passwordConfirm[0]}}
+        </label>
       </div>
       <input type="submit" class="register" value="Register">
     </form>
-    <script type="text/javascript">
-        window.onload = function () {
-            document.getElementById("password1").onchange = validatePassword;
-            document.getElementById("password2").onchange = validatePassword;
-        }
-
-        function validatePassword() {
-            var pass2 = document.getElementById("password2").value;
-            var pass1 = document.getElementById("password1").value;
-            if (pass1 !== pass2)
-                document.getElementById("password2").setCustomValidity("Passwords Don't Match");
-            else
-                document.getElementById("password2").setCustomValidity('');
-            //empty string means no validation error
-        }
-    </script>
     <p class="wthree w3l">Fast Signup With Your Favourite Social Profile</p>
     <ul class="social-agileinfo wthree2">
       <li><a href="#"><i class="fa fa-facebook"></i></a></li>
