@@ -19,21 +19,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   <link href="//fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700" rel="stylesheet">
 </head>
 <body>
+<div style="text-align: center" class="alert alert-danger" *ngIf="message">
+  {{message}}
+</div>
 <div class="header-w3l" >
   <h1 style="margin: 0">Glassy Login Form</h1>
 </div>
 <div class="main-w3layouts-agileinfo">
   <div class="wthree-form">
     <h2>Fill out the form below to login</h2>
-    <form action="#" method="post">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="form-sub-w3">
-        <input type="text" name="Username" placeholder="Username " required="" />
+        <input type="text" formControlName="email" placeholder="Username " required="" />
         <div class="icon-w3">
           <i class="fa fa-user" aria-hidden="true"></i>
         </div>
       </div>
       <div class="form-sub-w3">
-        <input type="password" name="Password" placeholder="Password" required="" />
+        <input type="password" formControlName="password" placeholder="Password" required="" />
         <div class="icon-w3">
           <i class="fa fa-unlock-alt" aria-hidden="true"></i>
         </div>
