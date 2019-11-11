@@ -32,8 +32,10 @@ export class UserLoginComponent implements OnInit {
     const data = this.form.value;
     this.authService.login(data).subscribe((response: IResponse) => {
       localStorage.setItem('currentToken', response.token);
+      console.log(response.token);
     }, error => {
       this.message = error.error.error;
+      console.log(this.message);
     });
   }
 

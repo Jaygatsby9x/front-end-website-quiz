@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title ">Create Ask</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="row">
+                  <div class="form-group col-md-5">
+                    <label for="content">Content:</label>
+                    <input type="text" id="content" formControlName="content" class="form-control">
+                  </div>
+                  <div class="col-md-7">
+                    <label for="">Answer:</label>
+                    <table class="table">
+                      <tr>
+                        <th>content</th>
+                        <th>correct</th>
+                      </tr>
+                      <tbody id="answer" >
+                      </tbody>
+                      <tr>
+                        <td colspan="2"><p  class="btn btn-primary col-md-2" (click)="addAnswer()">+</p></td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="form-group col-md-12">
+                    <button class="btn btn-primary btn-sm">Create</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
