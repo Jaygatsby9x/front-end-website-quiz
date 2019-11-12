@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
+import {AuthService} from '../../services/auth.service';
+import {IResponse} from '../../interfaces/iresponse';
 
 @Component({
   selector: 'app-home-page',
@@ -7,10 +9,10 @@ import {FormControl, FormGroup} from '@angular/forms';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-  vinh: FormGroup;
-  vinh2: FormGroup;
+  currentUser;
 
-  constructor() {}
+  constructor(private auth: AuthService) {
+  }
 
   ngOnInit() {
   }
