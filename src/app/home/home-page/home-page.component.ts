@@ -15,21 +15,6 @@ export class HomePageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getCurrentUser();
-  }
-
-  getCurrentUser() {
-    this.auth.getUser().subscribe((response: IResponse) => {
-      this.currentUser = response.data;
-      console.log(response);
-    }, error => {
-      console.log(error);
-    });
-  }
-
-  authLogout() {
-    this.auth.logout();
-    this.getCurrentUser();
   }
 
 }
