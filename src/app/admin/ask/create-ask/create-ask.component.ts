@@ -26,7 +26,6 @@ export class CreateAskComponent implements OnInit {
   ngOnInit() {
     this.form = this.fb.group({
       content: [''],
-      category: [''],
       answer: this.fb.array([this.initAnswer()])
     });
     this.formAnswer = (this.form.get('answer') as FormArray).controls;
@@ -36,7 +35,6 @@ export class CreateAskComponent implements OnInit {
   onSubmit() {
     const formData = this.initFormData();
     this.askService.create(formData).subscribe((response: IResponse) => {
-      console.log(response);
       this.route.navigate(['/dashboard/ask']);
     }, error => {
       const responseErrors = error.error.errors;
@@ -53,7 +51,6 @@ export class CreateAskComponent implements OnInit {
     const formData = new FormData();
     formData.append('content', this.form.get('content').value);
     formData.append('answer', JSON.stringify(this.answers));
-    formData.append('category_id', this.form.get('category').value);
     return formData;
   }
 

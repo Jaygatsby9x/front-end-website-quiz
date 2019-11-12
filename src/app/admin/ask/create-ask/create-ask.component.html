@@ -26,11 +26,6 @@
                     <div *ngIf="errors" >
                   <div class="alert alert-danger" *ngFor="let error of errors.content">{{error}}</div>
                     </div>
-                  <label  for="category">Danh Mục: </label>
-                    <select formControlName="category" name="" id="category" class="form-control col-md-4">
-                      <option value="" >Chọn Danh Mục</option>
-                      <option   value="{{category.id}}" *ngFor="let category of categories">{{category.name}}</option>
-                    </select>
                   </div>
                   <div class="col-md-7">
                     <label>Câu Trả Lời:</label>
