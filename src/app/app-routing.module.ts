@@ -7,6 +7,7 @@ import {OverviewComponent} from './admin/overview/overview.component';
 import {AskComponent} from './admin/ask/ask.component';
 import {CreateAskComponent} from './admin/ask/create-ask/create-ask.component';
 import {HomePageComponent} from './home/home-page/home-page.component';
+import {AuthGuardService} from './services/auth-guard.service';
 
 
 const routes: Routes = [
@@ -17,7 +18,7 @@ const routes: Routes = [
       {path: '', redirectTo: 'overview', pathMatch: 'full'},
       {path: 'ask', component: AskComponent},
       {path: 'ask/create', component:  CreateAskComponent}
-    ]},
+    ], canActivate: [AuthGuardService]},
   {path: '' , component: HomePageComponent}
 ];
 
