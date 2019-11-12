@@ -14,43 +14,54 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header card-header-primary">
-            <h4 class="card-title ">Create Ask</h4>
+            <h4 class="card-title ">Tạo Câu Hỏi Mới</h4>
           </div>
           <div class="card-body">
             <div class="table-responsive">
               <form [formGroup]="form" (ngSubmit)="onSubmit()">
                 <div class="row">
                   <div class="form-group col-md-5">
-                    <label for="content">Content:</label>
-                    <input type="text" id="content" formControlName="content" class="form-control">
-                    <label for="category">Category: </label>
-                    <select  formControlName="category" name="" id="category" class="form-control col-md-4">
-                      <option value="{{category.id}}" *ngFor="let category of categories">{{category.name}}</option>
+                    <label>Tên Câu Hỏi:</label>
+                    <input type="text" formControlName="content" class="form-control mb-2">
+                    <div *ngIf="errors" >
+                  <div class="alert alert-danger" *ngFor="let error of errors.content">{{error}}</div>
+                    </div>
+                  <label  for="category">Danh Mục: </label>
+                    <select formControlName="category" name="" id="category" class="form-control col-md-4">
+                      <option value="" >Chọn Danh Mục</option>
+                      <option   value="{{category.id}}" *ngFor="let category of categories">{{category.name}}</option>
                     </select>
                   </div>
                   <div class="col-md-7">
-                    <label for="">Answer:</label>
+                    <label>Câu Trả Lời:</label>
+                    <div class="alert alert-danger" role="alert" *ngIf="form.get('answer').invalid && form.get('answer').touched">
+                      Câu trả lời không được để trống
+                    </div>
                     <table class="table">
                       <tr>
-                        <th>content</th>
-                        <th>correct</th>
+                        <th>Nội dung</th>
+                        <th>Kết quả </th>
                       </tr>
                       <tbody formArrayName="answer">
                       <tr *ngFor=" let control of formAnswer; let i= index" [formGroupName]="i">
-                          <td ><input type="text" formControlName="content" class="form-control"></td>
-                          <td ><select name="" formControlName="correct" class="form-control">
-                            <option value="1">True</option>
-                            <option value="0" selected >False</option>
-                          </select></td>
+                        <td><input type="text" formControlName="content" class="form-control"></td>
+
+                        <td><select name="" formControlName="correct" class="form-control">
+                          <option value="1">Đúng</option>
+                          <option value="0" selected>Sai</option>
+                        </select></td>
                       </tr>
                       </tbody>
                       <tr>
-                        <td colspan="2"><p class="btn btn-primary col-md-2" (click)="addAnswer()">+</p></td>
+                        <td colspan="2"><p class="btn btn-primary col-md-1" (click)="addAnswer()">+</p>
+                          <p class="btn btn-danger col-md-1 ml-2" (click)="removeAnswer()">-</p></td>
+
                       </tr>
                     </table>
                   </div>
                   <div class="form-group col-md-12">
-                    <button class="btn btn-primary btn-sm">Create</button><a class="btn btn-danger btn-sm" routerLink="/dashboard/ask">Cancel</a>
+                    <button [disabled]="form.invalid" class="btn btn-primary btn-sm">Tạo</button>
+                    <a class="btn btn-danger btn-sm ml-2" routerLink="/dashboard/ask"> Trở Về</a>
                   </div>
                 </div>
               </form>
