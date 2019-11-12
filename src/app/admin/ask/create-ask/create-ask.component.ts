@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {AskService} from '../../../services/ask.service';
-import * as $ from 'jquery';
-import {IForm} from "../../../interfaces/iform";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, Router} from '@angular/router';
+import {IResponse} from '../../../interfaces/iresponse';
+import {CategoryService} from '../../../services/category.service';
+import {ICategory} from '../../../interfaces/icategory';
 
 @Component({
   selector: 'app-create-ask',
@@ -12,41 +13,60 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class CreateAskComponent implements OnInit {
   form: FormGroup;
-  count = 0;
-  answer = [];
-  data: IForm = {};
+  formAnswer;
+  categories: ICategory[];
+  message: string;
+  answers = [];
 
-  constructor(private fb: FormBuilder, private askService: AskService, private route: Router) {
+  constructor(private fb: FormBuilder, private askService: AskService, private route: Router, private categoryService: CategoryService) {
   }
 
   ngOnInit() {
     this.form = this.fb.group({
       content: [''],
+      category: [],
+      answer: this.fb.array([this.initAnswer()])
     });
-    this.addAnswer();
+    this.formAnswer = (this.form.get('answer') as FormArray).controls;
+    this.getAllCategory();
   }
 
   onSubmit() {
-    for (let i = 0; i < this.count; i++) {
-      this.answer.push([$('#content' + i).val(), $('#correct' + i).val()]);
-    }
-    this.data.content = this.form.get('content').value;
-    this.data.answer = this.answer;
-    this.askService.create(this.data).subscribe(response => {
-      console.log(response);
+    const formData = this.initFormData();
+    this.askService.create(formData).subscribe((response: IResponse) => {
       this.route.navigate(['/dashboard/ask']);
+    }, error => {
+      console.log(error);
+    });
+  }
+  initFormData() {
+    const formAnswer = (this.form.get('answer') as FormArray).controls;
+    formAnswer.forEach(((answer, index) => {
+      this.answers[index] = answer.value;
+    }));
+    const formData = new FormData();
+    formData.append('content', this.form.get('content').value);
+    formData.append('answer', JSON.stringify(this.answers));
+    formData.append('category_id', this.form.get('category').value);
+    return formData;
+  }
+
+  initAnswer() {
+    return this.fb.group({
+      content: [''],
+      correct: [0]
     });
   }
 
   addAnswer() {
-    this.form.get('answer');
-    const tr = '<tr>' +
-      '<td><input type="text" class="form-control" id="content' + this.count + '"></td><td>' +
-      '<select name="" class="form-control" id="correct' + this.count + '">' +
-      '<option value="1" >True</option><option value="0">False</option></select></td>' +
-      '</tr>';
-    $('#answer').append(tr);
-    this.count++;
+    (this.form.get('answer') as FormArray).controls.push(this.initAnswer());
+  }
+  getAllCategory() {
+     this.categoryService.getAll().subscribe((response: IResponse) => {
+       this.categories = response.data;
+     }, error => {
+       console.log(error);
+     });
   }
 
 }

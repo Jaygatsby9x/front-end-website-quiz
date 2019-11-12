@@ -2,21 +2,29 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {UserLoginComponent} from './users/user-login/user-login.component';
 import {UserRegisterComponent} from './users/user-register/user-register.component';
+<<<<<<< HEAD
 import {DashboardComponent} from './admin/dashboard/dashboard.component';
 import {OverviewComponent} from './admin/overview/overview.component';
 import {AskComponent} from './admin/ask/ask.component';
 import {CreateAskComponent} from './admin/ask/create-ask/create-ask.component';
+=======
+import {HomePageComponent} from './home/home-page/home-page.component';
+>>>>>>> 4001ee3f652d728bece5d7b5a023cd666a199414
 
 
 const routes: Routes = [
   {path: 'login' , component: UserLoginComponent},
   {path: 'register' , component: UserRegisterComponent},
+<<<<<<< HEAD
   {path: 'dashboard', component: DashboardComponent, children: [
       {path: 'overview', component: OverviewComponent},
       {path: '', redirectTo: 'overview', pathMatch: 'full'},
       {path: 'ask', component: AskComponent},
       {path: 'ask/create', component:  CreateAskComponent}
     ]}
+=======
+  {path: '' , component: HomePageComponent}
+>>>>>>> 4001ee3f652d728bece5d7b5a023cd666a199414
 ];
 
 @NgModule({
