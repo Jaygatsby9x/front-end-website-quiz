@@ -10,13 +10,15 @@ import {MatFormFieldModule, MatInputModule} from '@angular/material';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { HomePageComponent } from './home/home-page/home-page.component';
+import { CategoryPageComponent } from './category/category-page/category-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserLoginComponent,
     UserRegisterComponent,
-    HomePageComponent
+    HomePageComponent,
+    CategoryPageComponent
   ],
   imports: [
     BrowserModule,
