@@ -14,12 +14,15 @@ import { OverviewComponent } from './admin/overview/overview.component';
 import { AskComponent } from './admin/ask/ask.component';
 import { CreateAskComponent } from './admin/ask/create-ask/create-ask.component';
 import { HomePageComponent } from './home/home-page/home-page.component';
+import { CategoryPageComponent } from './category/category-page/category-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserLoginComponent,
     UserRegisterComponent,
+    HomePageComponent,
+    CategoryPageComponent,
     DashboardComponent,
     OverviewComponent,
     AskComponent,

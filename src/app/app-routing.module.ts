@@ -7,12 +7,15 @@ import {OverviewComponent} from './admin/overview/overview.component';
 import {AskComponent} from './admin/ask/ask.component';
 import {CreateAskComponent} from './admin/ask/create-ask/create-ask.component';
 import {HomePageComponent} from './home/home-page/home-page.component';
+import {CategoryPageComponent} from './category/category-page/category-page.component';
 import {AuthGuardService} from './services/auth-guard.service';
 
 
 const routes: Routes = [
   {path: 'login' , component: UserLoginComponent},
   {path: 'register' , component: UserRegisterComponent},
+  {path: '' , component: HomePageComponent},
+  {path: 'categories' , component: CategoryPageComponent},
   {path: 'dashboard', component: DashboardComponent, children: [
       {path: 'overview', component: OverviewComponent},
       {path: '', redirectTo: 'overview', pathMatch: 'full'},
