@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {AuthService} from '../../services/auth.service';
 import {IResponse} from '../../interfaces/iresponse';
 import {IValidators} from '../../interfaces/ivalidators';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-user-register',
@@ -13,7 +14,7 @@ export class UserRegisterComponent implements OnInit {
 
   form: FormGroup;
   validators: IValidators = {};
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
   }
 
   ngOnInit() {
@@ -29,6 +30,7 @@ export class UserRegisterComponent implements OnInit {
     const data = this.form.value;
     this.authService.register(data).subscribe((response: IResponse) => {
       localStorage.setItem('currentToken', response.token);
+      this.router.navigate(['/']);
     }, error => {
       this.validators = error.error.errors;
     });

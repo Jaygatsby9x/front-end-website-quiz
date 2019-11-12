@@ -2,8 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {AuthService} from '../../services/auth.service';
-import {IResponse} from "../../interfaces/iresponse";
-import {templateJitUrl} from "@angular/compiler";
+import {IResponse} from '../../interfaces/iresponse';
 
 @Component({
   selector: 'app-user-login',
@@ -32,8 +31,10 @@ export class UserLoginComponent implements OnInit {
     const data = this.form.value;
     this.authService.login(data).subscribe((response: IResponse) => {
       localStorage.setItem('currentToken', response.token);
+      this.router.navigate(['/']);
     }, error => {
       this.message = error.error.error;
+      console.log(this.message);
     });
   }
 
