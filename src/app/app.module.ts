@@ -9,6 +9,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule, MatInputModule} from '@angular/material';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { OverviewComponent } from './admin/overview/overview.component';
+import { AskComponent } from './admin/ask/ask.component';
+import { CreateAskComponent } from './admin/ask/create-ask/create-ask.component';
 import { HomePageComponent } from './home/home-page/home-page.component';
 
 @NgModule({
@@ -16,6 +20,10 @@ import { HomePageComponent } from './home/home-page/home-page.component';
     AppComponent,
     UserLoginComponent,
     UserRegisterComponent,
+    DashboardComponent,
+    OverviewComponent,
+    AskComponent,
+    CreateAskComponent,
     HomePageComponent
   ],
   imports: [
