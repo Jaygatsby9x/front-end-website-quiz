@@ -45,7 +45,20 @@
       </nav>
     </div>
     <div class="header_side d-flex flex-row justify-content-center align-items-center">
-      <span style="cursor: pointer;" routerLink="/login" >Login</span><span>/</span><span style="cursor: pointer;" routerLink="/login">Register</span>
+      <div *ngIf="currentUser; else login">
+        <div class="dropdown">
+          <span style="cursor: pointer; color: black" class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{currentUser.name}}
+          </span>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Profile</a>
+            <a class="dropdown-item" (click)="authLogout()">Logout</a>
+          </div>
+        </div>
+      </div>
+      <ng-template #login>
+        <span style="cursor: pointer;color: black" routerLink="/login" >Login</span><span>/</span><span style="cursor: pointer;color: black" routerLink="/login">Register</span>
+      </ng-template>
     </div>
 
     <!-- Hamburger -->
