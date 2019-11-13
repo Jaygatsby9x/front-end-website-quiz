@@ -15,13 +15,14 @@
                 <th>Content</th>
                 <th>Quiz</th>
                 </thead>
-                <tbody>
-                <tr *ngFor="let ask of asks; let i = index">
-                  <td>{{i+1}}</td>
-                  <td>{{ask.content}}</td>
-                  <td>NONE</td>
-                </tr>
+                <tbody *ngIf="asks.length>0;else notdata">
+                  <tr *ngFor="let ask of asks; let i = index">
+                    <td>{{i + 1}}</td>
+                    <td>{{ask.content}}</td>
+                    <td>NONE</td>
+                  </tr>
                 </tbody>
+                <ng-template #notdata><tr><td style="text-align: center" colspan="3">Không có dữ liệu</td></tr></ng-template>
               </table>
             </div>
           </div>

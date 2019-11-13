@@ -16,6 +16,9 @@ import { CreateAskComponent } from './admin/ask/create-ask/create-ask.component'
 import { HomePageComponent } from './home/home-page/home-page.component';
 import { CategoryPageComponent } from './category/category-page/category-page.component';
 import { NavBarComponent } from './layouts/nav-bar/nav-bar.component';
+import { QuizComponent } from './admin/quiz/quiz.component';
+import { CreateQuizComponent } from './admin/quiz/create-quiz/create-quiz.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,9 @@ import { NavBarComponent } from './layouts/nav-bar/nav-bar.component';
     AskComponent,
     CreateAskComponent,
     HomePageComponent,
-    NavBarComponent
+    NavBarComponent,
+    QuizComponent,
+    CreateQuizComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,8 @@ import { NavBarComponent } from './layouts/nav-bar/nav-bar.component';
     MatInputModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
