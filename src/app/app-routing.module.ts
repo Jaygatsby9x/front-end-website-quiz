@@ -9,6 +9,7 @@ import {CreateAskComponent} from './admin/ask/create-ask/create-ask.component';
 import {HomePageComponent} from './home/home-page/home-page.component';
 import {CategoryPageComponent} from './category/category-page/category-page.component';
 import {AuthGuardService} from './services/auth-guard.service';
+import {QuizListComponent} from './quiz-list/quiz-list.component';
 import {QuizComponent} from './admin/quiz/quiz.component';
 import {CreateQuizComponent} from './admin/quiz/create-quiz/create-quiz.component';
 
@@ -26,7 +27,7 @@ const routes: Routes = [
       {path: 'quiz', component: QuizComponent},
       {path: 'quiz/create', component:  CreateQuizComponent},
     ], canActivate: [AuthGuardService]},
-  {path: '' , component: HomePageComponent}
+  {path: 'quiz-list', component: QuizListComponent},
 ];
 
 @NgModule({
