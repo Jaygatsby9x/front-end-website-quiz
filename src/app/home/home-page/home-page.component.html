@@ -15,62 +15,11 @@
   <link rel="stylesheet" type="text/css" href="../../../assets/home-page/styles/responsive.css">
 </head>
 <body>
-
 <div class="super_container">
-
   <!-- Header -->
-
-
 <app-nav-bar></app-nav-bar>
-
-  <!-- Menu -->
-  <div class="menu_container menu_mm">
-
-    <!-- Menu Close Button -->
-    <div class="menu_close_container">
-      <div class="menu_close"></div>
-    </div>
-
-    <!-- Menu Items -->
-    <div class="menu_inner menu_mm">
-      <div class="menu menu_mm">
-        <ul class="menu_list menu_mm">
-          <li class="menu_item menu_mm"><a href="#">Home</a></li>
-          <li class="menu_item menu_mm"><a href="#">About us</a></li>
-          <li class="menu_item menu_mm"><a href="courses.html">Courses</a></li>
-          <li class="menu_item menu_mm"><a href="elements.html">Elements</a></li>
-          <li class="menu_item menu_mm"><a href="news.html">News</a></li>
-          <li class="menu_item menu_mm"><a href="contact.html">Contact</a></li>
-        </ul>
-
-        <!-- Menu Social -->
-
-        <div class="menu_social_container menu_mm">
-          <ul class="menu_social menu_mm">
-            <li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-pinterest"></i></a></li>
-            <li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-            <li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-instagram"></i></a></li>
-            <li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-            <li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-twitter"></i></a></li>
-          </ul>
-        </div>
-
-        <div class="menu_copyright menu_mm">Colorlib All rights reserved</div>
-      </div>
-
-    </div>
-
-  </div>
-
-  <!-- Home -->
-
   <div class="home">
-
-    <!-- Hero Slider -->
     <div class="hero_slider_container">
-<!--      <div class="hero_slider ">-->
-
-        <!-- Hero Slide -->
         <div class="hero_slide">
           <div class="hero_slide_background" style="background-image:url(../../../assets/home-page/images/slider_background.jpg)">
           </div>
@@ -80,33 +29,7 @@
             </div>
           </div>
         </div>
-
-        <!-- Hero Slide -->
-<!--        <div class="hero_slide">-->
-<!--          <div class="hero_slide_background" style="background-image:url(../../../assets/home-page/images/slider_background.jpg)"></div>-->
-<!--          <div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">-->
-<!--            <div class="hero_slide_content text-center">-->
-<!--              <h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">Get your <span>Education</span> today!</h1>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-
-        <!-- Hero Slide -->
-<!--        <div class="hero_slide">-->
-<!--          <div class="hero_slide_background" style="background-image:url(../../../assets/home-page/images/slider_background.jpg)"></div>-->
-<!--          <div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">-->
-<!--            <div class="hero_slide_content text-center">-->
-<!--              <h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">Get your <span>Education</span> today!</h1>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-
       </div>
-
-<!--      <div class="hero_slider_left hero_slider_nav trans_200"><span class="trans_200">prev</span></div>-->
-<!--      <div class="hero_slider_right hero_slider_nav trans_200"><span class="trans_200">next</span></div>-->
-<!--    </div>-->
-
   </div>
 
   <div class="hero_boxes">
@@ -118,8 +41,8 @@
             <div class="hero_box d-flex flex-row align-items-center justify-content-start">
               <img src="../../../assets/home-page/images/earth-globe.svg" class="svg" alt="">
               <div class="hero_box_content">
-                <h2 class="hero_box_title">Online Courses</h2>
-                <a href="courses.html" class="hero_box_link">view more</a>
+                <h2 class="hero_box_title">Online Category</h2>
+                <a routerLink="categories" class="hero_box_link">view more</a>
               </div>
             </div>
           </div>
@@ -128,8 +51,8 @@
             <div class="hero_box d-flex flex-row align-items-center justify-content-start">
               <img src="../../../assets/home-page/images/books.svg" class="svg" alt="">
               <div class="hero_box_content">
-                <h2 class="hero_box_title">Our Library</h2>
-                <a href="courses.html" class="hero_box_link">view more</a>
+                <h2 class="hero_box_title">Quiz Library</h2>
+                <a routerLink="categories" class="hero_box_link">view more</a>
               </div>
             </div>
           </div>
@@ -138,7 +61,7 @@
             <div class="hero_box d-flex flex-row align-items-center justify-content-start">
               <img src="../../../assets/home-page/images/professor.svg" class="svg" alt="">
               <div class="hero_box_content">
-                <h2 class="hero_box_title">Our Teachers</h2>
+                <h2 class="hero_box_title">Famous People</h2>
                 <a href="teachers.html" class="hero_box_link">view more</a>
               </div>
             </div>
@@ -156,7 +79,7 @@
       <div class="row">
         <div class="col">
           <div class="section_title text-center">
-            <h1>Popular Courses</h1>
+            <h1>Popular Quiz</h1>
           </div>
         </div>
       </div>
@@ -168,15 +91,14 @@
           <div class="card">
             <img class="card-img-top" src="../../../assets/home-page/images/course_1.jpg" alt="https://unsplash.com/@kellybrito">
             <div class="card-body text-center">
-              <div class="card-title"><a href="courses.html">A complete guide to design</a></div>
-              <div class="card-text">Adobe Guide, Layes, Smart Objects etc...</div>
+              <div class="card-title"><a href="courses.html">Lịch Sử Thế giới</a></div>
+              <div class="card-text">Chiến tranh thế giới thứ 2</div>
             </div>
             <div class="price_box d-flex flex-row align-items-center">
               <div class="course_author_image">
                 <img src="../../../assets/home-page/images/author.jpg" alt="https://unsplash.com/@mehdizadeh">
               </div>
-              <div class="course_author_name">Michael Smith, <span>Author</span></div>
-              <div class="course_price d-flex flex-column align-items-center justify-content-center"><span>$29</span></div>
+              <div class="course_author_name">Độ khó <span>3</span></div>
             </div>
           </div>
         </div>
@@ -186,15 +108,14 @@
           <div class="card">
             <img class="card-img-top" src="../../../assets/home-page/images/course_2.jpg" alt="https://unsplash.com/@cikstefan">
             <div class="card-body text-center">
-              <div class="card-title"><a href="courses.html">Beginners guide to HTML</a></div>
-              <div class="card-text">Adobe Guide, Layes, Smart Objects etc...</div>
+              <div class="card-title"><a href="courses.html">Toán học cấp 2</a></div>
+              <div class="card-text">Số học</div>
             </div>
             <div class="price_box d-flex flex-row align-items-center">
               <div class="course_author_image">
                 <img src="../../../assets/home-page/images/author.jpg" alt="https://unsplash.com/@mehdizadeh">
               </div>
-              <div class="course_author_name">Michael Smith, <span>Author</span></div>
-              <div class="course_price d-flex flex-column align-items-center justify-content-center"><span>$29</span></div>
+              <div class="course_author_name">Độ khó <span>1</span></div>
             </div>
           </div>
         </div>
@@ -204,15 +125,14 @@
           <div class="card">
             <img class="card-img-top" src="../../../assets/home-page/images/course_3.jpg" alt="https://unsplash.com/@dsmacinnes">
             <div class="card-body text-center">
-              <div class="card-title"><a href="courses.html">Advanced Photoshop</a></div>
-              <div class="card-text">Adobe Guide, Layes, Smart Objects etc...</div>
+              <div class="card-title"><a href="courses.html">Văn học hiện đaị</a></div>
+              <div class="card-text">văn học hiện đại thời kì kháng chiến chống Pháp</div>
             </div>
             <div class="price_box d-flex flex-row align-items-center">
               <div class="course_author_image">
                 <img src="../../../assets/home-page/images/author.jpg" alt="https://unsplash.com/@mehdizadeh">
               </div>
-              <div class="course_author_name">Michael Smith, <span>Author</span></div>
-              <div class="course_price d-flex flex-column align-items-center justify-content-center"><span>$29</span></div>
+              <div class="course_author_name">Độ khó <span>2</span></div>
             </div>
           </div>
         </div>
@@ -220,48 +140,6 @@
     </div>
   </div>
 
-  <!-- Register -->
-
-  <div class="register">
-
-    <div class="container-fluid">
-
-      <div class="row row-eq-height">
-        <div class="col-lg-6 nopadding">
-
-          <!-- Register -->
-
-          <div class="register_section d-flex flex-column align-items-center justify-content-center">
-            <div class="register_content text-center">
-              <h1 class="register_title">Register now and get a discount <span>50%</span> discount until 1 January</h1>
-              <p class="register_text">In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum. Aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempo.</p>
-              <div class="button button_1 register_button mx-auto trans_200"><a href="#">register now</a></div>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="col-lg-6 nopadding">
-
-          <!-- Search -->
-
-          <div class="search_section d-flex flex-column align-items-center justify-content-center">
-            <div class="search_background" style="background-image:url(../../../assets/home-page/images/search_background.jpg);"></div>
-            <div class="search_content text-center">
-              <h1 class="search_title">Search for your course</h1>
-<!--              <form [formGroup]="vinh2" class="search_form">-->
-<!--                <input formControlName="name" id="search_form_name" class="input_field search_form_name" type="text" placeholder="Course Name" required="required" data-error="Course name is required.">-->
-<!--                <input formControlName="category" id="search_form_category" class="input_field search_form_category" type="text" placeholder="Category">-->
-<!--                <input formControlName="degree" id="search_form_degree" class="input_field search_form_degree" type="text" placeholder="Degree">-->
-<!--                <button id="search_submit_button" type="submit" class="search_submit_button trans_200" value="Submit">search course</button>-->
-<!--              </form>-->
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- Services -->
 
@@ -282,16 +160,16 @@
           <div class="icon_container d-flex flex-column justify-content-end">
             <img src="../../../assets/home-page/images/earth-globe.svg" alt="">
           </div>
-          <h3>Online Courses</h3>
-          <p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>
+          <h3>Online Quiz</h3>
+          <p>Ở đây bạn có thể học hỏi rất nhiều kiến thức bổ ích từ chúng tôi thông qua các bài quiz ^^</p>
         </div>
 
         <div class="col-lg-4 service_item text-left d-flex flex-column align-items-start justify-content-start">
           <div class="icon_container d-flex flex-column justify-content-end">
             <img src="../../../assets/home-page/images/exam.svg" alt="">
           </div>
-          <h3>Indoor Courses</h3>
-          <p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>
+          <h3>Level Quiz</h3>
+          <p>chúng tôi có rất nhiều mức độ bài quiz theo các thể loại </p>
         </div>
 
         <div class="col-lg-4 service_item text-left d-flex flex-column align-items-start justify-content-start">
@@ -299,31 +177,31 @@
             <img src="../../../assets/home-page/images/books.svg" alt="">
           </div>
           <h3>Amazing Library</h3>
-          <p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>
+          <p>chúng tôi có một thư viên các câu hỏi rất đa dạng phù hợp với mọi lứa tuổi</p>
         </div>
 
         <div class="col-lg-4 service_item text-left d-flex flex-column align-items-start justify-content-start">
           <div class="icon_container d-flex flex-column justify-content-end">
             <img src="../../../assets/home-page/images/professor.svg" alt="">
           </div>
-          <h3>Exceptional Professors</h3>
-          <p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>
+          <h3>Our Experts</h3>
+          <p>chúng tôi có một đội ngũ các chuyên gia về các lĩnh vực khác nhau sẽ sẵn sàng giải đáp các thắc mắc của các bạn</p>
         </div>
 
         <div class="col-lg-4 service_item text-left d-flex flex-column align-items-start justify-content-start">
           <div class="icon_container d-flex flex-column justify-content-end">
             <img src="../../../assets/home-page/images/blackboard.svg" alt="">
           </div>
-          <h3>Top Programs</h3>
-          <p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>
+          <h3>Top Quiz</h3>
+          <p>chúng tôi luôn nỗ lực để trở thành một trong những trang web về quiz hàng đầu thế giới</p>
         </div>
 
         <div class="col-lg-4 service_item text-left d-flex flex-column align-items-start justify-content-start">
           <div class="icon_container d-flex flex-column justify-content-end">
             <img src="../../../assets/home-page/images/mortarboard.svg" alt="">
           </div>
-          <h3>Graduate Diploma</h3>
-          <p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>
+          <h3>Idea</h3>
+          <p> Mọi ý kiến đóng góp của các bạn là vinh dự to lớn của chúng tôi</p>
         </div>
 
       </div>
@@ -333,7 +211,6 @@
   <!-- Testimonials -->
 
   <div class="testimonials page_section">
-    <!-- <div class="testimonials_background" style="background-image:url(images/testimonials_background.jpg)"></div> -->
     <div class="testimonials_background_container prlx_parent">
       <div class="testimonials_background prlx" style="background-image:url(../../../assets/home-page/images/testimonials_background.jpg)"></div>
     </div>
@@ -342,7 +219,7 @@
       <div class="row">
         <div class="col">
           <div class="section_title text-center">
-            <h1>What our students say</h1>
+            <h1>khách hàng nói gì về trang web của chúng tôi?</h1>
           </div>
         </div>
       </div>
@@ -352,50 +229,16 @@
 
           <div class="testimonials_slider_container">
 
-            <!-- Testimonials Slider -->
-            <div class="owl-carousel owl-theme testimonials_slider">
-
-              <!-- Testimonials Item -->
               <div class="owl-item">
                 <div class="testimonials_item text-center">
                   <div class="quote">“</div>
-                  <p class="testimonials_text">In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>
+                  <p class="testimonials_text">Mục đích chính của kì thi THPT quốc gia cũng được nhấn mạnh là nhằm mục tiêu xét công nhận tốt nghiệp THPT cộng với việc kết quả thi THPT quốc gia chiếm 70% trong công thức xét tốt nghiệp THPT nên cấu trúc và độ khó của đề thi cũng thể hiện đúng tinh thần đó với khoảng 24 câu hỏi đầu (60%) ở mức độ đơn giản với các dạng bài tương đối quen thuộc. 16 câu hỏi còn lại bắt đầu nâng dần về độ khó và phân hóa theo từng cấp độ và dải điểm. Đề thi có khoảng 4 câu hỏi ở mức độ Vận dụng cao (câu 120, 116, 115, 118), dành cho các thí sinh lấy điểm 10”.</p>
                   <div class="testimonial_user">
                     <div class="testimonial_image mx-auto">
                       <img src="../../../assets/home-page/images/testimonials_user.jpg" alt="">
                     </div>
-                    <div class="testimonial_name">james cooper</div>
-                    <div class="testimonial_title">Graduate Student</div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Testimonials Item -->
-              <div class="owl-item">
-                <div class="testimonials_item text-center">
-                  <div class="quote">“</div>
-                  <p class="testimonials_text">In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>
-                  <div class="testimonial_user">
-                    <div class="testimonial_image mx-auto">
-                      <img src="../../../assets/home-page/images/testimonials_user.jpg" alt="">
-                    </div>
-                    <div class="testimonial_name">james cooper</div>
-                    <div class="testimonial_title">Graduate Student</div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Testimonials Item -->
-              <div class="owl-item">
-                <div class="testimonials_item text-center">
-                  <div class="quote">“</div>
-                  <p class="testimonials_text">In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>
-                  <div class="testimonial_user">
-                    <div class="testimonial_image mx-auto">
-                      <img src="../../../assets/home-page/images/testimonials_user.jpg" alt="">
-                    </div>
-                    <div class="testimonial_name">james cooper</div>
-                    <div class="testimonial_title">Graduate Student</div>
+                    <div class="testimonial_name">Kiên bđ</div>
+                    <div class="testimonial_title">Trường đại học Đài Loan</div>
                   </div>
                 </div>
               </div>
@@ -405,8 +248,6 @@
           </div>
         </div>
       </div>
-
-    </div>
   </div>
 
   <!-- Events -->
@@ -417,7 +258,7 @@
       <div class="row">
         <div class="col">
           <div class="section_title text-center">
-            <h1>Upcoming Events</h1>
+            <h1>Sự Kiện Sắp tới</h1>
           </div>
         </div>
       </div>
@@ -432,15 +273,17 @@
               <div class="col-lg-2 order-lg-1 order-2">
                 <div class="event_date d-flex flex-column align-items-center justify-content-center">
                   <div class="event_day">07</div>
-                  <div class="event_month">January</div>
+                  <div class="event_month">Tháng 2</div>
                 </div>
               </div>
 
               <div class="col-lg-6 order-lg-2 order-3">
                 <div class="event_content">
-                  <div class="event_name"><a class="trans_200" href="#">Student Festival</a></div>
-                  <div class="event_location">Grand Central Park</div>
-                  <p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor.</p>
+                  <div class="event_name"><a class="trans_200" href="#">Festival đại học Bách Khoa Hà Nội</a></div>
+                  <div class="event_location">Sân vận động Bách Khoa</div>
+                  <p>Liên hoan sinh viên kiến trúc toàn quốc (FESTIVAL) 2018 do Hội KTS Việt Nam phối hợp cùng trường Đại học Kiến trúc Tp. Hồ Chí Minh tổ chức từ 23-26/4/2018. Chủ đề của FESTIVAL 2018 là “Sinh viên kiến trúc: Giao lưu – sáng tạo – hội nhập”.
+
+                    Festival 2018 đề cao tinh thần giao lưu, chia sẻ, tương tác trong các cuộc thi và hoạt động chung. Đặc biệt, lần đầu tiên có 3 trường đào tạo KTS ở nước ngoài tham dự.</p>
                 </div>
               </div>
 
@@ -461,16 +304,16 @@
 
               <div class="col-lg-2 order-lg-1 order-2">
                 <div class="event_date d-flex flex-column align-items-center justify-content-center">
-                  <div class="event_day">07</div>
-                  <div class="event_month">January</div>
+                  <div class="event_day">13</div>
+                  <div class="event_month">Tháng 4</div>
                 </div>
               </div>
 
               <div class="col-lg-6 order-lg-2 order-3">
                 <div class="event_content">
                   <div class="event_name"><a class="trans_200" href="#">Open day in the Univesrsity campus</a></div>
-                  <div class="event_location">Grand Central Park</div>
-                  <p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor.</p>
+                  <div class="event_location">Công Viên Hạ Long Park</div>
+                  <p> (Tạp chí Du lịch) - Lễ hội du lịch bán lẻ (Vietnam Inernational Travel Fest 2019) được tổ chức lần đầu tiên tại Hà Nội dự kiến sẽ thu hút khoảng 40.000 khách tham quan, chủ yếu gồm giới trẻ văn phòng, gia đình và các đơn vị tổ chức teambuilding.</p>
                 </div>
               </div>
 
@@ -492,15 +335,15 @@
               <div class="col-lg-2 order-lg-1 order-2">
                 <div class="event_date d-flex flex-column align-items-center justify-content-center">
                   <div class="event_day">07</div>
-                  <div class="event_month">January</div>
+                  <div class="event_month">Tháng 9</div>
                 </div>
               </div>
 
               <div class="col-lg-6 order-lg-2 order-3">
                 <div class="event_content">
-                  <div class="event_name"><a class="trans_200" href="#">Student Graduation Ceremony</a></div>
+                  <div class="event_name"><a class="trans_200" href="#">Travel Ceremony</a></div>
                   <div class="event_location">Grand Central Park</div>
-                  <p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor.</p>
+                  <p> Travel Fest 2019 là lễ hội mua sắm du lịch đầu tiên tại Việt Nam do Travellive và AEONMALL Long Biên phối hợp tổ chức. Sự kiện diễn ra trong 3 ngày 15,16,17/3/2019, tại AEONMALL Long Biên, Hà Nội. Trong năm đầu tiên, Travel Fest 2019 sẽ tung ra cho khách hàng MỘT TRIỆU CƠ HỘI DU LỊCH với giá ưu đãi nhất năm. 50.000 Vé máy bay của Vietnam Airlines, Jetstar Pacific chỉ từ 49.000VNĐ; Voucher phòng khách sạn ưu đãi từ 0 đồng chỉ được mở bán tại 3 ngày sự kiện, tour đi khắp thế giới được giảm giá đến 15 triệu đồng. Và còn rất nhiều sản phẩm khác nữa, chỉ có tại Travel Fest 2019.</p>
                 </div>
               </div>
 
@@ -562,11 +405,11 @@
             <div class="logo_container">
               <div class="logo">
                 <img src="../../../assets/home-page/images/logo.png" alt="">
-                <span>course</span>
+                <span>Quiz</span>
               </div>
             </div>
 
-            <p class="footer_about_text">In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum, tempor lacus.</p>
+            <p class="footer_about_text">Always and Forever.</p>
 
           </div>
 
@@ -576,10 +419,10 @@
             <div class="footer_column_title">Menu</div>
             <div class="footer_column_content">
               <ul>
-                <li class="footer_list_item"><a href="#">Home</a></li>
+                <li class="footer_list_item"><a routerLink="">Home</a></li>
                 <li class="footer_list_item"><a href="#">About Us</a></li>
-                <li class="footer_list_item"><a href="courses.html">Courses</a></li>
-                <li class="footer_list_item"><a href="news.html">News</a></li>
+                <li class="footer_list_item"><a routerLink="categories">Category</a></li>
+                <li class="footer_list_item"><a routerLink="quiz-list">Quiz</a></li>
                 <li class="footer_list_item"><a href="contact.html">Contact</a></li>
               </ul>
             </div>
@@ -610,18 +453,18 @@
                   <div class="footer_contact_icon">
                     <img src="../../../assets/home-page/images/placeholder.svg" alt="https://www.flaticon.com/authors/lucy-g">
                   </div>
-                  Blvd Libertad, 34 m05200 Arévalo
+                số 1 Phố Quang Trung ,quận Hai Bà Trưng ,Hà Nội
                 </li>
                 <li class="footer_contact_item">
                   <div class="footer_contact_icon">
                     <img src="../../../assets/home-page/images/smartphone.svg" alt="https://www.flaticon.com/authors/lucy-g">
                   </div>
-                  0034 37483 2445 322
+                  +842116130651
                 </li>
                 <li class="footer_contact_item">
                   <div class="footer_contact_icon">
                     <img src="../../../assets/home-page/images/envelope.svg" alt="https://www.flaticon.com/authors/lucy-g">
-                  </div>hello@company.com
+                  </div>kienbd@gmail.com
                 </li>
               </ul>
             </div>
