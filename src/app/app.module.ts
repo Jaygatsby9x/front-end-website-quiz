@@ -16,6 +16,7 @@ import { CreateAskComponent } from './admin/ask/create-ask/create-ask.component'
 import { HomePageComponent } from './home/home-page/home-page.component';
 import { CategoryPageComponent } from './category/category-page/category-page.component';
 import { NavBarComponent } from './layouts/nav-bar/nav-bar.component';
+import { QuizComponent } from './admin/quiz/quiz.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { NavBarComponent } from './layouts/nav-bar/nav-bar.component';
     AskComponent,
     CreateAskComponent,
     HomePageComponent,
-    NavBarComponent
+    NavBarComponent,
+    QuizComponent
   ],
   imports: [
     BrowserModule,

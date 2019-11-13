@@ -10,7 +10,7 @@ import {IResponse} from '../../interfaces/iresponse';
 })
 export class AskComponent implements OnInit {
 
-  asks: IAsk[];
+  asks: IAsk[] = [];
   constructor(private askService: AskService) { }
 
   ngOnInit() {

@@ -4,23 +4,21 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header card-header-primary">
-            <h4 class="card-title ">ASK manager</h4>
+            <h4 class="card-title ">Trang quản lí bài quiz</h4>
           </div>
           <div class="card-body">
             <div class="table-responsive">
-              <button class="btn btn-primary btn-sm mb-2" routerLink="create">Create</button>
+              <button class="btn btn-primary btn-sm mb-2" routerLink="create">Thêm bài quiz mới</button>
               <table class="table">
                 <thead class=" text-primary">
                 <th>STT</th>
-                <th>Content</th>
-                <th>Quiz</th>
+                <th>Tên bài quiz</th>
                 </thead>
-                <tbody *ngIf="asks.length>0;else notdata">
-                  <tr *ngFor="let ask of asks; let i = index">
-                    <td>{{i + 1}}</td>
-                    <td>{{ask.content}}</td>
-                    <td>NONE</td>
-                  </tr>
+                <tbody *ngIf="quizs.length>0;else notdata">
+                <tr *ngFor="let quiz of quizs; let i = index">
+                  <td>{{i + 1}}</td>
+                  <td>{{quiz.name}}</td>
+                </tr>
                 </tbody>
                 <ng-template #notdata><tr><td style="text-align: center" colspan="3">Không có dữ liệu</td></tr></ng-template>
               </table>

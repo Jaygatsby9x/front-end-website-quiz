@@ -9,7 +9,6 @@ import {IResponse} from '../../interfaces/iresponse';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-  currentUser;
 
   constructor(private auth: AuthService) {
   }

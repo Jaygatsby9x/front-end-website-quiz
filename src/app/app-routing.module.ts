@@ -9,6 +9,7 @@ import {CreateAskComponent} from './admin/ask/create-ask/create-ask.component';
 import {HomePageComponent} from './home/home-page/home-page.component';
 import {CategoryPageComponent} from './category/category-page/category-page.component';
 import {AuthGuardService} from './services/auth-guard.service';
+import {QuizComponent} from './admin/quiz/quiz.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
       {path: 'overview', component: OverviewComponent},
       {path: '', redirectTo: 'overview', pathMatch: 'full'},
       {path: 'ask', component: AskComponent},
-      {path: 'ask/create', component:  CreateAskComponent}
+      {path: 'ask/create', component:  CreateAskComponent},
+      {path: 'quiz', component: QuizComponent},
     ], canActivate: [AuthGuardService]},
   {path: '' , component: HomePageComponent}
 ];
