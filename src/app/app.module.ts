@@ -19,6 +19,7 @@ import { QuizListComponent } from './quiz-list/quiz-list.component';
 import { QuizComponent } from './admin/quiz/quiz.component';
 import { CreateQuizComponent } from './admin/quiz/create-quiz/create-quiz.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     NavBarComponent,
     QuizListComponent,
     QuizComponent,
-    CreateQuizComponent
+    CreateQuizComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

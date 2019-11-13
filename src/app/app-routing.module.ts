@@ -12,6 +12,7 @@ import {AuthGuardService} from './services/auth-guard.service';
 import {QuizListComponent} from './quiz-list/quiz-list.component';
 import {QuizComponent} from './admin/quiz/quiz.component';
 import {CreateQuizComponent} from './admin/quiz/create-quiz/create-quiz.component';
+import {ContactComponent} from './contact/contact.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,7 @@ const routes: Routes = [
       {path: 'quiz/create', component:  CreateQuizComponent},
     ], canActivate: [AuthGuardService]},
   {path: 'quiz-list', component: QuizListComponent},
+  {path: 'contact' , component: ContactComponent},
 ];
 
 @NgModule({
