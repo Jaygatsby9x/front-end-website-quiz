@@ -17,6 +17,10 @@ import { HomePageComponent } from './home/home-page/home-page.component';
 import { CategoryPageComponent } from './category/category-page/category-page.component';
 import { NavBarComponent } from './layouts/nav-bar/nav-bar.component';
 import { UserProfileComponent } from './users/user-profile/user-profile.component';
+import { UserResultTestsComponent } from './users/user-result-tests/user-result-tests.component';
+import { UserInfoComponent } from './users/user-info/user-info.component';
+import { UseEditComponent } from './users/use-edit/use-edit.component';
+import { UseChangePasswordComponent } from './users/use-change-password/use-change-password.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,11 @@ import { UserProfileComponent } from './users/user-profile/user-profile.componen
     CreateAskComponent,
     HomePageComponent,
     NavBarComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    UserResultTestsComponent,
+    UserInfoComponent,
+    UseEditComponent,
+    UseChangePasswordComponent
   ],
   imports: [
     BrowserModule,
