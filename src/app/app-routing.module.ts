@@ -9,6 +9,7 @@ import {CreateAskComponent} from './admin/ask/create-ask/create-ask.component';
 import {HomePageComponent} from './home/home-page/home-page.component';
 import {CategoryPageComponent} from './category/category-page/category-page.component';
 import {AuthGuardService} from './services/auth-guard.service';
+import {QuizListComponent} from './quiz-list/quiz-list.component';
 
 
 const routes: Routes = [
@@ -22,7 +23,7 @@ const routes: Routes = [
       {path: 'ask', component: AskComponent},
       {path: 'ask/create', component:  CreateAskComponent}
     ], canActivate: [AuthGuardService]},
-  {path: '' , component: HomePageComponent}
+  {path: 'quiz-list', component: QuizListComponent},
 ];
 
 @NgModule({
