@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserLoginComponent } from './users/user-login/user-login.component';
@@ -17,6 +16,10 @@ import { HomePageComponent } from './home/home-page/home-page.component';
 import { CategoryPageComponent } from './category/category-page/category-page.component';
 import { NavBarComponent } from './layouts/nav-bar/nav-bar.component';
 import { QuizListComponent } from './quiz-list/quiz-list.component';
+import { QuizComponent } from './admin/quiz/quiz.component';
+import { CreateQuizComponent } from './admin/quiz/create-quiz/create-quiz.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +34,9 @@ import { QuizListComponent } from './quiz-list/quiz-list.component';
     CreateAskComponent,
     HomePageComponent,
     NavBarComponent,
-    QuizListComponent
+    QuizListComponent,
+    QuizComponent,
+    CreateQuizComponent
   ],
   imports: [
     BrowserModule,
@@ -40,9 +45,10 @@ import { QuizListComponent } from './quiz-list/quiz-list.component';
     MatInputModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

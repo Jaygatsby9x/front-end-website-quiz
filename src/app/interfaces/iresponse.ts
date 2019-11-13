@@ -4,4 +4,6 @@ export interface IResponse {
   message?: string;
   status?: string;
   error?: string;
+  content?: string;
+  correct?: string;
 }

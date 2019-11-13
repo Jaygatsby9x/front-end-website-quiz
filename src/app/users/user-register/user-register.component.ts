@@ -33,6 +33,7 @@ export class UserRegisterComponent implements OnInit {
       this.router.navigate(['/']);
     }, error => {
       this.validators = error.error.errors;
+      console.log(error);
     });
   }
 }
