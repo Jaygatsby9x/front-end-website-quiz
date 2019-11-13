@@ -20,13 +20,21 @@ export class QuizService {
   setApiUrl() {
     this.apiUrl = env.apiUrl;
   }
+
   setToken() {
     this.token = this.auth.getToken();
   }
 
   getAll() {
-    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
+    const headers =  this.setHeader();
     return this.httpClient.get(this.apiUrl + '/quiz-test', {headers});
+  }
+  setHeader() {
+    return new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
+  }
+  create(data) {
+    const headers = this.setHeader();
+    return this.httpClient.post(this.apiUrl + '/quiz-test/create', data, {headers});
   }
 
 }

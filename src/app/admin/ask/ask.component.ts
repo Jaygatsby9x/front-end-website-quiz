@@ -18,7 +18,11 @@ export class AskComponent implements OnInit {
   }
   getAll() {
     this.askService.getAll().subscribe((response: IResponse) => {
-      this.asks = response.data;
+      if (response.data) {
+        this.asks = response.data;
+      }
+      console.log(response.data);
+
     }, error => {
       console.log(error);
     });

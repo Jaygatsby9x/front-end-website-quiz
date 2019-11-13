@@ -19,7 +19,9 @@ export class QuizComponent implements OnInit {
   }
   getAll() {
     this.quizService.getAll().subscribe((response: IResponse) => {
-      this.quizs = response.data;
+      if (response.data) {
+        this.quizs = response.data;
+      }
     }, error => {
       console.log(error);
     });
