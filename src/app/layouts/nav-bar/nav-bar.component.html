@@ -1,6 +1,4 @@
 
-<!doctype html>
-<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport"
@@ -14,7 +12,7 @@
   <link rel="stylesheet" type="text/css" href="../../../assets/home-page/styles/main_styles.css">
   <link rel="stylesheet" type="text/css" href="../../../assets/home-page/styles/responsive.css">
 </head>
-<body>
+
 <header class="header d-flex flex-row">
   <div class="header_content d-flex flex-row align-items-center">
     <!-- Logo -->
@@ -46,7 +44,7 @@
             {{currentUser.name}}
           </span>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#">Profile</a>
+          <a class="dropdown-item" routerLink="/user" >Profile</a>
           <a class="dropdown-item" (click)="authLogout()">Logout</a>
         </div>
       </div>
@@ -63,5 +61,3 @@
 
 </header>
 
-</body>
-</html>

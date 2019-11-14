@@ -1,0 +1,32 @@
+<app-nav-bar ></app-nav-bar>
+<div class=" info container  align-items-center">
+  <div class="row my-2 ">
+    <div class="col-lg-8 order-lg-2">
+      <ul class="nav nav-tabs mt-5">
+        <li class="nav-item">
+          <a routerLink="/user" data-toggle="tab" class="nav-link active">Thông Tin</a>
+        </li>
+        <li class="nav-item" >
+          <a routerLink="result"   data-toggle="tab" class="nav-link">Thống kê kết quả</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="edit"   data-toggle="tab" class="nav-link">Edit</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="change-password"   data-toggle="tab" class="nav-link">Đổi mật khẩu</a>
+        </li>
+      </ul>
+      <div class="tab-content py-4">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+    <div class="col-lg-4 order-lg-1 text-center mt-5">
+      <img src="//placehold.it/150" class="mx-auto img-fluid img-circle d-block" alt="avatar">
+      <h6 class="mt-2">Upload a different photo</h6>
+      <label class="custom-file">
+        <input type="file" id="file" class="custom-file-input">
+        <span class="custom-file-control">Choose file</span>
+      </label>
+    </div>
+  </div>
+</div>
