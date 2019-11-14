@@ -9,7 +9,6 @@ import {FormBuilder, FormGroup} from '@angular/forms';
   styleUrls: ['./use-edit.component.css']
 })
 export class UseEditComponent implements OnInit {
-  infoUser;
   formUser: FormGroup;
 
   constructor(private auService: AuthService, private fb: FormBuilder) {
@@ -17,12 +16,26 @@ export class UseEditComponent implements OnInit {
 
   ngOnInit() {
     this.getInfoUser();
+    this.formUser = this.fb.group({
+      name: [''],
+      email: [''],
+      age: [''],
+      address: [''],
+      phone: [''],
+    });
   }
 
   getInfoUser() {
     this.auService.getUser().subscribe((response: IResponse) => {
-      this.infoUser = response.data;
       console.log(response.data);
+      this.formUser.patchValue({
+        name: response.data.name,
+        email: response.data.email,
+        age: [18],
+        address: ['Hà Nội'],
+        phone: ['01689554471'],
+      });
     });
+
   }
 }

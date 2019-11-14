@@ -1,21 +1,21 @@
 <div class="tab-pane">
-  <!--          <form role="form">-->
+  <form [formGroup]="formUser">
   <div class="form-group row">
     <label class="col-lg-3 col-form-label form-control-label">Họ và Tên</label>
     <div class="col-lg-9">
-      <input class="form-control" type="text" value="Dương Tuấn Anh">
+      <input class="form-control" type="text" formControlName="name">
     </div>
   </div>
   <div class="form-group row">
     <label class="col-lg-3 col-form-label form-control-label">Email</label>
     <div class="col-lg-9">
-      <input class="form-control" type="email" value="duongtuananh2211@@gmail.com">
+      <input disabled class="form-control" type="email" formControlName="email" >
     </div>
   </div>
   <div class="form-group row">
     <label class="col-lg-3 col-form-label form-control-label">Tuổi</label>
     <div class="col-lg-9">
-      <input class="form-control" type="text" value="18">
+      <input class="form-control" type="text" formControlName="age">
     </div>
   </div>
   <div class="form-group row">
@@ -34,23 +34,22 @@
   <div class="form-group row">
     <label class="col-lg-3 col-form-label form-control-label">Địa Chỉ </label>
     <div class="col-lg-9">
-      <input class="form-control" type="text" value="" placeholder="Phú Thọ">
+      <input class="form-control" type="text" formControlName="address">
     </div>
   </div>
 
   <div class="form-group row">
     <label class="col-lg-3 col-form-label form-control-label">Số Điện Thoại</label>
     <div class="col-lg-9">
-      <input class="form-control" type="text" value="01689554471">
+      <input class="form-control" type="text" formControlName="phone">
     </div>
   </div>
 
   <div class="form-group row">
     <label class="col-lg-3 col-form-label form-control-label"></label>
     <div class="col-lg-9">
-      <input type="reset" class="btn btn-secondary" value="Cancel">
-      <input type="button" class="btn btn-primary" value="Save Changes">
+      <input type="button" class="btn btn-primary" value="Lưu Thay Đổi">
     </div>
   </div>
-  <!--          </form>-->
+  </form>
 </div>
