@@ -22,7 +22,7 @@
                 <div class="row">
                   <div class="form-group col-md-5">
                     <label>Tên Câu Hỏi:</label>
-                    <input type="text" formControlName="content" class="form-control mb-2">
+                    <textarea type="" formControlName="content" class="form-control mb-2 ask-form"></textarea>
                     <div *ngIf="errors" >
                   <div class="alert alert-danger" *ngFor="let error of errors.content">{{error}}</div>
                     </div>
@@ -36,10 +36,10 @@
                       <tr>
                         <th>Nội dung</th>
                         <th>Kết quả </th>
-                      </tr>
+                                              </tr>
                       <tbody formArrayName="answer">
                       <tr *ngFor=" let control of formAnswer; let i= index" [formGroupName]="i">
-                        <td><input type="text" formControlName="content" class="form-control"></td>
+                        <td><textarea type="text" formControlName="content" class="form-control"></textarea></td>
 
                         <td><select name="" formControlName="correct" class="form-control">
                           <option value="1">Đúng</option>

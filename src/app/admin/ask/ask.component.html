@@ -9,16 +9,16 @@
           <div class="card-body">
             <div class="table-responsive">
               <button class="btn btn-primary btn-sm mb-2" routerLink="create">Create</button>
-              <table class="table">
+              <table class="table col-form-label">
                 <thead class=" text-primary">
                 <th>STT</th>
-                <th>Content</th>
+                <th >Content</th>
                 <th>Quiz</th>
                 </thead>
                 <tbody *ngIf="asks.length>0;else notdata">
                   <tr *ngFor="let ask of asks; let i = index">
-                    <td>{{i + 1}}</td>
-                    <td>{{ask.content}}</td>
+                    <td style="width: 5px">{{i + 1}}</td>
+                    <td class="content-ask">{{ask.content}}</td>
                     <td>NONE</td>
                   </tr>
                 </tbody>
