@@ -20,6 +20,7 @@ import {QuizListComponent} from './quiz-list/quiz-list.component';
 import {QuizComponent} from './admin/quiz/quiz.component';
 import {CreateQuizComponent} from './admin/quiz/create-quiz/create-quiz.component';
 import {ContactComponent} from './contact/contact.component';
+import {AskDetailsComponent} from './admin/ask/ask-details/ask-details.component';
 
 
 
@@ -41,6 +42,7 @@ const routes: Routes = [
       {path: 'overview', component: OverviewComponent},
       {path: '', redirectTo: 'overview', pathMatch: 'full'},
       {path: 'ask', component: AskComponent},
+      {path: 'ask/details/:id', component: AskDetailsComponent},
       {path: 'ask/create', component: CreateAskComponent},
       {path: 'quiz', component: QuizComponent},
       {path: 'quiz/create', component:  CreateQuizComponent},

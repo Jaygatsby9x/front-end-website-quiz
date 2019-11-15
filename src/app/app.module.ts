@@ -26,6 +26,7 @@ import {QuizComponent} from './admin/quiz/quiz.component';
 import {CreateQuizComponent} from './admin/quiz/create-quiz/create-quiz.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {ContactComponent} from './contact/contact.component';
+import { AskDetailsComponent } from './admin/ask/ask-details/ask-details.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import {ContactComponent} from './contact/contact.component';
     QuizListComponent,
     QuizComponent,
     CreateQuizComponent,
-    ContactComponent
+    ContactComponent,
+    AskDetailsComponent
 
   ],
   imports: [
