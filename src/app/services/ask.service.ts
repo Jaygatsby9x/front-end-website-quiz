@@ -18,6 +18,11 @@ export class AskService {
     return this.http.get(this.apiUrl + 'asks', {headers});
   }
 
+  getOneAsk(id) {
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
+    return this.http.get(this.apiUrl + 'asks/' + id, {headers});
+  }
+
   create(data) {
     const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
     return this.http.post(this.apiUrl + 'asks/create', data, {headers});

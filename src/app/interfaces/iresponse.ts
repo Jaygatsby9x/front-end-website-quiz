@@ -6,4 +6,6 @@ export interface IResponse {
   error?: string;
   content?: string;
   correct?: string;
+  answers?: any;
+  ask?: any;
 }
