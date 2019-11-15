@@ -20,6 +20,7 @@ import { QuizComponent } from './admin/quiz/quiz.component';
 import { CreateQuizComponent } from './admin/quiz/create-quiz/create-quiz.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { ContactComponent } from './contact/contact.component';
+import { FamousPeopleComponent } from './famous-people/famous-people.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { ContactComponent } from './contact/contact.component';
     QuizListComponent,
     QuizComponent,
     CreateQuizComponent,
-    ContactComponent
+    ContactComponent,
+    FamousPeopleComponent
   ],
   imports: [
     BrowserModule,
