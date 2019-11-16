@@ -361,7 +361,7 @@ section
 .main_nav_item
 {
 	display: inline-block;
-	margin-right: 40px;
+	margin-right: 100px;
 }
 .main_nav_item:last-child
 {
@@ -370,7 +370,7 @@ section
 .main_nav_item a
 {
 	font-family: 'Open Sans', sans-serif;
-	font-size: 14px;
+	font-size: 18px;
 	text-transform: uppercase;
 	font-weight: 700;
 	color: #3a3a3a;

@@ -20,7 +20,10 @@ import {QuizListComponent} from './quiz-list/quiz-list.component';
 import {QuizComponent} from './admin/quiz/quiz.component';
 import {CreateQuizComponent} from './admin/quiz/create-quiz/create-quiz.component';
 import {ContactComponent} from './contact/contact.component';
+import {FamousPeopleComponent} from './famous-people/famous-people.component';
+import {QuizDetailUserComponent} from './quiz-detail-user/quiz-detail-user.component';
 import {AskDetailsComponent} from './admin/ask/ask-details/ask-details.component';
+
 
 
 
@@ -50,7 +53,8 @@ const routes: Routes = [
   },
   {path: 'quiz-list', component: QuizListComponent},
   {path: 'contact' , component: ContactComponent},
-
+  {path: 'famous' , component: FamousPeopleComponent},
+  {path: 'quizz', component: QuizDetailUserComponent},
 ];
 
 @NgModule({

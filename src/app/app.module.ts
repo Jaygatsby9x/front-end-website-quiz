@@ -6,7 +6,7 @@ import {UserLoginComponent} from './users/user-login/user-login.component';
 import {UserRegisterComponent} from './users/user-register/user-register.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatFormFieldModule, MatInputModule} from '@angular/material';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {DashboardComponent} from './admin/dashboard/dashboard.component';
 import {OverviewComponent} from './admin/overview/overview.component';
@@ -25,6 +25,8 @@ import {QuizListComponent} from './quiz-list/quiz-list.component';
 import {QuizComponent} from './admin/quiz/quiz.component';
 import {CreateQuizComponent} from './admin/quiz/create-quiz/create-quiz.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { FamousPeopleComponent } from './famous-people/famous-people.component';
+import { QuizDetailUserComponent } from './quiz-detail-user/quiz-detail-user.component';
 import {ContactComponent} from './contact/contact.component';
 import { AskDetailsComponent } from './admin/ask/ask-details/ask-details.component';
 
@@ -53,8 +55,9 @@ import { AskDetailsComponent } from './admin/ask/ask-details/ask-details.compone
     QuizComponent,
     CreateQuizComponent,
     ContactComponent,
-    AskDetailsComponent
-
+    FamousPeopleComponent,
+    QuizDetailUserComponent,
+    AskDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,7 +67,8 @@ import { AskDetailsComponent } from './admin/ask/ask-details/ask-details.compone
     MatFormFieldModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
