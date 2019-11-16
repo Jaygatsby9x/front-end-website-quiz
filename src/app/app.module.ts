@@ -6,7 +6,7 @@ import {UserLoginComponent} from './users/user-login/user-login.component';
 import {UserRegisterComponent} from './users/user-register/user-register.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatFormFieldModule, MatInputModule} from '@angular/material';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {DashboardComponent} from './admin/dashboard/dashboard.component';
 import {OverviewComponent} from './admin/overview/overview.component';
@@ -27,6 +27,7 @@ import {CreateQuizComponent} from './admin/quiz/create-quiz/create-quiz.componen
 import {NgxPaginationModule} from 'ngx-pagination';
 import { ContactComponent } from './contact/contact.component';
 import { FamousPeopleComponent } from './famous-people/famous-people.component';
+import { QuizDetailUserComponent } from './quiz-detail-user/quiz-detail-user.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { FamousPeopleComponent } from './famous-people/famous-people.component';
     QuizComponent,
     CreateQuizComponent,
     ContactComponent,
-    FamousPeopleComponent
+    FamousPeopleComponent,
+    QuizDetailUserComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +65,8 @@ import { FamousPeopleComponent } from './famous-people/famous-people.component';
     MatFormFieldModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

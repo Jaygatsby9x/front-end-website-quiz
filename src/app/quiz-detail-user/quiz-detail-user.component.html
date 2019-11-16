@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<app-nav-bar></app-nav-bar>
+<img src="../../assets/home-page/images/courses_background.jpg">
+<div class="container">
+  <div id="quiz">
+    <h2 class="text-center font-weight-normal " >Lich su the gioi</h2>
+    <hr/>
+    <div>
+      <div>
+        <div class="badge badge-info">Question 1 of 10</div>
+        <div class="badge badge-info float-right">Time: 5.00</div>
+        <h3 class="font-weight-normal">
+          <span>1.What is this?</span>
+        </h3>
+        <div class="row text-left options">
+          <div class="col-6">
+            <div class="option">
+              <label  class="font-weight-normal" for="1055">
+                <input  type="checkbox" id="1055" class="ng-untouched ng-pristine ng-valid">
+              javascript;
+              </label>
+            </div>
+          </div>
+          <div  class="col-6">
+            <div  class="option">
+              <label  class="font-weight-normal" for="1056">
+                <input type="checkbox" id="1056" class="ng-untouched ng-pristine ng-valid">
+              script
+              </label>
+            </div>
+          </div>
+          <div  class="col-6">
+            <div  class="option">
+              <label class="font-weight-normal" for="1057">
+                <input  type="checkbox" id="1057" class="ng-untouched ng-pristine ng-valid">
+              js
+              </label>
+            </div>
+          </div>
+          <div  class="col-6">
+            <div  class="option">
+              <label  class="font-weight-normal" for="1058">
+                <input  type="checkbox" id="1058" class="ng-untouched ng-pristine ng-valid">
+              None of the above
+              </label>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <hr/>
+      <div class="text-center">
+        <button class="btn btn-default">Prev</button>
+        <button class="btn btn-primary">Next</button>
+        <!--<pagination *ngIf="config.showPager" direction-links="false" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged()"></pagination>-->
+      </div>
+    </div>
+
+    <div class="row text-center">
+      <div class="col-4 cursor-pointer">
+      </div>
+    </div>
+    <div class="result">
+      <div>
+        <div class="result-question">
+          <div class="row">
+            <div class="col-6">
+              <input type="checkbox" disabled="disabled">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr/>
+    <div class="text-center">
+      <button class="btn btn-warning">Quiz</button>
+      <button class="btn btn-info">Review</button>
+      <button class="btn btn-primary">Submit Quiz</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>
