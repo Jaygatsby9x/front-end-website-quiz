@@ -19,7 +19,7 @@
                 <tr *ngFor="let category of categories | paginate: { itemsPerPage: 5, currentPage: page }; let i=index">
                   <td>{{i + 1}}</td>
                   <td>{{category.name}}</td>
-                  <td><img style="max-width: 200px" [attr.src]=" 'http://localhost:8000/api/' + category.image" alt=""></td>
+                  <td><img *ngIf="category.image" style="max-width: 200px" [attr.src]=" 'http://localhost:8000/api/' + category.image" alt=""></td>
                 </tr>
                 </tbody>
                 <ng-template #notdata>

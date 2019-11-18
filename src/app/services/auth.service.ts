@@ -26,6 +26,7 @@ export class AuthService {
   getToken(): string {
     return localStorage.getItem('currentToken');
   }
+
   getHeader() {
     return new HttpHeaders().set('Authorization', 'Bearer ' + this.getToken());
   }
@@ -34,5 +35,12 @@ export class AuthService {
     const headers = new HttpHeaders()
       .set('Authorization', 'Bearer ' + this.getToken());
     return this.http.get(this.apiUrl + 'auth/user', {headers});
+  }
+
+  isLogin(): boolean {
+    if (this.getToken()) {
+      return true;
+    }
+    return false;
   }
 }
