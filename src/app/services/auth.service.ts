@@ -7,7 +7,6 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 export class AuthService {
 
   apiUrl = 'http://localhost:8000/api/';
-  token;
 
   constructor(private http: HttpClient) {
   }
@@ -27,11 +26,13 @@ export class AuthService {
   getToken(): string {
     return localStorage.getItem('currentToken');
   }
+  getHeader() {
+    return new HttpHeaders().set('Authorization', 'Bearer ' + this.getToken());
+  }
 
   getUser() {
-    this.token = this.getToken();
     const headers = new HttpHeaders()
-      .set('Authorization', 'Bearer ' + this.token);
+      .set('Authorization', 'Bearer ' + this.getToken());
     return this.http.get(this.apiUrl + 'auth/user', {headers});
   }
 }

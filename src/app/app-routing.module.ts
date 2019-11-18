@@ -23,8 +23,8 @@ import {ContactComponent} from './contact/contact.component';
 import {FamousPeopleComponent} from './famous-people/famous-people.component';
 import {QuizDetailUserComponent} from './quiz-detail-user/quiz-detail-user.component';
 import {AskDetailsComponent} from './admin/ask/ask-details/ask-details.component';
-
-
+import {CategoriesComponent} from './admin/categories/categories.component';
+import {CreateCategoryComponent} from './admin/categories/create-category/create-category.component';
 
 
 const routes: Routes = [
@@ -48,12 +48,14 @@ const routes: Routes = [
       {path: 'ask/details/:id', component: AskDetailsComponent},
       {path: 'ask/create', component: CreateAskComponent},
       {path: 'quiz', component: QuizComponent},
-      {path: 'quiz/create', component:  CreateQuizComponent},
+      {path: 'quiz/create', component: CreateQuizComponent},
+      {path: 'categories', component: CategoriesComponent},
+      {path: 'categories/create', component: CreateCategoryComponent},
     ], canActivate: [AuthGuardService]
   },
   {path: 'quiz-list', component: QuizListComponent},
-  {path: 'contact' , component: ContactComponent},
-  {path: 'famous' , component: FamousPeopleComponent},
+  {path: 'contact', component: ContactComponent},
+  {path: 'famous', component: FamousPeopleComponent},
   {path: 'quizz', component: QuizDetailUserComponent},
 ];
 

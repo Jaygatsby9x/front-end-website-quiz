@@ -1,0 +1,41 @@
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title ">Trang quản lí bài danh mục</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <button class="btn btn-primary btn-sm mb-2" routerLink="create">Thêm danh mục</button>
+              <table class="table">
+                <thead class=" text-primary">
+                <th>STT</th>
+                <th>Tên bài quiz</th>
+                <th>Ảnh</th>
+                </thead>
+                <tbody *ngIf="categories.length>0;else notdata">
+                <tr *ngFor="let category of categories | paginate: { itemsPerPage: 5, currentPage: page }; let i=index">
+                  <td>{{i + 1}}</td>
+                  <td>{{category.name}}</td>
+                  <td><img style="max-width: 200px" [attr.src]=" 'http://localhost:8000/api/' + category.image" alt=""></td>
+                </tr>
+                </tbody>
+                <ng-template #notdata>
+                  <tr>
+                    <td style="text-align: center" colspan="3">Không có dữ liệu</td>
+                  </tr>
+                </ng-template>
+              </table>
+            </div>
+          </div>
+          <ul>
+            <li> ...</li>
+          </ul>
+          <pagination-controls (pageChange)="page = $event"></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
