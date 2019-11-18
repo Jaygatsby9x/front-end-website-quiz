@@ -33,7 +33,7 @@ export class CreateCategoryComponent implements OnInit {
     const formData = this.initFormData();
     this.categoryService.create(formData).subscribe((response: IResponse) => {
       if (response.status === 'success') {
-        this.router.navigate(['/dashboard/categories']);
+        this.router.navigate(['/admin/dashboard/categories']);
       }
     }, error => {
       this.validators = error.error.errors;

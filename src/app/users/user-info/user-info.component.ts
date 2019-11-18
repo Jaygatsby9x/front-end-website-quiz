@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {IResponse} from '../../interfaces/iresponse';
 import {AuthService} from '../../services/auth.service';
+import {IUser} from '../../interfaces/iuser';
 
 @Component({
   selector: 'app-user-info',
@@ -8,7 +9,7 @@ import {AuthService} from '../../services/auth.service';
   styleUrls: ['./user-info.component.css']
 })
 export class UserInfoComponent implements OnInit {
-  user;
+  user: IUser = {};
 
   constructor(private auService: AuthService) {
   }
@@ -20,9 +21,7 @@ export class UserInfoComponent implements OnInit {
   getUser() {
     this.auService.getUser().subscribe((response: IResponse) => {
       this.user = response.data;
-      console.log(response.data);
     });
-    console.log(this.user);
   }
 
 }

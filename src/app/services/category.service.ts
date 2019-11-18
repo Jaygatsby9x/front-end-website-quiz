@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {environment as env } from '../../environments/environment';
+import {environment as env} from '../../environments/environment';
 import {AuthService} from './auth.service';
 
 @Injectable({
@@ -8,15 +8,25 @@ import {AuthService} from './auth.service';
 })
 export class CategoryService {
 
-  apiUrl = env.apiUrl;
+  apiUrl: string;
+  headers: HttpHeaders;
+
   constructor(private http: HttpClient, private auth: AuthService) {
+    this.setHeaders();
+    this.setApiUrl();
+    this.getAll();
+  }
+  setApiUrl() {
+    this.apiUrl = env.apiUrl;
+  }
+  setHeaders() {
+    this.headers = this.auth.getHeader();
   }
   getAll() {
-    const headers = this.auth.getHeader();
-    return this.http.get(this.apiUrl + '/categories', {headers});
+    return this.http.get(this.apiUrl + '/categories', {headers: this.headers});
   }
+
   create(data) {
-    const headers = this.auth.getHeader();
-    return this.http.post(this.apiUrl + '/categories/create', data , {headers});
+    return this.http.post(this.apiUrl + '/categories/create', data, {headers: this.headers});
   }
 }

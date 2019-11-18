@@ -1,40 +1,45 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {environment as env} from '../../environments/environment';
+import {AuthService} from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AskService {
 
-  apiUrl = 'http://localhost:8000/api/';
-  token;
+  apiUrl: string;
+  header: any;
 
-  constructor(private http: HttpClient) {
-    this.token = localStorage.getItem('currentToken');
+  constructor(private http: HttpClient, private authService: AuthService) {
+    this.setApiUrl();
+    this.setHeader();
+  }
+  setApiUrl() {
+    this.apiUrl = env.apiUrl;
+  }
+
+  setHeader() {
+    this.header = this.authService.getHeader();
   }
 
   getAll() {
-    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
-    return this.http.get(this.apiUrl + 'asks', {headers});
+    return this.http.get(this.apiUrl + '/asks', {headers: this.header});
   }
 
   getByID(id) {
-    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
-    return this.http.get(this.apiUrl + 'asks/' + id, {headers});
+    return this.http.get(this.apiUrl + '/asks/' + id, {headers: this.header});
   }
 
   create(data) {
-    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
-    return this.http.post(this.apiUrl + 'asks/create', data, {headers});
+    return this.http.post(this.apiUrl + '/asks/create', data, {headers: this.header});
   }
 
   delete(askId: number) {
-    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
-    return this.http.delete(this.apiUrl + 'asks/delete/' + askId, {headers});
+    return this.http.delete(this.apiUrl + '/asks/delete/' + askId, {headers: this.header});
   }
 
   update(data, id) {
-    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
-    return this.http.post(this.apiUrl + 'asks/update/' + id, data, {headers});
+    return this.http.post(this.apiUrl + '/asks/update/' + id, data, {headers: this.header});
   }
 }

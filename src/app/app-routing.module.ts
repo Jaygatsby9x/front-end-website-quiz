@@ -39,10 +39,12 @@ const routes: Routes = [
       {path: 'result', component: UserResultTestsComponent},
       {path: 'edit', component: UseEditComponent},
       {path: 'change-password', component: UseChangePasswordComponent}
-    ], canActivate: [AuthGuardService]
+    ], canActivateChild: [AuthGuardService]
   },
   {
-    path: 'dashboard', component: DashboardComponent, children: [
+    path: 'admin/dashboard', component: DashboardComponent,
+    canActivateChild: [AuthGuardService],
+    children: [
       {path: 'overview', component: OverviewComponent},
       {path: '', redirectTo: 'overview', pathMatch: 'full'},
       {path: 'ask', component: AskComponent},
@@ -53,7 +55,7 @@ const routes: Routes = [
       {path: 'quiz/create', component: CreateQuizComponent},
       {path: 'categories', component: CategoriesComponent},
       {path: 'categories/create', component: CreateCategoryComponent},
-    ], canActivate: [AuthGuardService]
+    ]
   },
   {path: 'quiz-list', component: QuizListComponent},
   {path: 'contact', component: ContactComponent},

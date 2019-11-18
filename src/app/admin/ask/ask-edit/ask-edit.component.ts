@@ -55,7 +55,7 @@ export class AskEditComponent implements OnInit {
   onSubmit() {
     const formData = this.initFormData();
     this.askService.update(formData, this.id).subscribe((response: IResponse) => {
-      this.route.navigate(['/dashboard/ask']);
+      this.route.navigate(['/admin/dashboard/ask']);
     }, error => {
       const responseErrors = error.error.errors;
       console.log(responseErrors);

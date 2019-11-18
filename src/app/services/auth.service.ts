@@ -1,22 +1,24 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {environment as env} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  apiUrl = 'http://localhost:8000/api/';
+  apiUrl: string;
 
   constructor(private http: HttpClient) {
+    this.apiUrl = env.apiUrl;
   }
 
   login(data) {
-    return this.http.post(this.apiUrl + 'login', data);
+    return this.http.post(this.apiUrl + '/login', data);
   }
 
   register(data) {
-    return this.http.post(this.apiUrl + 'register', data);
+    return this.http.post(this.apiUrl + '/register', data);
   }
 
   logout() {
@@ -26,13 +28,20 @@ export class AuthService {
   getToken(): string {
     return localStorage.getItem('currentToken');
   }
+
   getHeader() {
     return new HttpHeaders().set('Authorization', 'Bearer ' + this.getToken());
   }
 
   getUser() {
-    const headers = new HttpHeaders()
-      .set('Authorization', 'Bearer ' + this.getToken());
-    return this.http.get(this.apiUrl + 'auth/user', {headers});
+    const headers = this.getHeader();
+    return this.http.get(this.apiUrl + '/auth/user', {headers});
+  }
+
+  isLogin(): boolean {
+    if (this.getToken()) {
+      return true;
+    }
+    return false;
   }
 }

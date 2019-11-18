@@ -50,7 +50,7 @@ export class CreateQuizComponent implements OnInit {
 
   onSubmit() {
     this.quizService.create(this.form.value).subscribe((response: IResponse) => {
-      this.router.navigate(['/dashboard/quiz']);
+      this.router.navigate(['/admin/dashboard/quiz']);
     });
   }
 }
