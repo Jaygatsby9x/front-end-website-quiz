@@ -39,7 +39,7 @@
                         <th>Kết quả</th>
                       </tr>
                       <tbody formArrayName="answer">
-                      <tr *ngFor=" let control of formAnswer; let i= index" [formGroupName]="i">
+                      <tr *ngFor=" let control of form.get('answer').controls; let i= index" [formGroupName]="i">
                         <td><textarea type="text" formControlName="content" class="form-control"></textarea></td>
 
                         <td><select name="" formControlName="correct" class="form-control">
@@ -58,7 +58,7 @@
                   </div>
                   <div class="form-group col-md-12">
                     <button [disabled]="form.invalid" class="btn btn-primary btn-sm">Sửa</button>
-                    <a class="btn btn-danger btn-sm ml-2" routerLink="/dashboard/ask"> Trở Về</a>
+                    <a class="btn btn-danger btn-sm ml-2" routerLink="/admin/dashboard/ask"> Trở Về</a>
                   </div>
                 </div>
               </form>

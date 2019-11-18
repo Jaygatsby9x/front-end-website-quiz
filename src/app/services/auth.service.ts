@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment as env} from '../../environments/environment';
+import {isString} from "util";
 
 @Injectable({
   providedIn: 'root'
@@ -25,8 +26,9 @@ export class AuthService {
     localStorage.removeItem('currentToken');
   }
 
-  getToken(): string {
-    return localStorage.getItem('currentToken');
+  getToken(): string| boolean {
+    const token = localStorage.getItem('currentToken');
+    return (token === 'null' || token === 'undefined' || token === '') ? null : token;
   }
 
   getHeader() {
@@ -39,6 +41,7 @@ export class AuthService {
   }
 
   isLogin(): boolean {
+    console.log(this.getToken())
     if (this.getToken()) {
       return true;
     }

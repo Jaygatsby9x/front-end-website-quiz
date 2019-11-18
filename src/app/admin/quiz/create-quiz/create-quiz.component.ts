@@ -18,7 +18,10 @@ export class CreateQuizComponent implements OnInit {
   chooseAsk: IAsk[] = [];
   p = 1;
 
-  constructor(private fb: FormBuilder, private askService: AskService, private quizService: QuizService, private router: Router) {
+  constructor(private fb: FormBuilder,
+              private askService: AskService,
+              private quizService: QuizService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -49,7 +52,8 @@ export class CreateQuizComponent implements OnInit {
   }
 
   onSubmit() {
-    this.quizService.create(this.form.value).subscribe((response: IResponse) => {
+    this.quizService.create(this.form.value).subscribe(
+      (response: IResponse) => {
       this.router.navigate(['/admin/dashboard/quiz']);
     });
   }

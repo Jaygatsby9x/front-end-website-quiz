@@ -8,7 +8,7 @@
           </div>
           <div class="card-body">
             <div class="table-responsive">
-              <button class="btn btn-primary btn-sm mb-2" routerLink="/dashboard/ask/create">Create</button>
+              <button class="btn btn-primary btn-sm mb-2" routerLink="/admin/dashboard/ask/create">Create</button>
               <table class="table col-form-label">
                 <thead class=" text-primary">
                 <th>STT</th>
@@ -19,7 +19,7 @@
                 <tbody *ngIf="asks.length>0;else notdata">
                 <tr *ngFor="let ask of asks; let i = index">
                   <td style="width: 5px">{{i + 1}}</td>
-                  <td class="content-ask"><a [routerLink]="['/dashboard/ask/details',ask.id]">{{ask.content}}</a></td>
+                  <td class="content-ask"><a [routerLink]="['/admin/dashboard/ask/details',ask.id]">{{ask.content}}</a></td>
                   <td>NONE</td>
                   <td>
                     <button class="btn btn-primary btn-sm mr-3" [routerLink]="['/admin/dashboard/ask/edit',ask.id]"><i class=" fa fa-edit"></i></button>

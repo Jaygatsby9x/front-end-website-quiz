@@ -13,12 +13,13 @@ import {IError} from '../../../interfaces/ierror';
 })
 export class CreateAskComponent implements OnInit {
   form: FormGroup;
-  formAnswer;
   message: string;
   answers = [];
   errors: IError = {};
 
-  constructor(private fb: FormBuilder, private askService: AskService, private route: Router, private categoryService: CategoryService) {
+  constructor(private fb: FormBuilder,
+              private askService: AskService,
+              private route: Router) {
   }
 
   ngOnInit() {
@@ -26,25 +27,23 @@ export class CreateAskComponent implements OnInit {
       content: [''],
       answer: this.fb.array([this.initAnswer()])
     });
-    this.formAnswer = (this.form.get('answer') as FormArray).controls;
   }
 
   onSubmit() {
     const formData = this.initFormData();
     this.askService.create(formData).subscribe((response: IResponse) => {
-      this.route.navigate(['/dashboard/ask']);
+      this.route.navigate(['/admin/dashboard/ask']);
     }, error => {
       const responseErrors = error.error.errors;
-      console.log(responseErrors);
       this.errors = responseErrors;
     });
   }
 
   initFormData() {
     const formAnswer = (this.form.get('answer') as FormArray).controls;
-    formAnswer.forEach(((answer, index) => {
+    formAnswer.forEach((answer, index) => {
       this.answers[index] = answer.value;
-    }));
+    });
     const formData = new FormData();
     formData.append('content', this.form.get('content').value);
     formData.append('answer', JSON.stringify(this.answers));
