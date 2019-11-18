@@ -29,6 +29,8 @@ import { FamousPeopleComponent } from './famous-people/famous-people.component';
 import { QuizDetailUserComponent } from './quiz-detail-user/quiz-detail-user.component';
 import {ContactComponent} from './contact/contact.component';
 import { AskDetailsComponent } from './admin/ask/ask-details/ask-details.component';
+import { CategoriesComponent } from './admin/categories/categories.component';
+import { CreateCategoryComponent } from './admin/categories/create-category/create-category.component';
 
 
 @NgModule({
@@ -58,6 +60,8 @@ import { AskDetailsComponent } from './admin/ask/ask-details/ask-details.compone
     FamousPeopleComponent,
     QuizDetailUserComponent,
     AskDetailsComponent,
+    CategoriesComponent,
+    CreateCategoryComponent,
   ],
   imports: [
     BrowserModule,
