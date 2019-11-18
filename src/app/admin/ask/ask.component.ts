@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AskService} from '../../services/ask.service';
 import {IAsk} from '../../interfaces/iask';
 import {IResponse} from '../../interfaces/iresponse';
@@ -11,11 +11,14 @@ import {IResponse} from '../../interfaces/iresponse';
 export class AskComponent implements OnInit {
 
   asks: IAsk[] = [];
-  constructor(private askService: AskService) { }
+
+  constructor(private askService: AskService) {
+  }
 
   ngOnInit() {
     this.getAll();
   }
+
   getAll() {
     this.askService.getAll().subscribe((response: IResponse) => {
       if (response.data) {
@@ -25,6 +28,12 @@ export class AskComponent implements OnInit {
 
     }, error => {
       console.log(error);
+    });
+  }
+
+  delete(askId: number) {
+    this.askService.delete(askId).subscribe((response: IResponse) => {
+      this.getAll();
     });
   }
 }
