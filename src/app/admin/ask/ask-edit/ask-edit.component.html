@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title ">Tạo Câu Hỏi Mới</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="row">
+                  <div class="form-group col-md-5">
+                    <label>Tên Câu Hỏi:</label>
+                    <textarea type="" formControlName="content" class="form-control mb-2 ask-form"></textarea>
+                    <div *ngIf="errors">
+                      <div class="alert alert-danger" *ngFor="let error of errors.content">{{error}}</div>
+                    </div>
+                  </div>
+                  <div class="col-md-7">
+                    <label>Câu Trả Lời:</label>
+                    <div class="alert alert-danger" role="alert"
+                         *ngIf="form.get('answer').invalid && form.get('answer').touched">
+                      Câu trả lời không được để trống
+                    </div>
+                    <table class="table">
+                      <tr>
+                        <th>Nội dung</th>
+                        <th>Kết quả</th>
+                      </tr>
+                      <tbody formArrayName="answer">
+                      <tr *ngFor=" let control of formAnswer; let i= index" [formGroupName]="i">
+                        <td><textarea type="text" formControlName="content" class="form-control"></textarea></td>
+
+                        <td><select name="" formControlName="correct" class="form-control">
+                          <option value="1">Đúng</option>
+                          <option value="0" selected>Sai</option>
+                        </select></td>
+                        <td><p class="btn btn-danger  ml-2" (click)="removeAnswer(i)">-</p></td>
+                      </tr>
+                      </tbody>
+                      <tr>
+                        <td colspan="2"><p class="btn btn-primary col-md-1" (click)="addAnswer('',0)">+</p>
+                          </td>
+
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="form-group col-md-12">
+                    <button [disabled]="form.invalid" class="btn btn-primary btn-sm">Tạo</button>
+                    <a class="btn btn-danger btn-sm ml-2" routerLink="/dashboard/ask"> Trở Về</a>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

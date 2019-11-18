@@ -23,7 +23,7 @@ export class AskDetailsComponent implements OnInit {
   }
 
   getAsk() {
-    this.askService.getOneAsk(this.id).subscribe((response: IResponse) => {
+    this.askService.getByID(this.id).subscribe((response: IResponse) => {
       this.ask = response.ask;
       console.log(response.ask)
     });
