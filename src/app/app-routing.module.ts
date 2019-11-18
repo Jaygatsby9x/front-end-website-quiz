@@ -25,6 +25,7 @@ import {QuizDetailUserComponent} from './quiz-detail-user/quiz-detail-user.compo
 import {AskDetailsComponent} from './admin/ask/ask-details/ask-details.component';
 import {CategoriesComponent} from './admin/categories/categories.component';
 import {CreateCategoryComponent} from './admin/categories/create-category/create-category.component';
+import {AskEditComponent} from './admin/ask/ask-edit/ask-edit.component';
 
 
 const routes: Routes = [
@@ -48,6 +49,7 @@ const routes: Routes = [
       {path: '', redirectTo: 'overview', pathMatch: 'full'},
       {path: 'ask', component: AskComponent},
       {path: 'ask/details/:id', component: AskDetailsComponent},
+      {path: 'ask/edit/:id', component: AskEditComponent},
       {path: 'ask/create', component: CreateAskComponent},
       {path: 'quiz', component: QuizComponent},
       {path: 'quiz/create', component: CreateQuizComponent},

@@ -18,7 +18,7 @@ export class AskService {
     return this.http.get(this.apiUrl + 'asks', {headers});
   }
 
-  getOneAsk(id) {
+  getByID(id) {
     const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
     return this.http.get(this.apiUrl + 'asks/' + id, {headers});
   }
@@ -31,5 +31,10 @@ export class AskService {
   delete(askId: number) {
     const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
     return this.http.delete(this.apiUrl + 'asks/delete/' + askId, {headers});
+  }
+
+  update(data, id) {
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
+    return this.http.post(this.apiUrl + 'asks/update/' + id, data, {headers});
   }
 }

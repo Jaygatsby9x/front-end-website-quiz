@@ -31,6 +31,7 @@ import {ContactComponent} from './contact/contact.component';
 import { AskDetailsComponent } from './admin/ask/ask-details/ask-details.component';
 import { CategoriesComponent } from './admin/categories/categories.component';
 import { CreateCategoryComponent } from './admin/categories/create-category/create-category.component';
+import { AskEditComponent } from './admin/ask/ask-edit/ask-edit.component';
 
 
 @NgModule({
@@ -62,6 +63,7 @@ import { CreateCategoryComponent } from './admin/categories/create-category/crea
     AskDetailsComponent,
     CategoriesComponent,
     CreateCategoryComponent,
+    AskEditComponent,
   ],
   imports: [
     BrowserModule,
