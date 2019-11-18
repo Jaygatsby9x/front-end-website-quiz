@@ -8,12 +8,12 @@ import {AuthService} from './auth.service';
 })
 export class QuizService {
 
-  apiUrl;
-  token;
+  apiUrl: string;
+  headers: HttpHeaders;
 
   constructor(private httpClient: HttpClient, private auth: AuthService) {
     this.setApiUrl();
-    this.setToken();
+    this.setHeaders();
     this.getAll();
   }
 
@@ -21,20 +21,16 @@ export class QuizService {
     this.apiUrl = env.apiUrl;
   }
 
-  setToken() {
-    this.token = this.auth.getToken();
+  setHeaders() {
+    this.headers = this.auth.getHeader();
   }
 
   getAll() {
-    const headers =  this.setHeader();
-    return this.httpClient.get(this.apiUrl + '/quiz-test', {headers});
+    return this.httpClient.get(this.apiUrl + '/quiz-test', {headers: this.headers});
   }
-  setHeader() {
-    return new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
-  }
+
   create(data) {
-    const headers = this.setHeader();
-    return this.httpClient.post(this.apiUrl + '/quiz-test/create', data, {headers});
+    return this.httpClient.post(this.apiUrl + '/quiz-test/create', data, {headers: this.headers});
   }
 
 }
