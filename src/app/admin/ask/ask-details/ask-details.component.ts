@@ -12,7 +12,8 @@ import {IResponse} from '../../../interfaces/iresponse';
 })
 export class AskDetailsComponent implements OnInit {
   id;
-  ask: IAsk;
+  ask: IAsk = {};
+  answers: IAnswer[];
 
   constructor(private askService: AskService, private routeMap: ActivatedRoute) {
   }
@@ -25,7 +26,7 @@ export class AskDetailsComponent implements OnInit {
   getAsk() {
     this.askService.getByID(this.id).subscribe((response: IResponse) => {
       this.ask = response.ask;
-      console.log(response.ask)
+      this.answers = response.ask.answers;
     });
   }
 }

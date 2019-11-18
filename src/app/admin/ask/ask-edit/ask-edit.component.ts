@@ -12,9 +12,7 @@ import {IError} from '../../../interfaces/ierror';
 })
 export class AskEditComponent implements OnInit {
   form: FormGroup;
-  id;
-  formAnswer;
-  message: string;
+  id: string;
   answers = [];
   errors: IError = {};
 
@@ -29,7 +27,6 @@ export class AskEditComponent implements OnInit {
       content: [''],
       answer: this.fb.array([])
     });
-    this.formAnswer = (this.form.get('answer') as FormArray).controls;
   }
 
   getId() {
@@ -58,7 +55,6 @@ export class AskEditComponent implements OnInit {
       this.route.navigate(['/admin/dashboard/ask']);
     }, error => {
       const responseErrors = error.error.errors;
-      console.log(responseErrors);
       this.errors = responseErrors;
     });
   }

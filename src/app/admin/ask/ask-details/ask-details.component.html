@@ -31,21 +31,18 @@
                       <th>Kết quả</th>
                     </tr>
                     <tbody >
-                    <tr *ngFor="let answer of ask.answers, let i = index">
+                    <tr *ngFor="let answer of answers, let i = index">
                       <td >{{answer.content}}</td>
 
                       <td *ngIf="answer.correct;else wrong ">Đúng</td>
                       <ng-template #wrong><td>Sai</td></ng-template>
                     </tr>
                     </tbody>
-                    <tr>
-
-                    </tr>
                   </table>
                 </div>
                 <div class="form-group col-md-12">
-                  <a class="btn btn-primary btn-sm">Chỉnh Sửa</a>
-                  <a class="btn btn-danger btn-sm ml-2" routerLink="/dashboard/ask"> Trở Về</a>
+                  <a class="btn btn-primary btn-sm" [routerLink]="['/admin/dashboard/ask/edit/', id]">Chỉnh Sửa</a>
+                  <a class="btn btn-danger btn-sm ml-2" routerLink="/admin/dashboard/ask"> Trở Về</a>
                 </div>
               </div>
             </div>
