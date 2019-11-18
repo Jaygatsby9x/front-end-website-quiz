@@ -27,4 +27,9 @@ export class AskService {
     const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
     return this.http.post(this.apiUrl + 'asks/create', data, {headers});
   }
+
+  delete(askId: number) {
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
+    return this.http.delete(this.apiUrl + 'asks/delete/' + askId, {headers});
+  }
 }
