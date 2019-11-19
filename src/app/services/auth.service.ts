@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment as env} from '../../environments/environment';
+import {IResponse} from '../interfaces/iresponse';
+import {IUser} from '../interfaces/iuser';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +10,7 @@ import {environment as env} from '../../environments/environment';
 export class AuthService {
 
   apiUrl: string;
+  user: IUser;
 
   constructor(private http: HttpClient) {
     this.apiUrl = env.apiUrl;
@@ -25,7 +28,7 @@ export class AuthService {
     localStorage.removeItem('currentToken');
   }
 
-  getToken(): string| boolean {
+  getToken(): string | boolean {
     const token = localStorage.getItem('currentToken');
     return (token === 'null' || token === 'undefined' || token === '') ? null : token;
   }
@@ -39,11 +42,10 @@ export class AuthService {
     return this.http.get(this.apiUrl + '/auth/user', {headers});
   }
 
-  isLogin(): boolean {
-    console.log(this.getToken());
-    if (this.getToken()) {
-      return true;
-    }
-    return false;
+  isLogin(): IUser | boolean {
+    this.getUser().subscribe((response: IResponse) => {
+      this.user = response.data;
+    });
+    return (this.user) ? this.user : false;
   }
 }
