@@ -16,17 +16,24 @@ export class CategoryService {
     this.setApiUrl();
     this.getAll();
   }
+
   setApiUrl() {
     this.apiUrl = env.apiUrl;
   }
+
   setHeaders() {
     this.headers = this.auth.getHeader();
   }
+
   getAll() {
     return this.http.get(this.apiUrl + '/categories', {headers: this.headers});
   }
 
   create(data) {
     return this.http.post(this.apiUrl + '/categories/create', data, {headers: this.headers});
+  }
+
+  delete(id) {
+    return this.http.delete(this.apiUrl + '/categories/' + id + '/delete', {headers: this.headers});
   }
 }

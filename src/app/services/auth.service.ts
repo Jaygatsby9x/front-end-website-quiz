@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment as env} from '../../environments/environment';
-import {isString} from "util";
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +40,7 @@ export class AuthService {
   }
 
   isLogin(): boolean {
-    console.log(this.getToken())
+    console.log(this.getToken());
     if (this.getToken()) {
       return true;
     }

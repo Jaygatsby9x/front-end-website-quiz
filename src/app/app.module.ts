@@ -32,6 +32,7 @@ import { AskDetailsComponent } from './admin/ask/ask-details/ask-details.compone
 import { CategoriesComponent } from './admin/categories/categories.component';
 import { CreateCategoryComponent } from './admin/categories/create-category/create-category.component';
 import { AskEditComponent } from './admin/ask/ask-edit/ask-edit.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 
 @NgModule({
@@ -64,6 +65,7 @@ import { AskEditComponent } from './admin/ask/ask-edit/ask-edit.component';
     CategoriesComponent,
     CreateCategoryComponent,
     AskEditComponent,
+    NotfoundComponent,
   ],
   imports: [
     BrowserModule,
