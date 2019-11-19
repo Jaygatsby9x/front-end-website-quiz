@@ -11,12 +11,14 @@ import {IResponse} from '../../interfaces/iresponse';
 export class QuizComponent implements OnInit {
 
   quizs = [];
+
   constructor(private quizService: QuizService) {
   }
 
   ngOnInit() {
     this.getAll();
   }
+
   getAll() {
     this.quizService.getAll().subscribe((response: IResponse) => {
       if (response.data) {
@@ -27,6 +29,9 @@ export class QuizComponent implements OnInit {
     });
   }
 
-  delete(id: any) {
+  delete(id) {
+    this.quizService.delete(id).subscribe((response: IResponse) => {
+     this.getAll();
+    });
   }
 }

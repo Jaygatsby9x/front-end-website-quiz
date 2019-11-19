@@ -40,4 +40,8 @@ export class QuizService {
   update(data, id) {
     return this.httpClient.post(this.apiUrl + '/quiz-test/' + id + '/update', data, {headers: this.headers});
   }
+
+  delete(id: any) {
+    return this.httpClient.delete(this.apiUrl + '/quiz-test/' + id + '/delete', {headers: this.headers});
+  }
 }
