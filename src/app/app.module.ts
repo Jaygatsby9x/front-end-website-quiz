@@ -25,14 +25,17 @@ import {QuizListComponent} from './quiz-list/quiz-list.component';
 import {QuizComponent} from './admin/quiz/quiz.component';
 import {CreateQuizComponent} from './admin/quiz/create-quiz/create-quiz.component';
 import {NgxPaginationModule} from 'ngx-pagination';
-import { FamousPeopleComponent } from './famous-people/famous-people.component';
-import { QuizDetailUserComponent } from './quiz-detail-user/quiz-detail-user.component';
+import {FamousPeopleComponent} from './famous-people/famous-people.component';
+import {QuizDetailUserComponent} from './quiz-detail-user/quiz-detail-user.component';
 import {ContactComponent} from './contact/contact.component';
-import { AskDetailsComponent } from './admin/ask/ask-details/ask-details.component';
-import { CategoriesComponent } from './admin/categories/categories.component';
-import { CreateCategoryComponent } from './admin/categories/create-category/create-category.component';
-import { AskEditComponent } from './admin/ask/ask-edit/ask-edit.component';
-import { EditQuizComponent } from './admin/quiz/edit-quiz/edit-quiz.component';
+import {AskDetailsComponent} from './admin/ask/ask-details/ask-details.component';
+import {CategoriesComponent} from './admin/categories/categories.component';
+import {CreateCategoryComponent} from './admin/categories/create-category/create-category.component';
+import {AskEditComponent} from './admin/ask/ask-edit/ask-edit.component';
+
+import {EditQuizComponent} from './admin/quiz/edit-quiz/edit-quiz.component';
+
+import {NotfoundComponent} from './notfound/notfound.component';
 
 
 @NgModule({
@@ -65,7 +68,11 @@ import { EditQuizComponent } from './admin/quiz/edit-quiz/edit-quiz.component';
     CategoriesComponent,
     CreateCategoryComponent,
     AskEditComponent,
+
     EditQuizComponent,
+
+    NotfoundComponent,
+
   ],
   imports: [
     BrowserModule,
