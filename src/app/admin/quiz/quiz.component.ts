@@ -26,4 +26,7 @@ export class QuizComponent implements OnInit {
       console.log(error);
     });
   }
+
+  delete(id: any) {
+  }
 }
