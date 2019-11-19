@@ -42,10 +42,7 @@ export class AuthService {
     return this.http.get(this.apiUrl + '/auth/user', {headers});
   }
 
-  isLogin(): IUser | boolean {
-    this.getUser().subscribe((response: IResponse) => {
-      this.user = response.data;
-    });
-    return (this.user) ? this.user : false;
+  isLogin() {
+    return (this.getToken()) ? this.getToken() : null;
   }
 }
