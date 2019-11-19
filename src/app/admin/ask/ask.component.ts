@@ -24,7 +24,6 @@ export class AskComponent implements OnInit {
       if (response.data) {
         this.asks = response.data;
       }
-      console.log(response.data);
 
     }, error => {
       console.log(error);

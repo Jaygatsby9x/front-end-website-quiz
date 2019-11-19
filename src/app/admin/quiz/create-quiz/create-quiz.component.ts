@@ -47,6 +47,8 @@ export class CreateQuizComponent implements OnInit {
 
   removeAskFromQuiz(index) {
     const asks = this.chooseAsk.splice(index, 1);
+    const askValue = this.form.controls.asks.value;
+    askValue.splice(index, 1);
     this.asks.push(asks[0]);
 
   }
