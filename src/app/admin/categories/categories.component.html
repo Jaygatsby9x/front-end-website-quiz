@@ -14,12 +14,42 @@
                 <th>STT</th>
                 <th>Tên bài quiz</th>
                 <th>Ảnh</th>
+                <th></th>
                 </thead>
                 <tbody *ngIf="categories.length>0;else notdata">
                 <tr *ngFor="let category of categories | paginate: { itemsPerPage: 5, currentPage: page }; let i=index">
                   <td>{{i + 1}}</td>
                   <td>{{category.name}}</td>
                   <td><img *ngIf="category.image" style="max-width: 200px" [attr.src]=" 'http://localhost:8000/api/' + category.image" alt=""></td>
+                  <td>
+                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                            data-target="#exampleModal +"
+                            [attr.data-target]="'#delete'+category.id"
+                    >
+                      <i class="fa fa-trash"></i>
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="delete{{category.id}}" tabindex="-1" role="dialog"
+                         aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title text-warning" id="exampleModalLabel">Cảnh báo</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            Bạn có chắc chắn muốn xóa danh mục này ?.
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Trở Về</button>
+                            <button type="button" (click)="delete(category.id)" data-dismiss="modal" class="btn btn-danger">Xóa</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div></td>
                 </tr>
                 </tbody>
                 <ng-template #notdata>
