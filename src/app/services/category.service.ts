@@ -36,4 +36,8 @@ export class CategoryService {
   delete(id) {
     return this.http.delete(this.apiUrl + '/categories/' + id + '/delete', {headers: this.headers});
   }
+
+  getById(id: string) {
+    return this.http.get(this.apiUrl + '/categories/' + id, {headers: this.headers});
+  }
 }

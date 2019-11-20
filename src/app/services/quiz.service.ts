@@ -44,4 +44,8 @@ export class QuizService {
   delete(id: any) {
     return this.httpClient.delete(this.apiUrl + '/quiz-test/' + id + '/delete', {headers: this.headers});
   }
+
+  getByCategoryID(id: string) {
+    return this.httpClient.get(this.apiUrl + '/quiz-test/category/' + id, {headers: this.headers});
+  }
 }

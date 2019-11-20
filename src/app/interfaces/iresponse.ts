@@ -8,4 +8,5 @@ export interface IResponse {
   correct?: string;
   answers?: any;
   ask?: any;
+  category?: any;
 }

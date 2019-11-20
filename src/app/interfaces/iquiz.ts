@@ -1,4 +1,5 @@
 export interface IQuiz {
-  name?: string;
+  name?: any;
   id?: string;
+  category_id?: string;
 }
