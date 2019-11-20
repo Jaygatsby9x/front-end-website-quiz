@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ICategory} from '../../interfaces/icategory';
 import {CategoryService} from '../../services/category.service';
 import {IResponse} from '../../interfaces/iresponse';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-category-page',
@@ -11,7 +12,8 @@ import {IResponse} from '../../interfaces/iresponse';
 export class CategoryPageComponent implements OnInit {
   categories: ICategory[];
 
-  constructor(private categoryService: CategoryService) { }
+  constructor(private categoryService: CategoryService, private router: Router) { }
+  private id: string;
 
   ngOnInit() {
     this.getAll();
@@ -22,5 +24,4 @@ export class CategoryPageComponent implements OnInit {
       console.log(response);
     });
   }
-
 }

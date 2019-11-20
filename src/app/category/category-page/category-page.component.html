@@ -47,9 +47,11 @@
         <!-- Popular Course Item -->
         <div class="col-lg-4 course_box" *ngFor="let category of categories">
           <div class="card">
-            <img class="card-img-top" [attr.src]="'http://localhost:8000/api' + category.image " alt="https://unsplash.com/@kellybrito">
+            <img class="card-img-top" [attr.src]="'http://localhost:8000/api/' + category.image " alt="https://unsplash.com/@kellybrito">
             <div class="card-body text-center">
-              <div class="card-title"><a href="#">{{category.name}}</a></div>
+              <div class="card-title">
+                <a [routerLink]="['categories',category.id]">{{category.name}}</a>
+              </div>
               <div class="card-text">Adobe Guide, Layes, Smart Objects etc...</div>
             </div>
             <div class="price_box d-flex flex-row align-items-center">

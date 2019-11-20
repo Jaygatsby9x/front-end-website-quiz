@@ -58,7 +58,7 @@ const routes: Routes = [
       {path: 'categories/create', component: CreateCategoryComponent},
     ]
   },
-  {path: 'quiz-list/:id', component: QuizListComponent},
+  {path: 'categories/:id', component: QuizListComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'famous', component: FamousPeopleComponent},
   {path: 'quiz', component: QuizDetailUserComponent},
