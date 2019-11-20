@@ -50,7 +50,7 @@
             <img class="card-img-top" [attr.src]="'http://localhost:8000/api/' + category.image " alt="https://unsplash.com/@kellybrito">
             <div class="card-body text-center">
               <div class="card-title">
-                <a [routerLink]="['categories',category.id]">{{category.name}}</a>
+                <a [routerLink]="['/categories',category.id]">{{category.name}}</a>
               </div>
               <div class="card-text">Adobe Guide, Layes, Smart Objects etc...</div>
             </div>

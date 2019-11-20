@@ -45,18 +45,17 @@
       <div class="row course_boxes">
 
         <!-- Popular Course Item -->
-        <div class="col-lg-4 course_box" *ngFor="let quiz of quizs">
+        <div class="col-lg-4 course_box" *ngFor="let content of quiz">
           <div class="card">
 <!--            <img class="card-img-top" src="../../../assets/home-page/images/course_1.jpg" alt="https://unsplash.com/@kellybrito">-->
             <div class="card-body text-center">
-              <div class="card-title"><a href="#">{{quiz.name}}</a></div>
-              <div class="card-text">Thế Chiến thứ 2</div>
+              <div class="card-title "><a>{{content.name}}</a></div>
             </div>
             <div class="price_box d-flex flex-row align-items-center">
               <div class="course_author_image">
                 <img src="../../assets/home-page/images/author.jpg" alt="https://unsplash.com/@mehdizadeh">
               </div>
-              <div class="course_author_name">Lịch sử <span> Độ Khó: 3</span></div>
+              <div class="course_author_name">{{category.name}}</div>
             </div>
           </div>
         </div>
