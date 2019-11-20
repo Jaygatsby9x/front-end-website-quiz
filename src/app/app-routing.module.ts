@@ -26,9 +26,7 @@ import {AskDetailsComponent} from './admin/ask/ask-details/ask-details.component
 import {CategoriesComponent} from './admin/categories/categories.component';
 import {CreateCategoryComponent} from './admin/categories/create-category/create-category.component';
 import {AskEditComponent} from './admin/ask/ask-edit/ask-edit.component';
-
 import {EditQuizComponent} from './admin/quiz/edit-quiz/edit-quiz.component';
-
 import {NotfoundComponent} from './notfound/notfound.component';
 
 
@@ -62,7 +60,7 @@ const routes: Routes = [
       {path: 'categories/create', component: CreateCategoryComponent},
     ]
   },
-  {path: 'quiz-list', component: QuizListComponent},
+  {path: 'categories/:id', component: QuizListComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'famous', component: FamousPeopleComponent},
   {path: 'quiz', component: QuizDetailUserComponent},
