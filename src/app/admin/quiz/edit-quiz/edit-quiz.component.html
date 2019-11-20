@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title ">Chỉnh Sửa Bài quiz </h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="row">
+                  <div class="col-md-5">
+                    <div class="form-group col-md-12">
+                      <label>Tên bài thi:</label>
+                      <input type="text" formControlName="name" class="form-control mb-2">
+                    </div>
+                    <div class="form-group col-md-12">
+                      <label>Những câu hỏi có trong bài thi:</label>
+                      <ul>
+                        <li style="list-style-type: none" *ngFor="let ask of chooseAsk; let i= index">
+                          <label  (click)="removeAskFromQuiz(i)" class="form-control">{{ask.content}}</label></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="form-group col-md-7">
+                    <label >Danh sách câu hỏi:</label>
+                    <ul>
+                      <li style="list-style-type: none" *ngFor="let ask of asks; let i = index" >
+                        <label (click)="addAskToQuiz(i)" class="form-control">{{ask.content}}</label></li>
+                    </ul>
+                  </div>
+                  <div class="form-group col-md-12">
+                    <button [disabled]="form.invalid" class="btn btn-primary btn-sm">Lưu</button>
+                    <a class="btn btn-danger btn-sm ml-2" routerLink="/admin/dashboard/quiz"> Trở Về</a>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
