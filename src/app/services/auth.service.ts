@@ -27,6 +27,10 @@ export class AuthService {
   logout() {
     localStorage.removeItem('currentToken');
   }
+  setToken(token) {
+    this.logout();
+    localStorage.setItem('currentToken', token);
+  }
 
   getToken(): string | boolean {
     const token = localStorage.getItem('currentToken');

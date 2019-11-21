@@ -577,7 +577,7 @@ md = {
 
       select: function(start, end) {
 
-        // on select we show the Sweet Alert modal with an input
+        // on select we show the Sweet Alert model with an input
         swal({
             title: 'Create an Event',
             html: '<div class="form-group">' +

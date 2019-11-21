@@ -12,45 +12,20 @@
 <img src="../../assets/home-page/images/courses_background.jpg">
 <div class="container">
   <div id="quiz">
-    <h2 class="text-center font-weight-normal " >Lich su the gioi</h2>
+    <h2 class="text-center font-weight-normal ">Lich su the gioi</h2>
     <hr/>
-    <div>
-      <div>
-        <div class="badge badge-info">Question 1 of 10</div>
+      <div *ngFor="let question of questions | paginate: {currentPage: page, itemsPerPage: 1}; let i = index">
+        <div class="badge badge-info">Question {{page}} of {{questions.length}}</div>
         <div class="badge badge-info float-right">Time: 5.00</div>
         <h3 class="font-weight-normal">
-          <span>1.What is this?</span>
+          <span>{{question.name}}</span>
         </h3>
         <div class="row text-left options">
-          <div class="col-6">
+          <div class="col-6" *ngFor="let answer of question.options">
             <div class="option">
-              <label  class="font-weight-normal" for="1055">
-                <input  type="checkbox" id="1055" class="ng-untouched ng-pristine ng-valid">
-              javascript;
-              </label>
-            </div>
-          </div>
-          <div  class="col-6">
-            <div  class="option">
-              <label  class="font-weight-normal" for="1056">
-                <input type="checkbox" id="1056" class="ng-untouched ng-pristine ng-valid">
-              script
-              </label>
-            </div>
-          </div>
-          <div  class="col-6">
-            <div  class="option">
-              <label class="font-weight-normal" for="1057">
-                <input  type="checkbox" id="1057" class="ng-untouched ng-pristine ng-valid">
-              js
-              </label>
-            </div>
-          </div>
-          <div  class="col-6">
-            <div  class="option">
-              <label  class="font-weight-normal" for="1058">
-                <input  type="checkbox" id="1058" class="ng-untouched ng-pristine ng-valid">
-              None of the above
+              <label (click)="onSelect(question, answer);"  class="font-weight-normal" [attr.for]="answer.id">
+                 <input [attr.checked]="answer.selected" type="checkbox" [id]="answer.id" class="ng-untouched ng-pristine ng-valid">
+                 {{answer.name}};
               </label>
             </div>
           </div>
@@ -59,32 +34,30 @@
       </div>
       <hr/>
       <div class="text-center">
-        <button class="btn btn-default">Prev</button>
-        <button class="btn btn-primary">Next</button>
-<!--        <pagination *ngIf="config.showPager" direction-links="false" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged()"></pagination>-->
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+        <!--        <pagination *ngIf="config.showPager" direction-links="false" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged()"></pagination>-->
       </div>
-    </div>
 
     <div class="row text-center">
       <div class="col-4 cursor-pointer">
       </div>
     </div>
-<!--    <div class="result">-->
-<!--      <div>-->
-<!--        <div class="result-question">-->
-<!--          <div class="row">-->
-<!--            <div class="col-6">-->
-<!--              <input type="checkbox" disabled="disabled">-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
+    <!--    <div class="result">-->
+    <!--      <div>-->
+    <!--        <div class="result-question">-->
+    <!--          <div class="row">-->
+    <!--            <div class="col-6">-->
+    <!--              <input type="checkbox" disabled="disabled">-->
+    <!--            </div>-->
+    <!--          </div>-->
+    <!--        </div>-->
+    <!--      </div>-->
+    <!--    </div>-->
     <hr/>
     <div class="text-center">
       <button class="btn btn-warning">Quiz</button>
       <button class="btn btn-info">Review</button>
-      <button class="btn btn-primary">Submit Quiz</button>
+      <button (click)="onSubmit()" class="btn btn-primary">Submit Quiz</button>
     </div>
   </div>
 </div>

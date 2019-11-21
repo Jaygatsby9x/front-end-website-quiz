@@ -316,7 +316,7 @@
 
   var iconTypes = prefix(['success', 'warning', 'info', 'question', 'error']);
 
-  // Remember state in cases where opening and handling a modal will fiddle with it.
+  // Remember state in cases where opening and handling a model will fiddle with it.
   var states = {
     previousBodyPadding: null
   };
@@ -506,7 +506,7 @@
   var sweetHTML = ('\n <div aria-labelledby="' + swalClasses.title + '" aria-describedby="' + swalClasses.content + '" class="' + swalClasses.popup + '" tabindex="-1">\n   <div class="' + swalClasses.header + '">\n     <ul class="' + swalClasses.progresssteps + '"></ul>\n     <div class="' + swalClasses.icon + ' ' + iconTypes.error + '">\n       <span class="swal2-x-mark"><span class="swal2-x-mark-line-left"></span><span class="swal2-x-mark-line-right"></span></span>\n     </div>\n     <div class="' + swalClasses.icon + ' ' + iconTypes.question + '">\n       <span class="' + swalClasses['icon-text'] + '">?</span>\n      </div>\n     <div class="' + swalClasses.icon + ' ' + iconTypes.warning + '">\n       <span class="' + swalClasses['icon-text'] + '">!</span>\n      </div>\n     <div class="' + swalClasses.icon + ' ' + iconTypes.info + '">\n       <span class="' + swalClasses['icon-text'] + '">i</span>\n      </div>\n     <div class="' + swalClasses.icon + ' ' + iconTypes.success + '">\n       <div class="swal2-success-circular-line-left"></div>\n       <span class="swal2-success-line-tip"></span> <span class="swal2-success-line-long"></span>\n       <div class="swal2-success-ring"></div> <div class="swal2-success-fix"></div>\n       <div class="swal2-success-circular-line-right"></div>\n     </div>\n     <img class="' + swalClasses.image + '" />\n     <h2 class="' + swalClasses.title + '" id="' + swalClasses.title + '"></h2>\n     <button type="button" class="' + swalClasses.close + '">\xD7</button>\n   </div>\n   <div class="' + swalClasses.content + '">\n     <div id="' + swalClasses.content + '"></div>\n     <input class="' + swalClasses.input + '" />\n     <input type="file" class="' + swalClasses.file + '" />\n     <div class="' + swalClasses.range + '">\n       <input type="range" />\n       <output></output>\n     </div>\n     <select class="' + swalClasses.select + '"></select>\n     <div class="' + swalClasses.radio + '"></div>\n     <label for="' + swalClasses.checkbox + '" class="' + swalClasses.checkbox + '">\n       <input type="checkbox" />\n     </label>\n     <textarea class="' + swalClasses.textarea + '"></textarea>\n     <div class="' + swalClasses.validationerror + '" id="' + swalClasses.validationerror + '"></div>\n   </div>\n   <div class="' + swalClasses.actions + '">\n     <button type="button" class="' + swalClasses.confirm + '">OK</button>\n     <button type="button" class="' + swalClasses.cancel + '">Cancel</button>\n   </div>\n   <div class="' + swalClasses.footer + '">\n   </div>\n </div>\n').replace(/(^|\n)\s*/g, '');
 
   /*
-   * Add modal + backdrop to DOM
+   * Add model + backdrop to DOM
    */
   var init = function init(params) {
     // Clean up the old popup if it exists
@@ -542,7 +542,7 @@
     popup.setAttribute('role', params.toast ? 'alert' : 'dialog');
     popup.setAttribute('aria-live', params.toast ? 'polite' : 'assertive');
     if (!params.toast) {
-      popup.setAttribute('aria-modal', 'true');
+      popup.setAttribute('aria-model', 'true');
     }
 
     var oldInputVal = void 0; // IE11 workaround, see #1109 for details
@@ -2921,7 +2921,7 @@ if (typeof window !== 'undefined' && window.Sweetalert2) {
   "  bottom: auto;\n" +
   "  left: auto;\n" +
   "  background-color: transparent; }\n" +
-  "  body.swal2-no-backdrop .swal2-shown > .swal2-modal {\n" +
+  "  body.swal2-no-backdrop .swal2-shown > .swal2-model {\n" +
   "    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); }\n" +
   "  body.swal2-no-backdrop .swal2-shown.swal2-top {\n" +
   "    top: 0;\n" +
@@ -3000,12 +3000,12 @@ if (typeof window !== 'undefined' && window.Sweetalert2) {
   "  .swal2-container.swal2-bottom-end, .swal2-container.swal2-bottom-right {\n" +
   "    align-items: flex-end;\n" +
   "    justify-content: flex-end; }\n" +
-  "  .swal2-container.swal2-grow-fullscreen > .swal2-modal {\n" +
+  "  .swal2-container.swal2-grow-fullscreen > .swal2-model {\n" +
   "    display: flex !important;\n" +
   "    flex: 1;\n" +
   "    align-self: stretch;\n" +
   "    justify-content: center; }\n" +
-  "  .swal2-container.swal2-grow-row > .swal2-modal {\n" +
+  "  .swal2-container.swal2-grow-row > .swal2-model {\n" +
   "    display: flex !important;\n" +
   "    flex: 1;\n" +
   "    align-content: center;\n" +
@@ -3019,15 +3019,15 @@ if (typeof window !== 'undefined' && window.Sweetalert2) {
   "      align-items: flex-start; }\n" +
   "    .swal2-container.swal2-grow-column.swal2-top-end, .swal2-container.swal2-grow-column.swal2-center-end, .swal2-container.swal2-grow-column.swal2-bottom-end, .swal2-container.swal2-grow-column.swal2-top-right, .swal2-container.swal2-grow-column.swal2-center-right, .swal2-container.swal2-grow-column.swal2-bottom-right {\n" +
   "      align-items: flex-end; }\n" +
-  "    .swal2-container.swal2-grow-column > .swal2-modal {\n" +
+  "    .swal2-container.swal2-grow-column > .swal2-model {\n" +
   "      display: flex !important;\n" +
   "      flex: 1;\n" +
   "      align-content: center;\n" +
   "      justify-content: center; }\n" +
-  "  .swal2-container:not(.swal2-top):not(.swal2-top-start):not(.swal2-top-end):not(.swal2-top-left):not(.swal2-top-right):not(.swal2-center-start):not(.swal2-center-end):not(.swal2-center-left):not(.swal2-center-right):not(.swal2-bottom):not(.swal2-bottom-start):not(.swal2-bottom-end):not(.swal2-bottom-left):not(.swal2-bottom-right) > .swal2-modal {\n" +
+  "  .swal2-container:not(.swal2-top):not(.swal2-top-start):not(.swal2-top-end):not(.swal2-top-left):not(.swal2-top-right):not(.swal2-center-start):not(.swal2-center-end):not(.swal2-center-left):not(.swal2-center-right):not(.swal2-bottom):not(.swal2-bottom-start):not(.swal2-bottom-end):not(.swal2-bottom-left):not(.swal2-bottom-right) > .swal2-model {\n" +
   "    margin: auto; }\n" +
   "  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {\n" +
-  "    .swal2-container .swal2-modal {\n" +
+  "    .swal2-container .swal2-model {\n" +
   "      margin: 0 !important; } }\n" +
   "  .swal2-container.swal2-fade {\n" +
   "    transition: background-color .1s; }\n" +

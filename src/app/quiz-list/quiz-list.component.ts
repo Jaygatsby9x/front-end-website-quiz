@@ -11,7 +11,7 @@ import {ICategory} from '../interfaces/icategory';
   styleUrls: ['./quiz-list.component.css']
 })
 export class QuizListComponent implements OnInit {
-  private quiz: IQuiz[];
+  private quizs: IQuiz[];
   private category: ICategory;
   protected id: string;
 
@@ -25,7 +25,7 @@ export class QuizListComponent implements OnInit {
   getQuizById() {
     this.quizService.getByCategoryID(this.id).subscribe((
       response: IResponse) => {
-       this.quiz = response.data;
+       this.quizs = response.data;
        this.category = response.category;
     });
   }

@@ -48,4 +48,8 @@ export class QuizService {
   getByCategoryID(id: string) {
     return this.httpClient.get(this.apiUrl + '/quiz-test/category/' + id, {headers: this.headers});
   }
+
+  submitResult(data: any) {
+    return this.httpClient.post(this.apiUrl + '/quiz-test/submitResult', data, {headers: this.headers});
+  }
 }
