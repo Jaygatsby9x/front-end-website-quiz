@@ -49,4 +49,11 @@ export class AuthService {
   isLogin() {
     return (this.getToken()) ? this.getToken() : null;
   }
+  setApiUrl() {
+    this.apiUrl = env.apiUrl;
+  }
+  getAll() {
+    const headers = this.getHeader();
+    return this.http.get(this.apiUrl + '/users', {headers});
+  }
 }
