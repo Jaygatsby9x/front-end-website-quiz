@@ -6,6 +6,8 @@ import {QuizService} from '../../../services/quiz.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {IResponse} from '../../../interfaces/iresponse';
 import * as $ from 'jquery';
+import {CategoryService} from '../../../services/category.service';
+import {ICategory} from '../../../interfaces/icategory';
 
 @Component({
   selector: 'app-edit-quiz',
@@ -13,7 +15,7 @@ import * as $ from 'jquery';
   styleUrls: ['./edit-quiz.component.css']
 })
 export class EditQuizComponent implements OnInit {
-
+  categories: ICategory[] = [];
   id;
   form: FormGroup;
   asks: IAsk[] = [];
@@ -22,6 +24,7 @@ export class EditQuizComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private routeMap: ActivatedRoute,
+              private categoryService: CategoryService,
               private askService: AskService,
               private quizService: QuizService,
               private router: Router) {
@@ -32,9 +35,11 @@ export class EditQuizComponent implements OnInit {
     this.form = this.fb.group({
       name: [''],
       asks: [[]],
+      category_id: ['']
     });
     this.getAllAsk();
     this.getQuizById();
+    this.getAllCategories();
   }
 
   getId() {
@@ -43,9 +48,12 @@ export class EditQuizComponent implements OnInit {
 
   getQuizById() {
     this.quizService.getByID(this.id).subscribe((response: IResponse) => {
+      const quizName = response.data.name;
+      const responseCategory = response.data.category_id;
       this.form.patchValue({
-        name: response.data.name
-    })
+        name: quizName,
+        category_id: responseCategory
+      })
       ;
       const chosenAsk = response.data.asks;
       chosenAsk.forEach((value, i) => {
@@ -62,6 +70,13 @@ export class EditQuizComponent implements OnInit {
   getAllAsk() {
     this.askService.getAll().subscribe((response: IResponse) => {
       this.asks = response.data;
+    });
+  }
+
+  getAllCategories() {
+    this.categoryService.getAll().subscribe((response: IResponse) => {
+      const responseCategories = response.data;
+      this.categories = responseCategories;
     });
   }
 
@@ -82,7 +97,7 @@ export class EditQuizComponent implements OnInit {
   onSubmit() {
     this.quizService.update(this.form.value, this.id).subscribe(
       (response: IResponse) => {
-          this.router.navigate(['/admin/dashboard/quiz']);
+        this.router.navigate(['/admin/dashboard/quiz']);
       }, error => {
         console.log(error);
       });
