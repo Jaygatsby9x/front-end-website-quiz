@@ -36,6 +36,9 @@ import {AskEditComponent} from './admin/ask/ask-edit/ask-edit.component';
 import {EditQuizComponent} from './admin/quiz/edit-quiz/edit-quiz.component';
 
 import {NotfoundComponent} from './notfound/notfound.component';
+import { UsersComponent } from './admin/users/users.component';
+import { QuizStatisticComponent } from './admin/quiz-statistic/quiz-statistic.component';
+
 
 
 @NgModule({
@@ -72,6 +75,10 @@ import {NotfoundComponent} from './notfound/notfound.component';
     EditQuizComponent,
 
     NotfoundComponent,
+
+    UsersComponent,
+
+    QuizStatisticComponent,
 
   ],
   imports: [

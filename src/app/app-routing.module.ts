@@ -28,6 +28,8 @@ import {CreateCategoryComponent} from './admin/categories/create-category/create
 import {AskEditComponent} from './admin/ask/ask-edit/ask-edit.component';
 import {EditQuizComponent} from './admin/quiz/edit-quiz/edit-quiz.component';
 import {NotfoundComponent} from './notfound/notfound.component';
+import {UsersComponent} from './admin/users/users.component';
+import {QuizStatisticComponent} from './admin/quiz-statistic/quiz-statistic.component';
 
 
 const routes: Routes = [
@@ -58,6 +60,8 @@ const routes: Routes = [
       {path: 'quiz/:id/edit', component: EditQuizComponent},
       {path: 'categories', component: CategoriesComponent},
       {path: 'categories/create', component: CreateCategoryComponent},
+      {path: 'users' , component: UsersComponent},
+      {path: 'quiz-statistic', component: QuizStatisticComponent},
     ]
   },
   {path: 'categories/:id', component: QuizListComponent},
