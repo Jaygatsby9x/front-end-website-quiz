@@ -30,6 +30,9 @@ export class AskService {
   getByID(id) {
     return this.http.get(this.apiUrl + '/asks/' + id, {headers: this.header});
   }
+  getByQuizId(id) {
+    return this.http.get(this.apiUrl + '/asks/quiz/' + id, {headers: this.header});
+  }
 
   create(data) {
     return this.http.post(this.apiUrl + '/asks/create', data, {headers: this.header});

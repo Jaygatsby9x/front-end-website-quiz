@@ -63,7 +63,7 @@ const routes: Routes = [
   {path: 'categories/:id', component: QuizListComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'famous', component: FamousPeopleComponent},
-  {path: 'quiz', component: QuizDetailUserComponent},
+  {path: 'quiz/:id', component: QuizDetailUserComponent},
   {path: '**', component: NotfoundComponent}
 ];
 

@@ -30,7 +30,7 @@ export class UserLoginComponent implements OnInit {
   onSubmit() {
     const data = this.form.value;
     this.authService.login(data).subscribe((response: IResponse) => {
-      localStorage.setItem('currentToken', response.token);
+      this.authService.setToken(response.token);
       this.router.navigate(['/']);
     }, error => {
       this.message = error.error.error;

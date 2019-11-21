@@ -45,11 +45,11 @@
       <div class="row course_boxes">
 
         <!-- Popular Course Item -->
-        <div class="col-lg-4 course_box" *ngFor="let content of quiz">
+        <div class="col-lg-4 course_box" *ngFor="let quiz of quizs">
           <div class="card">
 <!--            <img class="card-img-top" src="../../../assets/home-page/images/course_1.jpg" alt="https://unsplash.com/@kellybrito">-->
             <div class="card-body text-center">
-              <div class="card-title "><a>{{content.name}}</a></div>
+              <div class="card-title "><a [routerLink]="['/quiz', quiz.id]">{{quiz.name}}</a></div>
             </div>
             <div class="price_box d-flex flex-row align-items-center">
               <div class="course_author_image">
