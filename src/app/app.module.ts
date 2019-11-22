@@ -38,6 +38,7 @@ import {EditQuizComponent} from './admin/quiz/edit-quiz/edit-quiz.component';
 import {NotfoundComponent} from './notfound/notfound.component';
 import { UsersComponent } from './admin/users/users.component';
 import { QuizStatisticComponent } from './admin/quiz-statistic/quiz-statistic.component';
+import { UserDetailComponent } from './admin/users/user-detail/user-detail.component';
 
 
 
@@ -79,6 +80,8 @@ import { QuizStatisticComponent } from './admin/quiz-statistic/quiz-statistic.co
     UsersComponent,
 
     QuizStatisticComponent,
+
+    UserDetailComponent,
 
   ],
   imports: [

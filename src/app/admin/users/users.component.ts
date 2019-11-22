@@ -24,5 +24,6 @@ export class UsersComponent implements OnInit {
       console.log(error);
     });
   }
-
+  findById() {
+  }
 }
