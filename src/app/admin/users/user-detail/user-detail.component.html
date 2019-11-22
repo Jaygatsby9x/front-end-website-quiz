@@ -1,0 +1,21 @@
+
+<div class="container">
+  <div>.</div>
+  <div style="color: black"> Người Làm:   . {{user.name}}</div>
+  <table class="table table-sm">
+    <thead>
+    <tr>
+      <th scope="col">Stt</th>
+      <th scope="col">Quiz List</th>
+      <th scope="col">Point</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let quiz of quizs; let i = index">
+      <th scope="row">{{i +1}}</th>
+      <td>{{quiz.name}}</td>
+      <td *ngFor="let point of points">{{point.point}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

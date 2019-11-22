@@ -31,6 +31,7 @@ import {NotfoundComponent} from './notfound/notfound.component';
 import {ResultQuizComponent} from './quiz-detail-user/result-quiz/result-quiz.component';
 import {UsersComponent} from './admin/users/users.component';
 import {QuizStatisticComponent} from './admin/quiz-statistic/quiz-statistic.component';
+import {UserDetailComponent} from './admin/users/user-detail/user-detail.component';
 
 
 const routes: Routes = [
@@ -62,6 +63,7 @@ const routes: Routes = [
       {path: 'categories', component: CategoriesComponent},
       {path: 'categories/create', component: CreateCategoryComponent},
       {path: 'users' , component: UsersComponent},
+      {path: 'users/:id', component: UserDetailComponent},
       {path: 'quiz-statistic', component: QuizStatisticComponent},
     ]
   },

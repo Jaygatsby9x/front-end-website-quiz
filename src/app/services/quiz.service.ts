@@ -46,7 +46,7 @@ export class QuizService {
   }
 
   getByCategoryID(id: string) {
-    return this.httpClient.get(this.apiUrl + '/quiz-test/category/' + id, {headers: this.headers});
+    return this.httpClient.get(this.apiUrl + '/categories/' + id, {headers: this.headers});
   }
 
   submitResult(data: any) {
@@ -54,5 +54,11 @@ export class QuizService {
   }
   getPointById(id) {
     return this.httpClient.get(this.apiUrl + '/points/' + id, {headers: this.headers});
+  }
+  getByUserID(id: string) {
+    return this.httpClient.get(this.apiUrl + '/users/' + id , {headers: this.headers} );
+  }
+  getQuizByUserId(id: string) {
+    return this.httpClient.get(this.apiUrl + '/quiz-test/' + id + '/point', {headers: this.headers});
   }
 }

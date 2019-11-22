@@ -22,5 +22,4 @@ export class QuizStatisticComponent implements OnInit {
       this.quizs = response.data;
     });
   }
-
 }
