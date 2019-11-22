@@ -14,10 +14,7 @@ import {QuizService} from '../../services/quiz.service';
 export class ResultQuizComponent implements OnInit {
 
   private id: string;
-  private pointId: string;
-  private quiz: any;
   private questions: any = [];
-  private point;
   private alphabet = 'ABCDEFGHI';
 
   constructor(private route: ActivatedRoute,
@@ -27,28 +24,23 @@ export class ResultQuizComponent implements OnInit {
 
   ngOnInit() {
     this.getId();
-    this.getPointById();
-    this.getQuestions();
+    this.getResult();
   }
 
   getId() {
     this.id = this.route.snapshot.paramMap.get('id');
-    this.pointId = this.route.snapshot.paramMap.get('point-id');
   }
 
-  getQuestions() {
-    this.askService.getByQuizId(this.id).subscribe((response: IResponse) => {
-      const questions = response.data;
-      this.quiz = response.quiz;
-      $.each(questions, (i, question) => {
-        this.questions.push(new Question(question.ask));
-      });
+  getResult() {
+    this.quizService.getResult(this.id).subscribe((res: IResponse) => {
+      this.questions = res.data;
+      console.log(this.questions);
     });
   }
 
-  getPointById() {
-    this.quizService.getPointById(this.pointId).subscribe((response: IResponse) => {
-      this.point = response.data;
-    });
+  isCorrect(answer) {
+    if (answer.selected) {
+      return (answer.isAnswer) ? 'alert-success' : 'alert-danger';
+    }
   }
 }

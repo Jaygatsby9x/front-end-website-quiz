@@ -14,6 +14,7 @@
   <div id="quiz">
     <h2 class="text-center font-weight-normal ">{{quiz.name}}</h2>
     <hr/>
+    <div *ngIf="questions.length > 0; else notData">
       <div *ngFor="let question of questions | paginate: {currentPage: page, itemsPerPage: 1}; let i = index">
         <div class="badge badge-info">Question {{page}} of {{questions.length}}</div>
         <div class="badge badge-info float-right">Time: 5.00</div>
@@ -31,6 +32,10 @@
           </div>
         </div>
       </div>
+    </div>
+    <ng-template #notData>
+      Không có câu hỏi nào cho bài thi này!
+    </ng-template>
       <hr/>
       <div class="text-center">
         <pagination-controls (pageChange)="page = $event"></pagination-controls>

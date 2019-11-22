@@ -17,7 +17,6 @@ export class QuizDetailUserComponent implements OnInit {
 
   private id: string;
   private questions = [];
-  protected data;
   protected page = 1;
   protected currentUser: IUser;
   protected quiz;
@@ -43,7 +42,7 @@ export class QuizDetailUserComponent implements OnInit {
   getQuestions() {
     this.askService.getByQuizId(this.id).subscribe((response: IResponse) => {
       const questions = response.data;
-      console.log('oke');
+      console.log(response);
       this.quiz = response.quiz;
       $.each(questions, (i, question) => {
         this.questions.push(new Question(question.ask));
@@ -52,12 +51,12 @@ export class QuizDetailUserComponent implements OnInit {
   }
 
   onSelect(question: any, option: any) {
-    option.selected = !(option.selected);
+    option.selected = (option.selected) ? 0 : 1;
   }
 
   initFormData() {
     const formData = new FormData();
-    formData.append('data', JSON.stringify(this.data));
+    formData.append('data', JSON.stringify(this.questions));
     formData.append('quiz_id', this.id);
     formData.append('currentUser', this.currentUser.id);
     return formData;
@@ -70,18 +69,8 @@ export class QuizDetailUserComponent implements OnInit {
   }
 
   onSubmit() {
-    this.data = [];
-    this.questions.map(question => {
-      const data = [];
-      question.options.map(answer => {
-        if (answer.selected) {
-          data.push(answer);
-        }
-      });
-      this.data.push(data);
-    });
     this.quizService.submitResult(this.initFormData()).subscribe((response: IResponse) => {
-      this.router.navigate(['/quiz', this.id , 'result', response.data.id ]);
+      this.router.navigate(['/quiz', response.data.id , 'result']);
     }, error => {
       console.log(error);
     });
