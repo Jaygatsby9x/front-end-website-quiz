@@ -9,4 +9,5 @@ export interface IResponse {
   answers?: any;
   ask?: any;
   category?: any;
+  quiz?: any;
 }
