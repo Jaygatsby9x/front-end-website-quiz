@@ -28,6 +28,7 @@ import {CreateCategoryComponent} from './admin/categories/create-category/create
 import {AskEditComponent} from './admin/ask/ask-edit/ask-edit.component';
 import {EditQuizComponent} from './admin/quiz/edit-quiz/edit-quiz.component';
 import {NotfoundComponent} from './notfound/notfound.component';
+import {ResultQuizComponent} from './quiz-detail-user/result-quiz/result-quiz.component';
 import {UsersComponent} from './admin/users/users.component';
 import {QuizStatisticComponent} from './admin/quiz-statistic/quiz-statistic.component';
 import {UserDetailComponent} from './admin/users/user-detail/user-detail.component';
@@ -69,7 +70,11 @@ const routes: Routes = [
   {path: 'categories/:id', component: QuizListComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'famous', component: FamousPeopleComponent},
-  {path: 'quiz/:id', component: QuizDetailUserComponent},
+  {
+    path: 'quiz', children: [
+      {path: ':id', component: QuizDetailUserComponent},
+      {path: ':id/result/:point-id', component: ResultQuizComponent}]
+  },
   {path: '**', component: NotfoundComponent}
 ];
 

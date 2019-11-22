@@ -52,4 +52,7 @@ export class QuizService {
   submitResult(data: any) {
     return this.httpClient.post(this.apiUrl + '/quiz-test/submitResult', data, {headers: this.headers});
   }
+  getPointById(id) {
+    return this.httpClient.get(this.apiUrl + '/points/' + id, {headers: this.headers});
+  }
 }

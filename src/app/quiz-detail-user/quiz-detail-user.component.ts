@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {AskService} from '../services/ask.service';
 import {IResponse} from '../interfaces/iresponse';
-import {IQuestion} from '../interfaces/iquestion';
 import * as $ from 'jquery';
 import {Option, Question} from './models';
 import {QuizService} from '../services/quiz.service';
@@ -21,11 +20,13 @@ export class QuizDetailUserComponent implements OnInit {
   protected data;
   protected page = 1;
   protected currentUser: IUser;
+  protected quiz;
 
   constructor(private route: ActivatedRoute,
               private askService: AskService,
               private quizService: QuizService,
-              private authService: AuthService
+              private authService: AuthService,
+              private router: Router,
   ) {
   }
 
@@ -42,6 +43,8 @@ export class QuizDetailUserComponent implements OnInit {
   getQuestions() {
     this.askService.getByQuizId(this.id).subscribe((response: IResponse) => {
       const questions = response.data;
+      console.log('oke');
+      this.quiz = response.quiz;
       $.each(questions, (i, question) => {
         this.questions.push(new Question(question.ask));
       });
@@ -77,8 +80,8 @@ export class QuizDetailUserComponent implements OnInit {
       });
       this.data.push(data);
     });
-    this.quizService.submitResult(this.initFormData()).subscribe((response) => {
-      console.log(response);
+    this.quizService.submitResult(this.initFormData()).subscribe((response: IResponse) => {
+      this.router.navigate(['/quiz', this.id , 'result', response.data.id ]);
     }, error => {
       console.log(error);
     });
