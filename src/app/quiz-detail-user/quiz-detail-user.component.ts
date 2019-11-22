@@ -70,9 +70,13 @@ export class QuizDetailUserComponent implements OnInit {
 
   onSubmit() {
     this.quizService.submitResult(this.initFormData()).subscribe((response: IResponse) => {
-      this.router.navigate(['/quiz', response.data.id , 'result']);
+      this.router.navigate(['/quiz', response.data.id, 'result']);
     }, error => {
       console.log(error);
     });
+  }
+
+  goBack() {
+    window.history.back();
   }
 }

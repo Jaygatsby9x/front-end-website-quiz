@@ -30,6 +30,7 @@ export class CategoriesComponent implements OnInit {
 
   delete(id: string) {
     this.categoryService.delete(id).subscribe((response: IResponse) => {
+      console.log(response);
       if (response.status === 'success') {
         this.getAll();
       }

@@ -26,7 +26,7 @@
       <div class="home_background prlx" style="background-image:url(../../assets/home-page/images/milestones_background.jpg)"></div>
     </div>
     <div class="home_content">
-      <h1>History</h1>
+      <h1>{{category.name}}</h1>
     </div>
   </div>
 
@@ -59,8 +59,9 @@
             </div>
           </div>
         </div>
-
       </div>
+      <a (click)="goBack()" class="mt-5" style="cursor: pointer"> <<< Quay lại trang trước</a>
+
     </div>
   </div>
 

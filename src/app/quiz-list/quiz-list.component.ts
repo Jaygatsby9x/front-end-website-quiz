@@ -38,4 +38,7 @@ export class QuizListComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id');
   }
 
+  goBack() {
+    window.history.back();
+  }
 }

@@ -46,13 +46,16 @@ export class QuizService {
   }
 
   getByCategoryID(id: string) {
-    return this.httpClient.get(this.apiUrl + '/quiz-test/category/' + id, {headers: this.headers});
+    return this.httpClient.get(this.apiUrl + '/categories/' + id, {headers: this.headers});
   }
 
   submitResult(data: any) {
-    return this.httpClient.post(this.apiUrl + '/quiz-test/saveResult', data, {headers: this.headers});
+    return this.httpClient.post(this.apiUrl + '/quiz-test/point/create', data, {headers: this.headers});
   }
   getResult(id) {
-    return this.httpClient.get(this.apiUrl + '/quiz-test/' + id + '/result', {headers: this.headers});
+    return this.httpClient.get(this.apiUrl + '/quiz-test/point/' + id, {headers: this.headers});
+  }
+  getByUserID(id: string) {
+    return this.httpClient.get(this.apiUrl + '/users/' + id , {headers: this.headers} );
   }
 }

@@ -14,6 +14,8 @@ import {QuizService} from '../../services/quiz.service';
 export class ResultQuizComponent implements OnInit {
 
   private id: string;
+  private point;
+  private quiz;
   private questions: any = [];
   private alphabet = 'ABCDEFGHI';
 
@@ -34,7 +36,8 @@ export class ResultQuizComponent implements OnInit {
   getResult() {
     this.quizService.getResult(this.id).subscribe((res: IResponse) => {
       this.questions = res.data;
-      console.log(this.questions);
+      this.point = res.point;
+      this.quiz = res.quiz;
     });
   }
 
@@ -42,5 +45,9 @@ export class ResultQuizComponent implements OnInit {
     if (answer.selected) {
       return (answer.isAnswer) ? 'alert-success' : 'alert-danger';
     }
+  }
+
+  goBack() {
+    window.history.go(-1);
   }
 }
