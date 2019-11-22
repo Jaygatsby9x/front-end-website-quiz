@@ -56,7 +56,7 @@ export class EditQuizComponent implements OnInit {
       })
       ;
       const chosenAsk = response.data.asks;
-      chosenAsk.forEach((value, i) => {
+      $.each(chosenAsk, (i, value) => {
         for (let j = 0; j < this.asks.length; j++) {
           if (value.id === this.asks[j].id) {
             this.addAskToQuiz(j);

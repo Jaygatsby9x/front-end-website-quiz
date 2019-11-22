@@ -36,6 +36,7 @@ import {AskEditComponent} from './admin/ask/ask-edit/ask-edit.component';
 import {EditQuizComponent} from './admin/quiz/edit-quiz/edit-quiz.component';
 
 import {NotfoundComponent} from './notfound/notfound.component';
+import { ResultQuizComponent } from './quiz-detail-user/result-quiz/result-quiz.component';
 import { UsersComponent } from './admin/users/users.component';
 import { QuizStatisticComponent } from './admin/quiz-statistic/quiz-statistic.component';
 
@@ -75,7 +76,7 @@ import { QuizStatisticComponent } from './admin/quiz-statistic/quiz-statistic.co
     EditQuizComponent,
 
     NotfoundComponent,
-
+    ResultQuizComponent,
     UsersComponent,
 
     QuizStatisticComponent,
