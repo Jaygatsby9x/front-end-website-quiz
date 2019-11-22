@@ -58,4 +58,7 @@ export class QuizService {
   getByUserID(id: string) {
     return this.httpClient.get(this.apiUrl + '/users/' + id , {headers: this.headers} );
   }
+  getUserByQuizId(id: string) {
+    return this.httpClient.get(this.apiUrl + '/quiz-test/' + id + '/point', {headers: this.headers});
+  }
 }

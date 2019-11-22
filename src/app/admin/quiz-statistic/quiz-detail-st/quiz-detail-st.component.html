@@ -1,20 +1,20 @@
 <div class="container">
   <div>.</div>
-  <div style="color: black"> Người Làm: . {{user.name}}</div>
+  <div style="color: black"> Bài Test: . {{quiz.name}}</div>
   <div class="row col-12 center">
     <div class="col-5">
       <table class="table table-sm">
         <thead>
         <tr>
           <th scope="col">Stt</th>
-          <th scope="col">Quiz List</th>
+          <th scope="col">User List</th>
         </tr>
         </thead>
         <tbody>
 
-        <tr *ngFor="let quiz of quizs ; let i = index">
+        <tr *ngFor="let user of users ; let i = index">
           <td>{{i + 1}}</td>
-          <td>{{quiz.name}}</td>
+          <td>{{user.name}}</td>
         </tr>
         </tbody>
       </table>
@@ -26,13 +26,18 @@
           <th scope="col">Point</th>
         </tr>
         </thead>
-        <tbody>
-
+        <tbody *ngIf="points.length>0;else notdata">
         <tr *ngFor="let point of points">
           <td>{{point.point}}</td>
         </tr>
         </tbody>
+        <ng-template #notdata>
+          <tr>
+            <td>empty</td>
+          </tr>
+        </ng-template>
       </table>
+
     </div>
   </div>
 </div>

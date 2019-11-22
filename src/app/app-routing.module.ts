@@ -32,6 +32,7 @@ import {ResultQuizComponent} from './quiz-detail-user/result-quiz/result-quiz.co
 import {UsersComponent} from './admin/users/users.component';
 import {QuizStatisticComponent} from './admin/quiz-statistic/quiz-statistic.component';
 import {UserDetailComponent} from './admin/users/user-detail/user-detail.component';
+import {QuizDetailStComponent} from './admin/quiz-statistic/quiz-detail-st/quiz-detail-st.component';
 
 
 const routes: Routes = [
@@ -65,6 +66,7 @@ const routes: Routes = [
       {path: 'users' , component: UsersComponent},
       {path: 'users/:id', component: UserDetailComponent},
       {path: 'quiz-statistic', component: QuizStatisticComponent},
+      {path: 'quiz-statistic/:id', component: QuizDetailStComponent},
     ]
   },
   {path: 'categories/:id', component: QuizListComponent},
