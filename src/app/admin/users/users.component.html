@@ -1,0 +1,22 @@
+<div class="container">
+  <table class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">Stt</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Quiz Test</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users; let i = index">
+      <th scope="row">{{i +1}}</th>
+      <td>{{user.name}}</td>
+      <td>{{user.email}}</td>
+      <td><a href="#">Quiz Tested</a></td>
+    </tr>
+    </tbody>
+  </table>
+
+
+</div>

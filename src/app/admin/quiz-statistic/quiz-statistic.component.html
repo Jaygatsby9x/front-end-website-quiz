@@ -1,0 +1,23 @@
+<div class="text-center"><h1>Quiz Statistic</h1></div>
+<div>.</div>
+<div class="container">
+  <table class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">Stt</th>
+      <th scope="col">Name</th>
+      <th scope="col">Users do test</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let quiz of quizs | paginate: { itemsPerPage: 3, currentPage: p }; let i = index">
+      <th scope="row">{{i +1}}</th>
+      <td>{{quiz.name}}</td>
+      <td><a href="#">5</a></td>
+    </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+
+</div>
