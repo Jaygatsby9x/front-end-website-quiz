@@ -50,10 +50,10 @@ export class QuizService {
   }
 
   submitResult(data: any) {
-    return this.httpClient.post(this.apiUrl + '/quiz-test/submitResult', data, {headers: this.headers});
+    return this.httpClient.post(this.apiUrl + '/quiz-test/point/create', data, {headers: this.headers});
   }
-  getPointById(id) {
-    return this.httpClient.get(this.apiUrl + '/points/' + id, {headers: this.headers});
+  getResult(id) {
+    return this.httpClient.get(this.apiUrl + '/quiz-test/point/' + id, {headers: this.headers});
   }
   getByUserID(id: string) {
     return this.httpClient.get(this.apiUrl + '/users/' + id , {headers: this.headers} );

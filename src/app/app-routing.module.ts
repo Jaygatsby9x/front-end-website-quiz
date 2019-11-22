@@ -75,7 +75,7 @@ const routes: Routes = [
   {
     path: 'quiz', children: [
       {path: ':id', component: QuizDetailUserComponent},
-      {path: ':id/result/:point-id', component: ResultQuizComponent}]
+      {path: ':id/result', component: ResultQuizComponent}]
   },
   {path: '**', component: NotfoundComponent}
 ];
