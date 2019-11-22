@@ -10,4 +10,5 @@ export interface IResponse {
   ask?: any;
   category?: any;
   quiz?: any;
+  user?: any;
 }
