@@ -13,7 +13,7 @@
     <tr *ngFor="let quiz of quizs | paginate: { itemsPerPage: 3, currentPage: p }; let i = index">
       <th scope="row">{{i +1}}</th>
       <td>{{quiz.name}}</td>
-      <td><a href="#">5</a></td>
+      <td><a [routerLink]="['/admin/dashboard/quiz-statistic',quiz.id]">click</a></td>
     </tr>
     </tbody>
   </table>

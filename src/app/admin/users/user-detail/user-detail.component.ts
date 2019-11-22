@@ -26,6 +26,7 @@ export class UserDetailComponent implements OnInit {
   }
   getQuizByUserID() {
     this.quizService.getByUserID(this.id).subscribe((response: IResponse) => {
+      console.log(response.data);
       this.quizs = response.data.quizs;
       this.points = response.data.points;
       this.user = response.data;

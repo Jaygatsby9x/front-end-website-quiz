@@ -1,0 +1,10 @@
+.point {
+  position: relative;
+  right: 30px;
+  max-width: 50px;
+}
+.center {
+  position: relative;
+  left: 150px;
+}
+
