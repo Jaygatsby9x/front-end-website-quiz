@@ -1,4 +1,5 @@
 export interface IResponse {
+  point?: any;
   token?: string;
   data?: any;
   message?: string;

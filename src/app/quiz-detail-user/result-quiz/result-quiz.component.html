@@ -6,16 +6,18 @@
   <div class="col-12 row">
     <div class="col-12 m-2" *ngFor="let question of questions; let i = index">
       <div class="col-12 m-2 p-3 bg-white border-1 row">
-        Câu {{i + 1}}: {{question.name}}
+        Câu {{i + 1}}: {{question.ask.content}}
       </div>
       <div class="col-12 m-4 row">
-        <div class="col-5 bg-white m-3 p-0" *ngFor="let answer of question.options; let j = index">
-          <div class="w-100 h-100 p-2"
-          >
-            {{alphabet[j]}}. {{answer.name}}
+        <div class="col-5 bg-white m-3 p-0" *ngFor="let answer of question.answers; let j = index">
+          <div class="w-100 h-100 p-2 {{isCorrect(answer)}}">
+            {{alphabet[j]}}. {{answer.content}}
           </div>
         </div>
       </div>
+    </div>
+    <div class="col-12 m-2">
+      <a (click)="goBack()" style="cursor: pointer">Quay lại danh sách bài thi!</a>
     </div>
   </div>
 </div>
