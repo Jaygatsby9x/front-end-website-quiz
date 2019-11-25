@@ -3,4 +3,6 @@ export interface IValidators {
   email?: string;
   password?: string;
   passwordConfirm?: string;
+  newPassword?: string;
+  oldPassword?: string;
 }

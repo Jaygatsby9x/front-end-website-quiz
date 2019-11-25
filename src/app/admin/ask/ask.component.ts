@@ -34,6 +34,7 @@ export class AskComponent implements OnInit {
   delete(askId: number) {
     this.askService.delete(askId).subscribe((response: IResponse) => {
       this.getAll();
+      console.log(response);
     });
   }
 }
