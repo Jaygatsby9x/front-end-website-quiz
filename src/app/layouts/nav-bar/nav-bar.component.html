@@ -31,6 +31,9 @@
           <li class="main_nav_item"><a routerLink="/categories">Thư Mục</a></li>
           <li class="main_nav_item"><a routerLink="/quiz-list">Về Chúng Tôi</a></li>
           <li class="main_nav_item"><a routerLink="/contact">Liên Hệ</a></li>
+          <li class="main_nav_item"><a routerLink="">Trang chủ</a></li>
+          <li class="main_nav_item"><a routerLink="/categories">Danh mục</a></li>
+          <li class="main_nav_item"><a routerLink="/contact">Liên hệ</a></li>
         </ul>
       </div>
     </nav>
@@ -42,13 +45,14 @@
             {{currentUser.name}}
           </span>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" routerLink="/user" >Profile</a>
-          <a class="dropdown-item" (click)="authLogout()">Logout</a>
+          <a class="dropdown-item" routerLink="/user" >Thông ti cá nhân</a>
+          <a class="dropdown-item" routerLink="/admin/dashboard/overview" >Trang quản lí</a>
+          <a class="dropdown-item" (click)="authLogout()">Đăng xuất</a>
         </div>
       </div>
     </div>
     <ng-template #login>
-      <span style="cursor: pointer;color: black" routerLink="/login" >Login</span><span>/</span><span style="cursor: pointer;color: black" routerLink="/register">Register</span>
+      <span style="cursor: pointer;color: black" routerLink="/login" >Login</span><span>/</span><span style="cursor: pointer;color: black" routerLink="/register">Đăng kí</span>
     </ng-template>
   </div>
 

@@ -24,14 +24,12 @@ export class QuizComponent implements OnInit {
       if (response.data) {
         this.quizs = response.data;
       }
-    }, error => {
-      console.log(error);
     });
   }
 
   delete(id) {
     this.quizService.delete(id).subscribe((response: IResponse) => {
-     this.getAll();
+      this.getAll();
     });
   }
 }
