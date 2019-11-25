@@ -56,4 +56,8 @@ export class AuthService {
     const headers = this.getHeader();
     return this.http.get(this.apiUrl + '/users', {headers});
   }
+  changePassWord(data) {
+    const headers = this.getHeader();
+    return this.http.post(this.apiUrl + '/users/change-password', data, {headers});
+  }
 }
