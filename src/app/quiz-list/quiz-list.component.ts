@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {QuizService} from '../services/quiz.service';
 import {IResponse} from '../interfaces/iresponse';
 import {IQuiz} from '../interfaces/iquiz';
@@ -16,19 +16,23 @@ export class QuizListComponent implements OnInit {
   protected id: string;
 
   constructor(private quizService: QuizService,
-              private route: ActivatedRoute, ) { }
+              private route: ActivatedRoute) {
+  }
 
   ngOnInit() {
     this.getId();
     this.getQuizById();
   }
+
   getQuizById() {
     this.quizService.getByCategoryID(this.id).subscribe((
       response: IResponse) => {
-       this.quizs = response.data;
-       this.category = response.category;
+      console.log(response);
+      this.quizs = response.data;
+      this.category = response.category;
     });
   }
+
   getId() {
     this.id = this.route.snapshot.paramMap.get('id');
   }

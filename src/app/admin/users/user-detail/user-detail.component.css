@@ -8,3 +8,8 @@
   left: 150px;
 }
 
+.filter {
+  position: relative;
+  right: 170px;
+  margin-bottom: 15px;
+}
