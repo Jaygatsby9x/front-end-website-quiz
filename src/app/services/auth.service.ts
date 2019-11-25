@@ -13,7 +13,7 @@ export class AuthService {
   user: IUser;
 
   constructor(private http: HttpClient) {
-    this.apiUrl = env.apiUrl;
+    this.setApiUrl();
   }
 
   login(data) {
