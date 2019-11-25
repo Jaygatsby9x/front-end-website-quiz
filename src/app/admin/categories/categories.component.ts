@@ -22,15 +22,11 @@ export class CategoriesComponent implements OnInit {
   getAll() {
     this.categoryService.getAll().subscribe((response: IResponse) => {
       this.categories = response.data;
-      console.log(response);
-    }, error => {
-      console.log(error);
     });
   }
 
   delete(id: string) {
     this.categoryService.delete(id).subscribe((response: IResponse) => {
-      console.log(response);
       if (response.status === 'success') {
         this.getAll();
       }
