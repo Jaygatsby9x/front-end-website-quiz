@@ -41,6 +41,7 @@ import { UsersComponent } from './admin/users/users.component';
 import { QuizStatisticComponent } from './admin/quiz-statistic/quiz-statistic.component';
 import { UserDetailComponent } from './admin/users/user-detail/user-detail.component';
 import { QuizDetailStComponent } from './admin/quiz-statistic/quiz-detail-st/quiz-detail-st.component';
+import { ForbidenComponent } from './forbiden/forbiden.component';
 import { UserStatisticFilterComponent } from './admin/users/user-statistic-filter/user-statistic-filter.component';
 import { UserStatisticComponent } from './admin/users/user-statistic/user-statistic.component';
 import { UserStatisticFilterByTimeComponent } from './admin/users/user-statistic-filter-by-time/user-statistic-filter-by-time.component';
@@ -89,7 +90,7 @@ import { UserStatisticFilterByTimeComponent } from './admin/users/user-statistic
     UserDetailComponent,
 
     QuizDetailStComponent,
-
+    ForbidenComponent,
     UserStatisticFilterComponent,
 
     UserStatisticComponent,

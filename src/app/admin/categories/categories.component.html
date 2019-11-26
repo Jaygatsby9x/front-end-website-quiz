@@ -8,7 +8,7 @@
           </div>
           <div class="card-body">
             <div class="table-responsive">
-              <button class="btn btn-primary btn-sm mb-2" routerLink="create">Thêm danh mục</button>
+              <button *ngIf="authorization.canCreate()" class="btn btn-primary btn-sm mb-2" routerLink="create">Thêm danh mục</button>
               <table class="table">
                 <thead class=" text-primary">
                 <th>STT</th>
@@ -22,7 +22,7 @@
                   <td>{{category.name}}</td>
                   <td><img *ngIf="category.image" style="max-width: 200px" [attr.src]=" 'http://localhost:8000/api/' + category.image" alt=""></td>
                   <td>
-                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                    <button *ngIf="authorization.canDelete()" type="button" class="btn btn-danger btn-sm" data-toggle="modal"
                             data-target="#exampleModal +"
                             [attr.data-target]="'#delete'+category.id"
                     >

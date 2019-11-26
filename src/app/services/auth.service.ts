@@ -26,10 +26,26 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem('currentToken');
+    this.removeRole();
   }
+
   setToken(token) {
     this.logout();
     localStorage.setItem('currentToken', token);
+  }
+
+  getRole() {
+    const role = localStorage.getItem('role');
+    return (role) ? JSON.parse(role) : null;
+  }
+
+  setRole(role) {
+    role = JSON.stringify(role);
+    localStorage.setItem('role', role);
+  }
+
+  removeRole() {
+    localStorage.removeItem('role');
   }
 
   getToken(): string | boolean {
@@ -49,13 +65,22 @@ export class AuthService {
   isLogin() {
     return (this.getToken()) ? this.getToken() : null;
   }
+
   setApiUrl() {
     this.apiUrl = env.apiUrl;
   }
+
   getAll() {
     const headers = this.getHeader();
     return this.http.get(this.apiUrl + '/users', {headers});
   }
+
+  isAdmin() {
+    const role = this.getRole();
+    const index = ['admin', 'manager'].indexOf(role.slug);
+    return index !== -1;
+  }
+
   changePassWord(data) {
     const headers = this.getHeader();
     return this.http.post(this.apiUrl + '/users/change-password', data, {headers});

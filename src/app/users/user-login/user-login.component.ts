@@ -31,6 +31,7 @@ export class UserLoginComponent implements OnInit {
     const data = this.form.value;
     this.authService.login(data).subscribe((response: IResponse) => {
       this.authService.setToken(response.token);
+      this.authService.setRole(response.role);
       this.router.navigate(['/']);
     }, error => {
       this.message = error.error.error;
