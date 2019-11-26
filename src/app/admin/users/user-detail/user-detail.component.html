@@ -1,66 +1,30 @@
-
-
 <div class="text-center"><h1></h1></div>
 <div>.</div>
 
 <div class="card">
   <h5 class="card-header">Người Làm: <span><strong> {{user.name}}</strong></span></h5>
   <div class="card-body">
-    <div class="float-md-right filter">
+    <div class="float-md-right ">
       <div id="main">
         <div class="container">
-          <div class="circlecheck float-left">
-            <input type="radio" id="f-option" class="circle-1 mr-1" name="selector" >
-            <label for="f-option">Làm gần đây nhất</label>
+          <div class="filter">
+            <div class="circlecheck float-left">
+              <input type="radio" id="f-option" class="circle-1 mr-1" name="selector"
+                     routerLink="statistic-time">
+              <label for="f-option">Làm gần đây nhất</label>
 
-            <div class="outer-circle"></div>
-          </div>
-          <div class="circlecheck float-left ml-3 ">
-            <input type="radio" id="g-option" class="circle-2 mr-1" name="selector">
-            <label for="g-option">Điểm số cao nhất</label>
+              <div class="outer-circle"></div>
+            </div>
+            <div class="circlecheck float-left ml-3 ">
+              <input type="radio" id="g-option" class="circle-2 mr-1" name="selector" routerLink="statistic-filter">
+              <label for="g-option">Điểm số cao nhất</label>
 
-            <div class="outer-circle"></div>
+              <div class="outer-circle"></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="table-responsive">
-      <div class="row col-12 center">
-
-      <div class="col-5">
-        <table class="table table-sm">
-          <thead class="text-primary">
-          <tr>
-            <th scope="col">Stt</th>
-            <th scope="col">Quiz List</th>
-          </tr>
-          </thead>
-          <tbody>
-
-          <tr *ngFor="let quiz of quizs ; let i = index">
-            <td>{{i + 1}}</td>
-            <td>{{quiz.name}}</td>
-          </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="col-6 point">
-        <table class="table table-sm">
-          <thead class="text-primary">
-          <tr>
-            <th scope="col">Point</th>
-          </tr>
-          </thead>
-          <tbody>
-
-          <tr *ngFor="let point of points">
-            <td>{{point.point}}</td>
-          </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    </div>
+    <router-outlet></router-outlet>
   </div>
 </div>
