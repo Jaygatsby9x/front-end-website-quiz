@@ -1,0 +1,39 @@
+
+<div class="table-responsive">
+  <div class="row col-10 center">
+
+    <div class="col-5">
+      <table class="table table-sm">
+        <thead class="text-primary">
+        <tr>
+          <th scope="col">Stt</th>
+          <th scope="col">Quiz List</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr *ngFor="let quiz of quizs ; let i = index">
+          <td>{{i + 1}}</td>
+          <td>{{quiz.name}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-3 point">
+      <table class="table table-sm">
+        <thead class="text-primary">
+        <tr>
+          <th scope="col">Point</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr *ngFor="let point of points">
+          <td>{{point.point}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

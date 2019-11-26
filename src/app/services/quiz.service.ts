@@ -7,7 +7,7 @@ import {AuthService} from './auth.service';
   providedIn: 'root'
 })
 export class QuizService {
-
+  userId;
   apiUrl: string;
   headers: HttpHeaders;
 
@@ -15,6 +15,10 @@ export class QuizService {
     this.setApiUrl();
     this.setHeaders();
     this.getAll();
+  }
+
+  setID(id) {
+    this.userId = id;
   }
 
   setApiUrl() {
@@ -52,13 +56,28 @@ export class QuizService {
   submitResult(data: any) {
     return this.httpClient.post(this.apiUrl + '/quiz-test/point/create', data, {headers: this.headers});
   }
+
   getResult(id) {
     return this.httpClient.get(this.apiUrl + '/quiz-test/point/' + id, {headers: this.headers});
   }
+
   getByUserID(id: string) {
-    return this.httpClient.get(this.apiUrl + '/users/' + id , {headers: this.headers} );
+    return this.httpClient.get(this.apiUrl + '/users/' + id, {headers: this.headers});
   }
+
   getUserByQuizId(id: string) {
     return this.httpClient.get(this.apiUrl + '/quiz-test/' + id + '/point', {headers: this.headers});
+  }
+
+  getPointsMax(id) {
+    return this.httpClient.get(this.apiUrl + '/points/' + id + '/user', {headers: this.headers});
+  }
+
+  getPointsByTime(id) {
+    return this.httpClient.get(this.apiUrl + '/points/' + id + '/time', {headers: this.headers});
+  }
+
+  getID() {
+    return this.userId;
   }
 }
