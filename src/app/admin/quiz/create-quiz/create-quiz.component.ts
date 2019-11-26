@@ -69,6 +69,10 @@ export class CreateQuizComponent implements OnInit {
     this.quizService.create(this.form.value).subscribe(
       (response: IResponse) => {
         this.router.navigate(['/admin/dashboard/quiz']);
+      }, error => {
+        if (error.status === 403) {
+          this.router.navigate(['/']);
+        }
       });
   }
 }

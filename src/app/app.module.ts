@@ -41,6 +41,7 @@ import { UsersComponent } from './admin/users/users.component';
 import { QuizStatisticComponent } from './admin/quiz-statistic/quiz-statistic.component';
 import { UserDetailComponent } from './admin/users/user-detail/user-detail.component';
 import { QuizDetailStComponent } from './admin/quiz-statistic/quiz-detail-st/quiz-detail-st.component';
+import { ForbidenComponent } from './forbiden/forbiden.component';
 
 
 
@@ -86,6 +87,8 @@ import { QuizDetailStComponent } from './admin/quiz-statistic/quiz-detail-st/qui
     UserDetailComponent,
 
     QuizDetailStComponent,
+
+    ForbidenComponent,
 
   ],
   imports: [

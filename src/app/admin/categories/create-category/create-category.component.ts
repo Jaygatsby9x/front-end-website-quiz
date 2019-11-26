@@ -37,7 +37,9 @@ export class CreateCategoryComponent implements OnInit {
       }
     }, error => {
       this.validators = error.error.errors;
-      console.log(error);
+      if (error.status === 403) {
+        this.router.navigate(['/']);
+      }
     });
   }
 
