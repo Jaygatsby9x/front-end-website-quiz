@@ -33,6 +33,7 @@ export class AuthService {
     this.logout();
     localStorage.setItem('currentToken', token);
   }
+
   getRole() {
     const role = localStorage.getItem('role');
     return (role) ? JSON.parse(role) : null;
@@ -42,6 +43,7 @@ export class AuthService {
     role = JSON.stringify(role);
     localStorage.setItem('role', role);
   }
+
   removeRole() {
     localStorage.removeItem('role');
   }
@@ -72,15 +74,15 @@ export class AuthService {
     const headers = this.getHeader();
     return this.http.get(this.apiUrl + '/users', {headers});
   }
-<<<<<<< HEAD
+
   isAdmin() {
     const role = this.getRole();
     const index = ['admin', 'manager'].indexOf(role.slug);
     return index !== -1;
-=======
+  }
+
   changePassWord(data) {
     const headers = this.getHeader();
     return this.http.post(this.apiUrl + '/users/change-password', data, {headers});
->>>>>>> 70fdfdd3481b2a282c1b97551ee35a71a8185d23
   }
 }
