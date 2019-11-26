@@ -15,4 +15,8 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
   }
 
+  authLogout() {
+    this.auth.logout();
+    this.router.navigate(['']);
+  }
 }
