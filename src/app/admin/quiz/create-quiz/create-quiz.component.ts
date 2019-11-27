@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, OnChanges} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {AskService} from '../../../services/ask.service';
 import {IAsk} from '../../../interfaces/iask';
@@ -14,11 +14,14 @@ import {ICategory} from '../../../interfaces/icategory';
   styleUrls: ['./create-quiz.component.css']
 })
 export class CreateQuizComponent implements OnInit {
-  categories: ICategory[] = [];
-  form: FormGroup;
-  asks: IAsk[];
-  chooseAsk: IAsk[] = [];
-  p = 1;
+  protected categories: ICategory[] = [];
+  protected form: FormGroup;
+  protected asks: IAsk[];
+  protected searchedAsk: IAsk[];
+  protected chooseAsk: IAsk[] = [];
+  protected p = 1;
+  protected keyWord: string;
+  protected page = 1;
 
   constructor(private fb: FormBuilder,
               private askService: AskService,
@@ -37,32 +40,42 @@ export class CreateQuizComponent implements OnInit {
     this.getAllCategories();
   }
 
-  getAllAsk() {
+  public getAllAsk() {
     this.askService.getAll().subscribe((response: IResponse) => {
       this.asks = response.data;
+      this.search();
     });
   }
 
-  getAllCategories() {
+  public getAllCategories() {
     this.categoryService.getAll().subscribe((response: IResponse) => {
       const responseCategories = response.data;
       this.categories = responseCategories;
     });
   }
 
-  addAskToQuiz(index) {
-    const asks = this.asks.splice(index, 1);
-    this.chooseAsk.push(asks[0]);
+  public addAskToQuiz(askId) {
+    const index = this.findIndexById(askId, this.asks);
+    const splicedAsks = this.asks.splice(index, 1);
     const askValue = this.form.controls.asks.value;
-    askValue.push(asks[0].id);
+    this.chooseAsk.push(splicedAsks[0]);
+    askValue.push(askId);
+    this.search();
   }
 
-  removeAskFromQuiz(index) {
+  removeAskFromQuiz(askId) {
+    const index = this.findIndexById(askId, this.chooseAsk);
     const asks = this.chooseAsk.splice(index, 1);
     const askValue = this.form.controls.asks.value;
     askValue.splice(index, 1);
     this.asks.push(asks[0]);
+    this.search();
+  }
 
+  findIndexById(id, arr) {
+    return arr.findIndex((item) => {
+      return item.id === id;
+    });
   }
 
   onSubmit() {
@@ -74,5 +87,15 @@ export class CreateQuizComponent implements OnInit {
           this.router.navigate(['/']);
         }
       });
+  }
+
+  search() {
+    if (!this.keyWord) {
+      this.searchedAsk = this.asks;
+    } else {
+      this.searchedAsk = this.asks.filter((ask) => {
+        return ask.content.indexOf(this.keyWord) !== -1;
+      });
+    }
   }
 }
