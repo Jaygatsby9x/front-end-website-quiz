@@ -98,7 +98,7 @@ import { UserStatisticFilterByTimeComponent } from './admin/users/user-statistic
     ReactiveFormsModule,
     HttpClientModule,
     NgxPaginationModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
