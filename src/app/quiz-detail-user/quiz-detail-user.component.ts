@@ -20,6 +20,7 @@ export class QuizDetailUserComponent implements OnInit {
   protected page = 1;
   protected currentUser: IUser;
   protected quiz;
+  seconds: number;
 
   constructor(private route: ActivatedRoute,
               private askService: AskService,
@@ -78,5 +79,8 @@ export class QuizDetailUserComponent implements OnInit {
 
   goBack() {
     window.history.back();
+  }
+  displayTimeElapsed() {
+    return Math.floor(this.seconds / 3600) + ':' + Math.floor(this.seconds / 60) + ':' + Math.floor(this.seconds % 60);
   }
 }
