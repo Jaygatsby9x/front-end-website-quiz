@@ -61,13 +61,11 @@ import { UserStatisticFilterByTimeComponent } from './admin/users/user-statistic
     CreateAskComponent,
     HomePageComponent,
     NavBarComponent,
-
     UserProfileComponent,
     UserResultTestsComponent,
     UserInfoComponent,
     UseEditComponent,
     UseChangePasswordComponent,
-
     QuizListComponent,
     QuizComponent,
     CreateQuizComponent,
@@ -78,23 +76,16 @@ import { UserStatisticFilterByTimeComponent } from './admin/users/user-statistic
     CategoriesComponent,
     CreateCategoryComponent,
     AskEditComponent,
-
     EditQuizComponent,
-
     NotfoundComponent,
     ResultQuizComponent,
     UsersComponent,
-
     QuizStatisticComponent,
-
     UserDetailComponent,
-
     QuizDetailStComponent,
     ForbidenComponent,
     UserStatisticFilterComponent,
-
     UserStatisticComponent,
-
     UserStatisticFilterByTimeComponent,
 
   ],
@@ -107,7 +98,7 @@ import { UserStatisticFilterByTimeComponent } from './admin/users/user-statistic
     ReactiveFormsModule,
     HttpClientModule,
     NgxPaginationModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -13,6 +13,7 @@ import {IValidators} from '../../interfaces/ivalidators';
 export class UseChangePasswordComponent implements OnInit {
   password: FormGroup;
   validators: IValidators = {};
+  protected message: string;
 
   constructor(private authService: AuthService,
               private fb: FormBuilder,
@@ -27,6 +28,8 @@ export class UseChangePasswordComponent implements OnInit {
   }
   changePassword() {
     this.authService.changePassWord(this.password.value).subscribe((response: IResponse) => {
+      this.message = response.message;
+      console.log(response);
       if (response.status) {
         this.authService.logout();
         this.router.navigate(['/login']);
