@@ -38,6 +38,7 @@ import {AuthorizationGuardGuard} from './authorization-guard.guard';
 import {UserStatisticComponent} from './admin/users/user-statistic/user-statistic.component';
 import {UserStatisticFilterComponent} from './admin/users/user-statistic-filter/user-statistic-filter.component';
 import {UserStatisticFilterByTimeComponent} from './admin/users/user-statistic-filter-by-time/user-statistic-filter-by-time.component';
+import {EditUserComponent} from "./admin/users/edit-user/edit-user.component";
 
 
 const routes: Routes = [
@@ -76,6 +77,7 @@ const routes: Routes = [
           {path: 'statistic-time', component: UserStatisticFilterByTimeComponent}
         ]
       },
+      {path: 'users/:id/edit', component: EditUserComponent},
       {path: 'quiz-statistic', component: QuizStatisticComponent},
       {path: 'quiz-statistic/:id', component: QuizDetailStComponent},
     ]

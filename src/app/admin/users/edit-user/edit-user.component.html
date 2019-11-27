@@ -1,0 +1,28 @@
+<div class="card m-3 mt-3">
+  <div class="card-header">
+    Trang chỉnh sủa thông tin người dùng
+  </div>
+  <div class="card-body">
+    <div class="col-5">
+      <form *ngIf="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="">Tên:</label>
+          <input type="text" formControlName="name" disabled class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="">Email:</label>
+          <input type="text" formControlName="email" disabled class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="">Chức vụ:</label><br>
+          <select class="btn btn-outline-primary" formControlName="role">
+            <option *ngFor="let role of roles" [value]="role.id">{{role.name}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary">Sửa</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
