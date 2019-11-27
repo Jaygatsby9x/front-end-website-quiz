@@ -20,10 +20,10 @@ export class QuizDetailUserComponent implements OnInit {
   private questions = [];
   protected page = 1;
   protected currentUser: IUser;
-  protected quiz;
   seconds: number;
   protected quiz: IQuiz = {};
   private alphabet = 'ABCDEFGHI';
+  timer;
 
   constructor(private route: ActivatedRoute,
               private askService: AskService,
@@ -81,8 +81,5 @@ export class QuizDetailUserComponent implements OnInit {
 
   goBack() {
     window.history.back();
-  }
-  displayTimeElapsed() {
-    return Math.floor(this.seconds / 3600) + ':' + Math.floor(this.seconds / 60) + ':' + Math.floor(this.seconds % 60);
   }
 }
