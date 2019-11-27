@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {AskService} from '../../services/ask.service';
 import {IAsk} from '../../interfaces/iask';
 import {IResponse} from '../../interfaces/iresponse';
-import {Router} from "@angular/router";
-import {AuthorizationService} from "../../services/authorization.service";
+import {Router} from '@angular/router';
+import {AuthorizationService} from '../../services/authorization.service';
 
 @Component({
   selector: 'app-ask',
@@ -13,6 +13,7 @@ import {AuthorizationService} from "../../services/authorization.service";
 export class AskComponent implements OnInit {
 
   asks: IAsk[] = [];
+  page = 1;
 
   constructor(protected askService: AskService,
               private router: Router,

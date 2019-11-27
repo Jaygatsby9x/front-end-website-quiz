@@ -22,11 +22,12 @@
           <span>{{question.name}}</span>
         </h3>
         <div class="row text-left options">
-          <div class="col-6" *ngFor="let answer of question.options">
+          <div class="col-6" *ngFor="let answer of question.options; let i =index">
             <div class="option">
-              <label (click)="onSelect(question, answer);"  class="font-weight-normal" [attr.for]="answer.id">
-                 <input [checked]="answer.selected" type="checkbox" [id]="answer.id" class="ng-untouched ng-pristine ng-valid">
-                 {{answer.name}};
+              <label (click)="onSelect(question, answer);" class="font-weight-normal" [attr.for]="answer.id">
+                <input [checked]="answer.selected" type="checkbox" [id]="answer.id"
+                       class="ng-untouched ng-pristine ng-valid">
+                {{alphabet[i]}}. {{answer.name}};
               </label>
             </div>
           </div>
@@ -36,11 +37,11 @@
     <ng-template #notData>
       Không có câu hỏi nào cho bài thi này!
     </ng-template>
-      <hr/>
-      <div class="text-center">
-        <pagination-controls (pageChange)="page = $event"></pagination-controls>
-        <!--        <pagination *ngIf="config.showPager" direction-links="false" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged()"></pagination>-->
-      </div>
+    <hr/>
+    <div class="text-center">
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
+      <!--        <pagination *ngIf="config.showPager" direction-links="false" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged()"></pagination>-->
+    </div>
 
     <div class="row text-center">
       <div class="col-4 cursor-pointer">
