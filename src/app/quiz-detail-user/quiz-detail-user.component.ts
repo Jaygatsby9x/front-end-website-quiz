@@ -20,8 +20,10 @@ export class QuizDetailUserComponent implements OnInit {
   private questions = [];
   protected page = 1;
   protected currentUser: IUser;
+  seconds: number;
   protected quiz: IQuiz = {};
   private alphabet = 'ABCDEFGHI';
+  timer;
 
   constructor(private route: ActivatedRoute,
               private askService: AskService,
