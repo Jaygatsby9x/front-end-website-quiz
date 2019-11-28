@@ -27,4 +27,9 @@ export class UserService {
     const headers = this.authService.getHeader();
     return this.client.post(this.apiUrl + '/users/' + id, formData, {headers});
   }
+
+  editInfo(data: any, id) {
+    const headers = this.authService.getHeader();
+    return this.client.put(this.apiUrl + '/users/' + id + '/edit-info', data, {headers});
+  }
 }

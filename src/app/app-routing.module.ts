@@ -42,7 +42,6 @@ import {EditCategoryComponent} from './admin/categories/edit-category/edit-categ
 import {EditUserComponent} from './admin/users/edit-user/edit-user.component';
 
 
-
 const routes: Routes = [
   {path: 'login', component: UserLoginComponent},
   {path: 'register', component: UserRegisterComponent},
@@ -75,7 +74,8 @@ const routes: Routes = [
       {path: 'users', component: UsersComponent},
       {
         path: 'users/:id', component: UserDetailComponent, children: [
-          {path: '', component: UserStatisticComponent},
+          {path: '', redirectTo: 'statistic', pathMatch: 'full'},
+          {path: 'statistic', component: UserStatisticComponent},
           {path: 'statistic-filter', component: UserStatisticFilterComponent},
           {path: 'statistic-time', component: UserStatisticFilterByTimeComponent}
         ]

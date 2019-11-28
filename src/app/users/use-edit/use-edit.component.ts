@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../services/auth.service';
 import {IResponse} from '../../interfaces/iresponse';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-use-edit',
@@ -10,8 +11,12 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 })
 export class UseEditComponent implements OnInit {
   formUser: FormGroup;
+  protected id;
+  protected message: string;
 
-  constructor(private auService: AuthService, private fb: FormBuilder) {
+  constructor(private auService: AuthService,
+              private fb: FormBuilder,
+              private userService: UserService) {
   }
 
   ngOnInit() {
@@ -19,7 +24,8 @@ export class UseEditComponent implements OnInit {
     this.formUser = this.fb.group({
       name: [''],
       email: [''],
-      age: [''],
+      old: [''],
+      gender: [''],
       address: [''],
       phone: [''],
     });
@@ -27,15 +33,26 @@ export class UseEditComponent implements OnInit {
 
   getInfoUser() {
     this.auService.getUser().subscribe((response: IResponse) => {
-      console.log(response.data);
       this.formUser.patchValue({
         name: response.data.name,
         email: response.data.email,
-        age: [18],
-        address: ['Hà Nội'],
-        phone: ['01689554471'],
+        old: response.data.old,
+        gender: response.data.gender,
+        address: response.data.address,
+        phone: response.data.phone,
       });
+      this.id = response.data.id;
     });
 
+  }
+
+  onSubmit() {
+    this.userService.editInfo(this.formUser.value, this.id).subscribe((response: IResponse) => {
+      if (response.status) {
+        this.message = response.message;
+      }
+    }, error => {
+      console.log(error);
+    });
   }
 }

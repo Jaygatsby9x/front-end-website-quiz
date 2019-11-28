@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, OnChanges, SimpleChanges} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AskService} from '../services/ask.service';
 import {IResponse} from '../interfaces/iresponse';
@@ -15,12 +15,11 @@ import {IQuiz} from '../interfaces/iquiz';
   styleUrls: ['./quiz-detail-user.component.css']
 })
 export class QuizDetailUserComponent implements OnInit {
-
   private id: string;
   private questions = [];
   protected page = 1;
   protected currentUser: IUser;
-  seconds: number;
+  seconds = 300;
   protected quiz: IQuiz = {};
   private alphabet = 'ABCDEFGHI';
   timer;
@@ -37,6 +36,7 @@ export class QuizDetailUserComponent implements OnInit {
     this.getId();
     this.getQuestions();
     this.getCurrentUser();
+    this.startTimer();
   }
 
   getId() {
@@ -81,5 +81,25 @@ export class QuizDetailUserComponent implements OnInit {
 
   goBack() {
     window.history.back();
+  }
+
+  displayTimeElapsed() {
+    return Math.floor(this.seconds / 60) + 'm: ' + Math.floor(this.seconds % 60) + 's';
+  }
+
+  startTimer() {
+    this.timer = setInterval(() => {
+      this.minusSecond();
+      localStorage.setItem('seconds', this.seconds.toString());
+    }, 1000);
+  }
+
+  minusSecond() {
+    if (this.seconds <= 0) {
+      clearInterval(this.timer);
+      this.onSubmit();
+    } else {
+      this.seconds--;
+    }
   }
 }
