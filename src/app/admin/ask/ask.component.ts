@@ -15,7 +15,7 @@ export class AskComponent implements OnInit {
   asks: IAsk[] = [];
   page = 1;
   protected keyWord: string;
-  protected searchedAsks: IAsk[];
+  protected searchedAsks: IAsk[] = [];
 
   constructor(protected askService: AskService,
               private router: Router,

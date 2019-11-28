@@ -1,54 +1,49 @@
-<div class="tab-pane">
-  <form [formGroup]="formUser">
+<div class="tab-pane ml-5">
+  <div class="col-md-6 alert alert-success" *ngIf="message">
+    *{{message}}
+  </div>
+  <form [formGroup]="formUser" (ngSubmit)="onSubmit()">
   <div class="form-group row">
-    <label class="col-lg-3 col-form-label form-control-label">Họ và Tên</label>
-    <div class="col-lg-9">
-      <input class="form-control" type="text" formControlName="name">
+    <mat-form-field class="col-md-6">
+      <input matInput placeholder="Họ và Tên" type="text" formControlName="name">
+    </mat-form-field>
+  </div>
+  <div class="form-group row">
+      <mat-form-field class="col-md-6">
+      <input disabled matInput type="email" placeholder="Email" formControlName="email" >
+      </mat-form-field>
+  </div>
+  <div class="form-group row">
+      <mat-form-field class="col-md-6">
+        <input matInput type="number" placeholder="Tuổi" formControlName="old">
+      </mat-form-field>
+  </div>
+  <div class="form-group row">
+    <label class="col-lg-7 col-form-label form-control-label">Giới Tính: </label>
+    <br>
+    <div class="col-lg-6">
+      <select formControlName="gender" id="" class="form-control">
+        <option value="">Giới tính</option>
+        <option>Nam</option>
+        <option>Nữ</option>
+      </select>
     </div>
   </div>
   <div class="form-group row">
-    <label class="col-lg-3 col-form-label form-control-label">Email</label>
-    <div class="col-lg-9">
-      <input disabled class="form-control" type="email" formControlName="email" >
-    </div>
-  </div>
-  <div class="form-group row">
-    <label class="col-lg-3 col-form-label form-control-label">Tuổi</label>
-    <div class="col-lg-9">
-      <input class="form-control" type="text" formControlName="age">
-    </div>
-  </div>
-  <div class="form-group row">
-    <label class="col-lg-3 col-form-label form-control-label">Giới Tính: </label>
-    <div class="col-lg-9">
-      <label>Nam
-        <input checked
-               name="gender" value="Nam" type="radio">
-      </label>
-      <label>Nữ
-        <input
-          name="gender" value="Nữ" type="radio">
-      </label>
-    </div>
-  </div>
-  <div class="form-group row">
-    <label class="col-lg-3 col-form-label form-control-label">Địa Chỉ </label>
-    <div class="col-lg-9">
-      <input class="form-control" type="text" formControlName="address">
-    </div>
+      <mat-form-field class="col-md-6">
+        <input matInput placeholder="Địa Chỉ " type="text" formControlName="address">
+      </mat-form-field>
   </div>
 
   <div class="form-group row">
-    <label class="col-lg-3 col-form-label form-control-label">Số Điện Thoại</label>
-    <div class="col-lg-9">
-      <input class="form-control" type="text" formControlName="phone">
-    </div>
+      <mat-form-field class="col-md-6">
+        <input matInput type="text" placeholder="Số Điện Thoại" formControlName="phone">
+      </mat-form-field>
   </div>
 
   <div class="form-group row">
-    <label class="col-lg-3 col-form-label form-control-label"></label>
     <div class="col-lg-9">
-      <input type="button" class="btn btn-primary" value="Lưu Thay Đổi">
+      <input type="submit" class="btn btn-primary" value="Lưu Thay Đổi">
     </div>
   </div>
   </form>

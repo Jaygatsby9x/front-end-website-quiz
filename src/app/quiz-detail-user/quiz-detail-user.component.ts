@@ -54,7 +54,6 @@ export class QuizDetailUserComponent implements OnInit, OnDestroy {
   }
 
   onSelect(question: any, option: any) {
-    console.log(question);
     option.selected = (option.selected) ? 0 : 1;
   }
 
