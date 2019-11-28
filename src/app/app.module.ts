@@ -45,9 +45,13 @@ import { ForbidenComponent } from './forbiden/forbiden.component';
 import { UserStatisticFilterComponent } from './admin/users/user-statistic-filter/user-statistic-filter.component';
 import { UserStatisticComponent } from './admin/users/user-statistic/user-statistic.component';
 import { UserStatisticFilterByTimeComponent } from './admin/users/user-statistic-filter-by-time/user-statistic-filter-by-time.component';
+
+import { EditCategoryComponent } from './admin/categories/edit-category/edit-category.component';
+
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatOptionModule} from '@angular/material/core';
 import { EditUserComponent } from './admin/users/edit-user/edit-user.component';
+
 
 
 
@@ -91,6 +95,8 @@ import { EditUserComponent } from './admin/users/edit-user/edit-user.component';
     UserStatisticComponent,
     UserStatisticFilterByTimeComponent,
     EditUserComponent,
+
+    EditCategoryComponent,
 
   ],
   imports: [
