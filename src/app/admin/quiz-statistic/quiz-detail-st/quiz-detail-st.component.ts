@@ -15,7 +15,7 @@ import {IResponse} from '../../../interfaces/iresponse';
 export class QuizDetailStComponent implements OnInit {
   quiz: IQuiz;
   users: IUser[];
-  points: Ipoint[];
+  points: Ipoint[] = [];
   protected id: string;
 
   constructor(private quizService: QuizService, private userService: AuthService, private route: ActivatedRoute) { }

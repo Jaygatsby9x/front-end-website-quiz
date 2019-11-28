@@ -12,7 +12,7 @@
         </thead>
         <tbody>
 
-        <tr *ngFor="let quiz of quizs ; let i = index">
+        <tr *ngFor="let quiz of quizs | paginate: { itemsPerPage: 5, currentPage: p }; let i = index">
           <td>{{i + 1}}</td>
           <td>{{quiz.name}}</td>
         </tr>
@@ -28,12 +28,13 @@
         </thead>
         <tbody>
 
-        <tr *ngFor="let point of points">
+        <tr *ngFor="let point of points | paginate: { itemsPerPage: 5, currentPage: p }">
           <td>{{point.point}}</td>
         </tr>
         </tbody>
       </table>
     </div>
   </div>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
 </div>

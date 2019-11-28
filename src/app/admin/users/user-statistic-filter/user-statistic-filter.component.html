@@ -1,4 +1,3 @@
-
 <div class="table-responsive">
   <div class="row col-10 center">
 
@@ -12,7 +11,7 @@
         </thead>
         <tbody>
 
-        <tr *ngFor="let data of points ; let i = index">
+        <tr *ngFor="let data of points | paginate: { itemsPerPage: 5, currentPage: p }; let i = index">
           <td>{{i + 1}}</td>
           <td>{{data.quiz.name}}</td>
         </tr>
@@ -28,12 +27,13 @@
         </thead>
         <tbody>
 
-        <tr *ngFor="let point of points">
+        <tr *ngFor="let point of points | paginate: { itemsPerPage: 5, currentPage: p }">
           <td>{{point.point}}</td>
         </tr>
         </tbody>
       </table>
     </div>
   </div>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
 </div>

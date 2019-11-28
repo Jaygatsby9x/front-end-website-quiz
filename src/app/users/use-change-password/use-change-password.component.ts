@@ -4,7 +4,7 @@ import {IResponse} from '../../interfaces/iresponse';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
 import {IValidators} from '../../interfaces/ivalidators';
-import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-use-change-password',
@@ -18,7 +18,7 @@ export class UseChangePasswordComponent implements OnInit {
 
   constructor(private authService: AuthService,
               private fb: FormBuilder,
-              private router: Router, private toastrService: ToastrService) {
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -27,11 +27,10 @@ export class UseChangePasswordComponent implements OnInit {
       newPassword: [''],
       passwordConfirm: ['']
     });
-    this.toastrService.success('success', 'oke');
   }
 
   changePassword() {
-      this.authService.changePassWord(this.password.value).subscribe((response: IResponse) => {
+    this.authService.changePassWord(this.password.value).subscribe((response: IResponse) => {
       this.message = response.message;
       console.log(response);
       if (response.status) {
