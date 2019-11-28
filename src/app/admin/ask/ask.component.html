@@ -8,7 +8,10 @@
           </div>
           <div class="card-body">
             <div class="table-responsive">
-              <button *ngIf="authorization.canCreate()" class="btn btn-primary btn-sm mb-2" routerLink="/admin/dashboard/ask/create">Create</button>
+              <button class="col-md-7" *ngIf="authorization.canCreate()" class="btn btn-primary btn-sm mb-2" routerLink="/admin/dashboard/ask/create">Create</button>
+              <mat-form-field class="col-md-5 ml-5 " style="position: relative; left: 0">
+                <input  class="col-md-5" type="text" placeholder="Tìm kiếm câu hỏi" [(ngModel)]="keyWord" (ngModelChange)="search()" matInput>
+              </mat-form-field>
               <table class="table col-form-label">
                 <thead class=" text-primary">
                 <th>STT</th>
@@ -17,7 +20,7 @@
                 <th></th>
                 </thead>
                 <tbody *ngIf="asks.length>0;else notdata">
-                <tr *ngFor="let ask of asks | paginate : {currentPage: page, itemsPerPage: 10} ; let i = index">
+                <tr *ngFor="let ask of searchedAsks | paginate : {currentPage: page, itemsPerPage: 10} ; let i = index">
                   <td style="width: 5px">{{i + 1}}</td>
                   <td class="content-ask"><a [routerLink]="['/admin/dashboard/ask/details',ask.id]">{{ask.content}}</a></td>
                   <td>NONE</td>
