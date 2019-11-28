@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {environment as env} from '../../../environments/environment';
 import {QuizService} from '../../services/quiz.service';
 import {IResponse} from '../../interfaces/iresponse';
+import {AuthorizationService} from '../../services/authorization.service';
 
 @Component({
   selector: 'app-quiz',
@@ -12,7 +13,8 @@ export class QuizComponent implements OnInit {
 
   quizs = [];
 
-  constructor(private quizService: QuizService) {
+  constructor(private quizService: QuizService,
+              protected authorization: AuthorizationService) {
   }
 
   ngOnInit() {

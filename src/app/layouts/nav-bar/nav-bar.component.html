@@ -43,7 +43,7 @@
           </span>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" routerLink="/user" >Thông ti cá nhân</a>
-          <a class="dropdown-item" routerLink="/admin/dashboard/overview" >Trang quản lí</a>
+          <a *ngIf="auth.isAdmin()" class="dropdown-item" routerLink="/admin/dashboard/overview" >Trang quản lí</a>
           <a class="dropdown-item" (click)="authLogout()">Đăng xuất</a>
         </div>
       </div>

@@ -36,6 +36,9 @@ export class CreateAskComponent implements OnInit {
     }, error => {
       const responseErrors = error.error.errors;
       this.errors = responseErrors;
+      if (error.status === 403) {
+        this.route.navigate(['/forbidden']);
+      }
     });
   }
 

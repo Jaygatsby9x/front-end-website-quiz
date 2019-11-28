@@ -33,6 +33,12 @@ import {UsersComponent} from './admin/users/users.component';
 import {QuizStatisticComponent} from './admin/quiz-statistic/quiz-statistic.component';
 import {UserDetailComponent} from './admin/users/user-detail/user-detail.component';
 import {QuizDetailStComponent} from './admin/quiz-statistic/quiz-detail-st/quiz-detail-st.component';
+import {ForbidenComponent} from './forbiden/forbiden.component';
+import {AuthorizationGuardGuard} from './authorization-guard.guard';
+import {UserStatisticComponent} from './admin/users/user-statistic/user-statistic.component';
+import {UserStatisticFilterComponent} from './admin/users/user-statistic-filter/user-statistic-filter.component';
+import {UserStatisticFilterByTimeComponent} from './admin/users/user-statistic-filter-by-time/user-statistic-filter-by-time.component';
+import {EditCategoryComponent} from './admin/categories/edit-category/edit-category.component';
 
 
 const routes: Routes = [
@@ -50,7 +56,7 @@ const routes: Routes = [
   },
   {
     path: 'admin/dashboard', component: DashboardComponent,
-    canActivateChild: [AuthGuardService],
+    canActivateChild: [AuthGuardService, AuthorizationGuardGuard],
     children: [
       {path: 'overview', component: OverviewComponent},
       {path: '', redirectTo: 'overview', pathMatch: 'full'},
@@ -63,8 +69,15 @@ const routes: Routes = [
       {path: 'quiz/:id/edit', component: EditQuizComponent},
       {path: 'categories', component: CategoriesComponent},
       {path: 'categories/create', component: CreateCategoryComponent},
-      {path: 'users' , component: UsersComponent},
-      {path: 'users/:id', component: UserDetailComponent},
+      {path: 'categories/:id/edit', component: EditCategoryComponent},
+      {path: 'users', component: UsersComponent},
+      {
+        path: 'users/:id', component: UserDetailComponent, children: [
+          {path: '', component: UserStatisticComponent},
+          {path: 'statistic-filter', component: UserStatisticFilterComponent},
+          {path: 'statistic-time', component: UserStatisticFilterByTimeComponent}
+        ]
+      },
       {path: 'quiz-statistic', component: QuizStatisticComponent},
       {path: 'quiz-statistic/:id', component: QuizDetailStComponent},
     ]
@@ -77,6 +90,7 @@ const routes: Routes = [
       {path: ':id', component: QuizDetailUserComponent},
       {path: ':id/result', component: ResultQuizComponent}]
   },
+  {path: 'forbidden', component: ForbidenComponent},
   {path: '**', component: NotfoundComponent}
 ];
 

@@ -99,7 +99,9 @@ export class EditQuizComponent implements OnInit {
       (response: IResponse) => {
         this.router.navigate(['/admin/dashboard/quiz']);
       }, error => {
-        console.log(error);
+        if (error.status === 403) {
+          this.router.navigate(['/']);
+        }
       });
   }
 

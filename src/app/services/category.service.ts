@@ -40,4 +40,8 @@ export class CategoryService {
   getById(id: string) {
     return this.http.get(this.apiUrl + '/categories/' + id, {headers: this.headers});
   }
+
+  update(data, id) {
+    return this.http.post(this.apiUrl + '/categories/' + id + '/update', data, {headers: this.headers});
+  }
 }

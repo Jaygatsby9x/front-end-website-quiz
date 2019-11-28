@@ -8,7 +8,7 @@
           </div>
           <div class="card-body">
             <div class="table-responsive">
-              <button class="btn btn-primary btn-sm mb-2" routerLink="create">Thêm bài quiz mới</button>
+              <button *ngIf="authorization.canCreate()" class="btn btn-primary btn-sm mb-2" routerLink="create">Thêm bài quiz mới</button>
               <table class="table">
                 <thead class=" text-primary">
                 <th>STT</th>
@@ -20,10 +20,10 @@
                   <td>{{i + 1}}</td>
                   <td><a  >{{quiz.name}}</a></td>
                   <td>
-                    <button class="btn btn-primary btn-sm mr-3" [routerLink]="[quiz.id,'edit']"><i class=" fa fa-edit"></i></button>
+                    <button *ngIf="authorization.canEditor()" class="btn btn-primary btn-sm mr-3" [routerLink]="[quiz.id,'edit']"><i class=" fa fa-edit"></i></button>
                     <!-- Button trigger model -->
 
-                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                    <button *ngIf="authorization.canDelete()" type="button" class="btn btn-danger btn-sm" data-toggle="modal"
                             data-target="#exampleModal +"
                             [attr.data-target]="'#exampleModal'+quiz.id"
                     >
