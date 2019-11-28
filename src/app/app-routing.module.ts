@@ -38,6 +38,7 @@ import {AuthorizationGuardGuard} from './authorization-guard.guard';
 import {UserStatisticComponent} from './admin/users/user-statistic/user-statistic.component';
 import {UserStatisticFilterComponent} from './admin/users/user-statistic-filter/user-statistic-filter.component';
 import {UserStatisticFilterByTimeComponent} from './admin/users/user-statistic-filter-by-time/user-statistic-filter-by-time.component';
+import {EditCategoryComponent} from './admin/categories/edit-category/edit-category.component';
 import {EditUserComponent} from './admin/users/edit-user/edit-user.component';
 
 
@@ -69,6 +70,7 @@ const routes: Routes = [
       {path: 'quiz/:id/edit', component: EditQuizComponent},
       {path: 'categories', component: CategoriesComponent},
       {path: 'categories/create', component: CreateCategoryComponent},
+      {path: 'categories/:id/edit', component: EditCategoryComponent},
       {path: 'users', component: UsersComponent},
       {
         path: 'users/:id', component: UserDetailComponent, children: [

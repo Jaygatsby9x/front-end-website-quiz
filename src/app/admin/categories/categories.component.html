@@ -22,6 +22,7 @@
                   <td>{{category.name}}</td>
                   <td><img *ngIf="category.image" style="max-width: 200px" [attr.src]=" 'http://localhost:8000/api/' + category.image" alt=""></td>
                   <td>
+                    <button *ngIf="authorization.canEditor()" class="btn btn-primary btn-sm mr-3" [routerLink]="[category.id,'edit']"><i class=" fa fa-edit"></i></button>
                     <button *ngIf="authorization.canDelete()" type="button" class="btn btn-danger btn-sm" data-toggle="modal"
                             data-target="#exampleModal +"
                             [attr.data-target]="'#delete'+category.id"
