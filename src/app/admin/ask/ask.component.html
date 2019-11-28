@@ -19,7 +19,7 @@
                 <th>Quiz</th>
                 <th></th>
                 </thead>
-                <tbody *ngIf="asks.length>0;else notdata">
+                <tbody *ngIf="searchedAsks.length>0;else notdata">
                 <tr *ngFor="let ask of searchedAsks | paginate : {currentPage: page, itemsPerPage: 10} ; let i = index">
                   <td style="width: 5px">{{i + 1}}</td>
                   <td class="content-ask"><a [routerLink]="['/admin/dashboard/ask/details',ask.id]">{{ask.content}}</a></td>

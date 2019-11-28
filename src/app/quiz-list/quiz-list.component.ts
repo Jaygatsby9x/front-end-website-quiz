@@ -29,11 +29,8 @@ export class QuizListComponent implements OnInit {
   getQuizById() {
     this.quizService.getByCategoryID(this.id).subscribe((
       response: IResponse) => {
-
-      console.log(response);
       this.quizs = response.data;
       this.category = response.category;
-
       this.quizs = response.data;
       this.category = response.category;
     }, error => {
