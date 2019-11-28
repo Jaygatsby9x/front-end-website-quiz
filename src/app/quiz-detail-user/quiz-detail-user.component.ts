@@ -7,6 +7,7 @@ import {Option, Question} from './models';
 import {QuizService} from '../services/quiz.service';
 import {IUser} from '../interfaces/iuser';
 import {AuthService} from '../services/auth.service';
+import {IQuiz} from '../interfaces/iquiz';
 
 @Component({
   selector: 'app-quiz-detail-user',
@@ -19,7 +20,10 @@ export class QuizDetailUserComponent implements OnInit {
   private questions = [];
   protected page = 1;
   protected currentUser: IUser;
-  protected quiz;
+  seconds: number;
+  protected quiz: IQuiz = {};
+  private alphabet = 'ABCDEFGHI';
+  timer;
 
   constructor(private route: ActivatedRoute,
               private askService: AskService,
@@ -42,7 +46,6 @@ export class QuizDetailUserComponent implements OnInit {
   getQuestions() {
     this.askService.getByQuizId(this.id).subscribe((response: IResponse) => {
       const questions = response.data;
-      console.log(response);
       this.quiz = response.quiz;
       $.each(questions, (i, question) => {
         this.questions.push(new Question(question.ask));
@@ -51,6 +54,7 @@ export class QuizDetailUserComponent implements OnInit {
   }
 
   onSelect(question: any, option: any) {
+    console.log(question);
     option.selected = (option.selected) ? 0 : 1;
   }
 

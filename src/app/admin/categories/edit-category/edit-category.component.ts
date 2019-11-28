@@ -1,26 +1,54 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
-import * as $ from 'jquery';
+import {ActivatedRoute, Router} from '@angular/router';
 import {CategoryService} from '../../../services/category.service';
+import {FormBuilder, FormGroup} from '@angular/forms';
 import {IResponse} from '../../../interfaces/iresponse';
-import {Router} from '@angular/router';
+import * as $ from 'jquery';
 import {IValidators} from '../../../interfaces/ivalidators';
 
 @Component({
-  selector: 'app-create-category',
-  templateUrl: './create-category.component.html',
-  styleUrls: ['./create-category.component.css']
+  selector: 'app-edit-category',
+  templateUrl: './edit-category.component.html',
+  styleUrls: ['./edit-category.component.css']
 })
-export class CreateCategoryComponent implements OnInit {
+export class EditCategoryComponent implements OnInit {
+  id;
   form: FormGroup;
   image: any;
   validators: IValidators = {};
+  category;
 
-  constructor(private fb: FormBuilder, private categoryService: CategoryService, private router: Router) {
+  constructor(private routeMap: ActivatedRoute, private categoryService: CategoryService, private fb: FormBuilder, private router: Router) {
   }
 
   ngOnInit() {
+    this.id = this.routeMap.snapshot.paramMap.get('id');
     this.initFormGroup();
+    this.getByID();
+  }
+
+  getByID() {
+    this.categoryService.getById(this.id).subscribe((response: IResponse) => {
+      console.log(response.category);
+      this.category = response.category;
+      this.form.patchValue({
+        name: [response.category.name]
+      });
+    });
+  }
+
+  onSubmit() {
+    const formData = this.initFormData();
+    this.categoryService.update(formData, this.id).subscribe((response: IResponse) => {
+      if (response.status === 'success') {
+        this.router.navigate(['/admin/dashboard/categories']);
+      }
+    }, error => {
+      this.validators = error.error.errors;
+      if (error.status === 403) {
+        this.router.navigate(['/forbidden']);
+      }
+    });
   }
 
   initFormGroup() {
@@ -29,19 +57,6 @@ export class CreateCategoryComponent implements OnInit {
     });
   }
 
-  onSubmit() {
-    const formData = this.initFormData();
-    this.categoryService.create(formData).subscribe((response: IResponse) => {
-      if (response.status === 'success') {
-        this.router.navigate(['/admin/dashboard/categories']);
-      }
-    }, error => {
-      this.validators = error.error.errors;
-      if (error.status === 403) {
-        this.router.navigate(['/']);
-      }
-    });
-  }
 
   initFormData() {
     const formData = new FormData();

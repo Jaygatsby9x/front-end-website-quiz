@@ -38,3 +38,9 @@
     padding: 6px;
   }
 }
+
+.time {
+  position: relative;
+  left: 850px;
+  top: 15px;
+}

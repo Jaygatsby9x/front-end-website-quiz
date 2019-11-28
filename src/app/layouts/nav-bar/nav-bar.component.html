@@ -24,10 +24,10 @@
     </div>
 
     <!-- Main Navigation -->
-    <nav class="main_nav_container">
+    <nav class="main_nav_container" style="background-color: white; box-shadow: none">
       <div class="main_nav">
         <ul class="main_nav_list">
-          <li class="main_nav_item"><a routerLink="">Trang Chủ</a></li>
+          <li class="main_nav_item " ><a routerLink="">Trang Chủ</a></li>
           <li class="main_nav_item"><a routerLink="/categories">Thư Mục</a></li>
           <li class="main_nav_item"><a routerLink="/quiz-list">Về Chúng Tôi</a></li>
           <li class="main_nav_item"><a routerLink="/contact">Liên Hệ</a></li>
@@ -43,13 +43,13 @@
           </span>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" routerLink="/user" >Thông ti cá nhân</a>
-          <a class="dropdown-item" routerLink="/admin/dashboard/overview" >Trang quản lí</a>
+          <a *ngIf="auth.isAdmin()" class="dropdown-item" routerLink="/admin/dashboard/overview" >Trang quản lí</a>
           <a class="dropdown-item" (click)="authLogout()">Đăng xuất</a>
         </div>
       </div>
     </div>
     <ng-template #login>
-      <span style="cursor: pointer;color: black" routerLink="/login" >Login</span><span>/</span><span style="cursor: pointer;color: black" routerLink="/register">Đăng kí</span>
+      <span style="cursor: pointer;color: black" routerLink="/login" >Đăng nhập</span><span>/</span><span style="cursor: pointer;color: black" routerLink="/register">Đăng kí</span>
     </ng-template>
   </div>
 

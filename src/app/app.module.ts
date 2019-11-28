@@ -41,9 +41,17 @@ import { UsersComponent } from './admin/users/users.component';
 import { QuizStatisticComponent } from './admin/quiz-statistic/quiz-statistic.component';
 import { UserDetailComponent } from './admin/users/user-detail/user-detail.component';
 import { QuizDetailStComponent } from './admin/quiz-statistic/quiz-detail-st/quiz-detail-st.component';
+import { ForbidenComponent } from './forbiden/forbiden.component';
 import { UserStatisticFilterComponent } from './admin/users/user-statistic-filter/user-statistic-filter.component';
 import { UserStatisticComponent } from './admin/users/user-statistic/user-statistic.component';
 import { UserStatisticFilterByTimeComponent } from './admin/users/user-statistic-filter-by-time/user-statistic-filter-by-time.component';
+
+import { EditCategoryComponent } from './admin/categories/edit-category/edit-category.component';
+
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatOptionModule} from '@angular/material/core';
+import { EditUserComponent } from './admin/users/edit-user/edit-user.component';
+
 
 
 
@@ -60,13 +68,11 @@ import { UserStatisticFilterByTimeComponent } from './admin/users/user-statistic
     CreateAskComponent,
     HomePageComponent,
     NavBarComponent,
-
     UserProfileComponent,
     UserResultTestsComponent,
     UserInfoComponent,
     UseEditComponent,
     UseChangePasswordComponent,
-
     QuizListComponent,
     QuizComponent,
     CreateQuizComponent,
@@ -77,24 +83,20 @@ import { UserStatisticFilterByTimeComponent } from './admin/users/user-statistic
     CategoriesComponent,
     CreateCategoryComponent,
     AskEditComponent,
-
     EditQuizComponent,
-
     NotfoundComponent,
     ResultQuizComponent,
     UsersComponent,
-
     QuizStatisticComponent,
-
     UserDetailComponent,
-
     QuizDetailStComponent,
-
+    ForbidenComponent,
     UserStatisticFilterComponent,
-
     UserStatisticComponent,
-
     UserStatisticFilterByTimeComponent,
+    EditUserComponent,
+
+    EditCategoryComponent,
 
   ],
   imports: [
@@ -106,7 +108,9 @@ import { UserStatisticFilterByTimeComponent } from './admin/users/user-statistic
     ReactiveFormsModule,
     HttpClientModule,
     NgxPaginationModule,
-    FormsModule
+    FormsModule,
+    MatAutocompleteModule,
+    MatOptionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
