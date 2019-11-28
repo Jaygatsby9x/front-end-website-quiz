@@ -53,7 +53,8 @@
     <hr/>
     <div class="text-center">
       <pagination-controls (pageChange)="page = $event"></pagination-controls>
-      <!--        <pagination *ngIf="config.showPager" direction-links="false" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged()"></pagination>-->
+      <a (click)="goBack()" style="cursor: pointer"><i class="material-icons">replay</i>back</a>
+
     </div>
 
     <div class="row text-center">
@@ -62,7 +63,6 @@
       <button *ngIf="page == questions.length" (click)="onSubmit()" class="btn btn-primary">Submit Quiz</button>
     </div>
   </div>
-  <a (click)="goBack()" style="cursor: pointer"> <<< Quay lại trang trước</a>
 </div>
 </body>
 </html>
