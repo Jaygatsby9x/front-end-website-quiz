@@ -110,7 +110,7 @@ import { EditUserComponent } from './admin/users/edit-user/edit-user.component';
     NgxPaginationModule,
     FormsModule,
     MatAutocompleteModule,
-    MatOptionModule
+    MatOptionModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

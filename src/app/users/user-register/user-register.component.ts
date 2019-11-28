@@ -30,6 +30,7 @@ export class UserRegisterComponent implements OnInit {
     const data = this.form.value;
     this.authService.register(data).subscribe((response: IResponse) => {
       localStorage.setItem('currentToken', response.token);
+      this.authService.setRole(response.role);
       this.router.navigate(['/']);
     }, error => {
       this.validators = error.error.errors;

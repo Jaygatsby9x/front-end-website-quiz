@@ -14,6 +14,8 @@ export class AskComponent implements OnInit {
 
   asks: IAsk[] = [];
   page = 1;
+  protected keyWord: string;
+  protected searchedAsks: IAsk[];
 
   constructor(protected askService: AskService,
               private router: Router,
@@ -28,6 +30,7 @@ export class AskComponent implements OnInit {
     this.askService.getAll().subscribe((response: IResponse) => {
       if (response.data) {
         this.asks = response.data;
+        this.search();
       }
     }, error => {
       console.log(error);
@@ -42,5 +45,15 @@ export class AskComponent implements OnInit {
         this.router.navigate(['/forbidden']);
       }
     });
+  }
+
+  search() {
+    if (!this.keyWord) {
+      this.searchedAsks = this.asks;
+    } else {
+      this.searchedAsks = this.asks.filter((ask) => {
+        return ask.content.indexOf(this.keyWord) !== -1;
+      });
+    }
   }
 }

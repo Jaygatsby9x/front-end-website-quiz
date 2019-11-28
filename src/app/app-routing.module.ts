@@ -74,7 +74,8 @@ const routes: Routes = [
       {path: 'users', component: UsersComponent},
       {
         path: 'users/:id', component: UserDetailComponent, children: [
-          {path: '', component: UserStatisticComponent},
+          {path: '', redirectTo: 'statistic', pathMatch: 'full'},
+          {path: 'statistic', component: UserStatisticComponent},
           {path: 'statistic-filter', component: UserStatisticFilterComponent},
           {path: 'statistic-time', component: UserStatisticFilterByTimeComponent}
         ]

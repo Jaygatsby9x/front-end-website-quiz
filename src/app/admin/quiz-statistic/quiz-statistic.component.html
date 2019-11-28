@@ -14,7 +14,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let quiz of quizs | paginate: { itemsPerPage: 3, currentPage: p }; let i = index">
+        <tr *ngFor="let quiz of quizs | paginate: { itemsPerPage: 5, currentPage: p }; let i = index">
           <th scope="row">{{i +1}}</th>
           <td>{{quiz.name}}</td>
           <td><a [routerLink]="['/admin/dashboard/quiz-statistic',quiz.id]">click</a></td>
