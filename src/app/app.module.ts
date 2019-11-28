@@ -48,6 +48,7 @@ import { UserStatisticFilterByTimeComponent } from './admin/users/user-statistic
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatOptionModule} from '@angular/material/core';
 import { EditUserComponent } from './admin/users/edit-user/edit-user.component';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -104,7 +105,8 @@ import { EditUserComponent } from './admin/users/edit-user/edit-user.component';
     NgxPaginationModule,
     FormsModule,
     MatAutocompleteModule,
-    MatOptionModule
+    MatOptionModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
