@@ -5,6 +5,7 @@ import {Ipoint} from '../../../interfaces/ipoint';
 import {ActivatedRoute} from '@angular/router';
 import {QuizService} from '../../../services/quiz.service';
 import {IResponse} from '../../../interfaces/iresponse';
+import {AuthService} from '../../../services/auth.service';
 
 @Component({
   selector: 'app-user-statistic',
@@ -15,17 +16,15 @@ export class UserStatisticComponent implements OnInit {
   user: IUser;
   quizs: IQuiz[];
   points: Ipoint[];
-  protected id: string;
 
-  constructor(private routerMap: ActivatedRoute, private quizService: QuizService) {
+  constructor(private authService: AuthService, private quizService: QuizService) {
   }
 
   ngOnInit() {
-    this.id = this.routerMap.snapshot.paramMap.get('id');
     this.getQuizByUserID();
   }
   getQuizByUserID() {
-    this.quizService.getByUserID(this.id).subscribe((response: IResponse) => {
+    this.quizService.getByUserID(this.user.id).subscribe((response: IResponse) => {
       this.quizs = response.data.quizs;
       this.points = response.data.points;
       this.user = response.data;

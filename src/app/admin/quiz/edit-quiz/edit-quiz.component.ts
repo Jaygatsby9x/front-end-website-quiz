@@ -15,12 +15,14 @@ import {ICategory} from '../../../interfaces/icategory';
   styleUrls: ['./edit-quiz.component.css']
 })
 export class EditQuizComponent implements OnInit {
-  categories: ICategory[] = [];
-  id;
-  form: FormGroup;
-  asks: IAsk[] = [];
-  chooseAsk: IAsk[] = [];
-  p = 1;
+  protected categories: ICategory[] = [];
+  protected id;
+  protected form: FormGroup;
+  protected asks: IAsk[] = [];
+  protected chooseAsk: IAsk[] = [];
+  protected searchedAsk: IAsk[];
+  protected p = 1;
+  protected keyWord: any;
 
   constructor(private fb: FormBuilder,
               private routeMap: ActivatedRoute,
@@ -53,16 +55,10 @@ export class EditQuizComponent implements OnInit {
       this.form.patchValue({
         name: quizName,
         category_id: responseCategory
-      })
-      ;
+      });
       const chosenAsk = response.data.asks;
-      $.each(chosenAsk, (i, value) => {
-        for (let j = 0; j < this.asks.length; j++) {
-          if (value.id === this.asks[j].id) {
-            this.addAskToQuiz(j);
-            break;
-          }
-        }
+      chosenAsk.map((item) => {
+        this.addAskToQuiz(this.findIndexById(item, this.asks));
       });
     });
   }
@@ -70,6 +66,7 @@ export class EditQuizComponent implements OnInit {
   getAllAsk() {
     this.askService.getAll().subscribe((response: IResponse) => {
       this.asks = response.data;
+      this.search();
     });
   }
 
@@ -80,18 +77,27 @@ export class EditQuizComponent implements OnInit {
     });
   }
 
-  addAskToQuiz(index) {
+  addAskToQuiz(askId) {
+    const index = this.findIndexById(askId, this.asks);
     const asks = this.asks.splice(index, 1);
     this.chooseAsk.push(asks[0]);
     const askValue = this.form.controls.asks.value;
     askValue.push(asks[0].id);
+    this.search();
   }
 
-  removeAskFromQuiz(index) {
+  removeAskFromQuiz(askId) {
+    const index = this.findIndexById(askId, this.chooseAsk);
     const asks = this.chooseAsk.splice(index, 1);
     const askValue = this.form.controls.asks.value;
     askValue.splice(index, 1);
     this.asks.push(asks[0]);
+    this.search();
+  }
+  findIndexById(id, arr) {
+    return arr.findIndex((item) => {
+      return item.id === id;
+    });
   }
 
   onSubmit() {
@@ -105,4 +111,13 @@ export class EditQuizComponent implements OnInit {
       });
   }
 
+  search() {
+    if (!this.keyWord) {
+      this.searchedAsk = this.asks;
+    } else {
+      this.searchedAsk = this.asks.filter((ask) => {
+        return ask.content.indexOf(this.keyWord) !== -1;
+      });
+    }
+  }
 }

@@ -1,4 +1,6 @@
 <app-nav-bar></app-nav-bar>
+<img src="../../assets/home-page/images/courses_background.jpg">
+
 <div class="container body h-auto bg-light">
   <div class="col-12 row">
     <h3>Kết quả bài thi: {{point.point}} / {{questions.length}}</h3>
@@ -12,6 +14,11 @@
         <div class="col-5 bg-white m-3 p-0" *ngFor="let answer of question.answers; let j = index">
           <div class="w-100 h-100 p-2 {{isCorrect(answer)}}">
             {{alphabet[j]}}. {{answer.content}}
+          </div>
+        </div>
+        <div class="col-md-12 row"  *ngFor="let answer of question.answers; let j = index">
+          <div class="w-100 h-100 p-2 bg-white col-md-12" *ngIf="answer.isAnswer">
+            -Đáp án đúng là: {{alphabet[j]}}. {{answer.content}}
           </div>
         </div>
       </div>

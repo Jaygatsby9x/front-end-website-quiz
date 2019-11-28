@@ -6,41 +6,55 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
 </head>
 <body>
-<app-nav-bar></app-nav-bar>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<app-nav-bar >
+
+</app-nav-bar>
 <img src="../../assets/home-page/images/courses_background.jpg">
+<div class="blue-grey center ">
+  <div class="nav-wrapper">
+  </div>
+</div>
 <div class="container">
   <div id="quiz">
-    <h2 class="text-center font-weight-normal ">{{quiz.name}}</h2>
+    <h2><i class="fa fa-star-half-full"></i>{{quiz.name}}<span><i class="fa fa-hourglass-start time">5:00</i></span></h2>
     <hr/>
-    <div *ngIf="questions.length > 0; else notData">
-      <div *ngFor="let question of questions | paginate: {currentPage: page, itemsPerPage: 1}; let i = index">
-        <div class="badge badge-info">Question {{page}} of {{questions.length}}</div>
-        <div class="badge badge-info float-right">Time: 5.00</div>
+    <div class="row" *ngIf="questions.length > 0; else notData">
+      <div class="col s8 offset-s1">
+      <div  class="card blue-grey darken-1" *ngFor="let question of questions | paginate: {currentPage: page, itemsPerPage: 1}; let i = index">
+        <div class="card-content white-text ">
+          <span >Question {{page}} of {{questions.length}}</span>
         <h3 class="font-weight-normal">
-          <span>{{question.name}}</span>
+          <span class="card-title">{{question.name}}</span>
         </h3>
-        <div class="row text-left options">
-          <div class="col-6" *ngFor="let answer of question.options">
-            <div class="option">
-              <label (click)="onSelect(question, answer);"  class="font-weight-normal" [attr.for]="answer.id">
-                 <input [checked]="answer.selected" type="checkbox" [id]="answer.id" class="ng-untouched ng-pristine ng-valid">
-                 {{answer.name}};
-              </label>
-            </div>
-          </div>
         </div>
+        <div class="row ml-4">
+          <ul class="collection answer col-md-5 ml-4" style="background-color: white" *ngFor="let answer of question.options; let i =index">
+            <ng-container >
+              <li  class="collection-item" [class.bg-success]="answer.selected" (click)="onSelect(question, answer);" style="color: #0b0b0b;text-align: center "  [attr.for]="answer.id">
+                {{alphabet[i]}}. {{answer.name}};
+              </li>
+            </ng-container>
+          </ul>
+        </div>
+
       </div>
+      </div>
+
     </div>
     <ng-template #notData>
       Không có câu hỏi nào cho bài thi này!
     </ng-template>
-      <hr/>
-      <div class="text-center">
-        <pagination-controls (pageChange)="page = $event"></pagination-controls>
-        <!--        <pagination *ngIf="config.showPager" direction-links="false" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged()"></pagination>-->
-      </div>
+    <hr/>
+    <div class="text-center">
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
+      <!--        <pagination *ngIf="config.showPager" direction-links="false" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged()"></pagination>-->
+    </div>
 
     <div class="row text-center">
       <div class="col-4 cursor-pointer">
