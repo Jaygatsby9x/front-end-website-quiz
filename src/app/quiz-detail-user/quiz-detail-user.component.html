@@ -37,7 +37,7 @@
         <div class="row ml-4">
           <ul class="collection answer col-md-5 ml-4" style="background-color: white" *ngFor="let answer of question.options; let i =index">
             <ng-container >
-              <li  class="collection-item " (click)="onSelect(question, answer);" style="color: #0b0b0b;text-align: center "  [attr.for]="answer.id">
+              <li  class="collection-item" [class.bg-success]="answer.selected" (click)="onSelect(question, answer);" style="color: #0b0b0b;text-align: center "  [attr.for]="answer.id">
                 {{alphabet[i]}}. {{answer.name}};
               </li>
             </ng-container>

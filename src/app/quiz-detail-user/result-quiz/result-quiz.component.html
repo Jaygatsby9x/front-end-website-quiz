@@ -16,6 +16,11 @@
             {{alphabet[j]}}. {{answer.content}}
           </div>
         </div>
+        <div class="col-md-12 row"  *ngFor="let answer of question.answers; let j = index">
+          <div class="w-100 h-100 p-2 bg-white col-md-12" *ngIf="answer.isAnswer">
+            -Đáp án đúng là: {{alphabet[j]}}. {{answer.content}}
+          </div>
+        </div>
       </div>
     </div>
     <div class="col-12 m-2">

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {IUser} from '../../interfaces/iuser';
 import {AuthService} from '../../services/auth.service';
 import {IResponse} from '../../interfaces/iresponse';
+import {RoleService} from '../../services/role.service';
+import {$e} from "codelyzer/angular/styles/chars";
 
 @Component({
   selector: 'app-users',
@@ -10,6 +12,7 @@ import {IResponse} from '../../interfaces/iresponse';
 })
 export class UsersComponent implements OnInit {
   users: IUser[];
+  private roles;
 
   constructor(private userService: AuthService) { }
 
