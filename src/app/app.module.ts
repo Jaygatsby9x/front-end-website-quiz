@@ -51,7 +51,6 @@ import { EditCategoryComponent } from './admin/categories/edit-category/edit-cat
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatOptionModule} from '@angular/material/core';
 import { EditUserComponent } from './admin/users/edit-user/edit-user.component';
-import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -112,7 +111,6 @@ import { ToastrModule } from 'ngx-toastr';
     FormsModule,
     MatAutocompleteModule,
     MatOptionModule,
-    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

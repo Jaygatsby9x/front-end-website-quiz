@@ -10,6 +10,7 @@ import {IResponse} from '../../../interfaces/iresponse';
 export class UserStatisticFilterByTimeComponent implements OnInit {
   id;
   points;
+  p = 1;
 
   constructor(private quizService: QuizService) {
   }
