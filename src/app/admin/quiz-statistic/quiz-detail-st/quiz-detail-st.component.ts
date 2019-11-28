@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {IQuiz} from '../../../interfaces/iquiz';
 import {IUser} from '../../../interfaces/iuser';
 import {QuizService} from '../../../services/quiz.service';
@@ -17,18 +17,27 @@ export class QuizDetailStComponent implements OnInit {
   users: IUser[];
   points: Ipoint[] = [];
   protected id: string;
+  p = 1;
 
-  constructor(private quizService: QuizService, private userService: AuthService, private route: ActivatedRoute) { }
+  constructor(private quizService: QuizService, private userService: AuthService, private route: ActivatedRoute) {
+  }
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
-    this.getUserByQuizId();
+    this.getUserByQuizIdTime();
   }
-  getUserByQuizId() {
-    this.quizService.getUserByQuizId(this.id).subscribe((response: IResponse) => {
-      this.users = response.data.users;
-      this.quiz = response.data;
-      this.points = response.data.points;
+
+  getUserByQuizIdTime() {
+    this.quizService.getPointsByQuizTime(this.id).subscribe((response: IResponse) => {
+      console.log(response);
+      this.points = response.data;
+    });
+  }
+
+  getUserAndByQuizIdSort() {
+    this.quizService.getPointsByQuizSort(this.id).subscribe((response: IResponse) => {
+      console.log(response);
+      this.points = response.data;
     });
   }
 

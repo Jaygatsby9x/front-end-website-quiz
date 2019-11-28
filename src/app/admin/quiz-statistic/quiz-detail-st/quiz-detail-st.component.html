@@ -1,33 +1,37 @@
 <div class="container">
   <div>.</div>
-  <div style="color: black"> Bài Test: . {{quiz.name}}</div>
+  <div style="color: black"><h5>Bài Test: {{points[0].quiz.name}}</h5></div>
+  <div class="filter">
+    <div class="circlecheck float-left">
+      <input type="radio" id="f-option" class="circle-1 mr-1" name="selector"
+             (click)="getUserByQuizIdTime()" checked>
+      <label for="f-option">Làm gần đây nhất</label>
+
+      <div class="outer-circle"></div>
+    </div>
+    <div class="circlecheck float-left ml-3 ">
+      <input type="radio" id="g-option" class="circle-2 mr-1" name="selector" (click)="getUserAndByQuizIdSort()">
+      <label for="g-option">Điểm số cao nhất</label>
+
+      <div class="outer-circle"></div>
+    </div>
+  </div>
+
   <div class="row col-12 center">
-    <div class="col-5">
+
+    <div class="col-8 point">
       <table class="table table-sm">
         <thead>
         <tr>
           <th scope="col">Stt</th>
           <th scope="col">User List</th>
-        </tr>
-        </thead>
-        <tbody>
-
-        <tr *ngFor="let user of users ; let i = index">
-          <td>{{i + 1}}</td>
-          <td>{{user.name}}</td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="col-6 point">
-      <table class="table table-sm">
-        <thead>
-        <tr>
           <th scope="col">Point</th>
         </tr>
         </thead>
-        <tbody *ngIf="points.length>0;else notdata">
-        <tr *ngFor="let point of points">
+        <tbody *ngIf="points.length>0;else notdata ">
+        <tr *ngFor="let point of points | paginate: { itemsPerPage: 5, currentPage: p },let i = index">
+          <td>{{i + 1}}</td>
+          <td>{{point.user.name}}</td>
           <td>{{point.point}}</td>
         </tr>
         </tbody>
@@ -39,6 +43,10 @@
       </table>
 
     </div>
+
   </div>
+
 </div>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
+
 
