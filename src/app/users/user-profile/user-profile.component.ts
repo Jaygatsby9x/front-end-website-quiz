@@ -22,5 +22,5 @@ export class UserProfileComponent implements OnInit {
       this.user = response.data;
       console.log(response.data);
     });
-  }
+    }
 }
