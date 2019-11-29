@@ -73,6 +73,14 @@ export class QuizService {
     return this.httpClient.get(this.apiUrl + '/points/' + id + '/user', {headers: this.headers});
   }
 
+  getPointsByQuizSort(id) {
+    return this.httpClient.get(this.apiUrl + '/points/' + id + '/quiz-sort', {headers: this.headers});
+  }
+
+  getPointsByQuizTime(id) {
+    return this.httpClient.get(this.apiUrl + '/points/' + id + '/quiz-time', {headers: this.headers});
+  }
+
   getPointsByTime(id) {
     return this.httpClient.get(this.apiUrl + '/points/' + id + '/time', {headers: this.headers});
   }
