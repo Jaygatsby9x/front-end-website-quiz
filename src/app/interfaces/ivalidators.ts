@@ -5,4 +5,6 @@ export interface IValidators {
   passwordConfirm?: string;
   newPassword?: string;
   oldPassword?: string;
+  phone?: string;
+  old?: string;
 }

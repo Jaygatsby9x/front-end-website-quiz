@@ -53,8 +53,6 @@
     <hr/>
     <div class="text-center">
       <pagination-controls (pageChange)="page = $event"></pagination-controls>
-      <a (click)="goBack()" style="cursor: pointer"><i class="material-icons">replay</i>back</a>
-
     </div>
 
     <div class="row text-center">
@@ -62,6 +60,7 @@
       </div>
       <button *ngIf="page == questions.length" (click)="onSubmit()" class="btn btn-primary">Submit Quiz</button>
     </div>
+    <a (click)="goBack()" style="cursor: pointer"><i class="material-icons">replay</i>back</a>
   </div>
 </div>
 </body>
