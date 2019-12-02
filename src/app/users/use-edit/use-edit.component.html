@@ -5,17 +5,23 @@
   <form [formGroup]="formUser" (ngSubmit)="onSubmit()">
   <div class="form-group row">
     <mat-form-field class="col-md-6">
-      <input matInput placeholder="Họ và Tên" type="text" formControlName="name">
+      <input matInput placeholder="Họ và Tên" id="name" type="text" formControlName="name">
+      <label class="alert alert-danger" for="name" *ngIf="validators.hasOwnProperty('name')">
+        {{validators.name[0]}}
+      </label>
     </mat-form-field>
   </div>
   <div class="form-group row">
-      <mat-form-field class="col-md-6">
-      <input disabled matInput type="email" placeholder="Email" formControlName="email" >
+      <mat-form-field disabled class="col-md-6">
+      <input disabled matInput type="email" id="email" placeholder="Email" value="{{user.email}}" >
       </mat-form-field>
   </div>
   <div class="form-group row">
       <mat-form-field class="col-md-6">
-        <input matInput type="number" placeholder="Tuổi" formControlName="old">
+        <input matInput type="number" id="old" placeholder="Tuổi" formControlName="old">
+        <label class="alert alert-danger" for="old" *ngIf="validators.hasOwnProperty('old')">
+          {{validators.old[0]}}
+        </label>
       </mat-form-field>
   </div>
   <div class="form-group row">
@@ -37,7 +43,10 @@
 
   <div class="form-group row">
       <mat-form-field class="col-md-6">
-        <input matInput type="text" placeholder="Số Điện Thoại" formControlName="phone">
+        <input matInput type="text" id="phone" placeholder="Số Điện Thoại" formControlName="phone">
+        <label class="alert alert-danger" for="phone" *ngIf="validators.hasOwnProperty('phone')">
+          {{validators.phone[0]}}
+        </label>
       </mat-form-field>
   </div>
 

@@ -1,4 +1,4 @@
-import {Component, OnInit, OnChanges, SimpleChanges} from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AskService} from '../services/ask.service';
 import {IResponse} from '../interfaces/iresponse';
@@ -14,12 +14,12 @@ import {IQuiz} from '../interfaces/iquiz';
   templateUrl: './quiz-detail-user.component.html',
   styleUrls: ['./quiz-detail-user.component.css']
 })
-export class QuizDetailUserComponent implements OnInit {
+export class QuizDetailUserComponent implements OnInit, OnDestroy {
   private id: string;
   private questions = [];
   protected page = 1;
   protected currentUser: IUser;
-  seconds = 300;
+  seconds = 120;
   protected quiz: IQuiz = {};
   private alphabet = 'ABCDEFGHI';
   timer;
@@ -101,5 +101,8 @@ export class QuizDetailUserComponent implements OnInit {
     } else {
       this.seconds--;
     }
+  }
+  ngOnDestroy(): void {
+    clearInterval(this.timer);
   }
 }

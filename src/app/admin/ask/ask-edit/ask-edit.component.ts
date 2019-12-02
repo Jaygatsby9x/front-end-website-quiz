@@ -4,6 +4,8 @@ import {IResponse} from '../../../interfaces/iresponse';
 import {AskService} from '../../../services/ask.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {IError} from '../../../interfaces/ierror';
+import {ILevel} from '../../../interfaces/ilevel';
+import {LevelService} from '../../../services/level.service';
 
 @Component({
   selector: 'app-ask-edit',
@@ -15,16 +17,22 @@ export class AskEditComponent implements OnInit {
   id: string;
   answers = [];
   errors: IError = {};
+  levels: ILevel[] = [];
 
-  constructor(private fb: FormBuilder, private askService: AskService, private routerMap: ActivatedRoute, private route: Router) {
+  constructor(private fb: FormBuilder, private askService: AskService,
+              private routerMap: ActivatedRoute,
+              private route: Router,
+              private levelService: LevelService) {
   }
 
 
   ngOnInit() {
     this.getId();
     this.getAsk();
+    this.getAllLevel();
     this.form = this.fb.group({
       content: [''],
+      level: [''],
       answer: this.fb.array([])
     });
   }
@@ -42,10 +50,17 @@ export class AskEditComponent implements OnInit {
   setValueAskForm(response) {
     this.form.patchValue({
       content: response.ask.content,
+      level: response.ask.level_id
     });
     const answers = response.ask.answers;
     answers.forEach((answer) => {
       this.addAnswer(answer.content, answer.correct);
+    });
+    console.log(response);
+  }
+  getAllLevel() {
+    this.levelService.getAll().subscribe((response: IResponse) => {
+      this.levels = response.data;
     });
   }
 
@@ -69,6 +84,7 @@ export class AskEditComponent implements OnInit {
     }));
     const formData = new FormData();
     formData.append('content', this.form.get('content').value);
+    formData.append('level_id', this.form.get('level').value)
     formData.append('answer', JSON.stringify(this.answers));
     return formData;
   }
