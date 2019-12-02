@@ -3,6 +3,8 @@ import {AuthService} from '../../services/auth.service';
 import {IResponse} from '../../interfaces/iresponse';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {UserService} from '../../services/user.service';
+import {IValidators} from '../../interfaces/ivalidators';
+import {IUser} from '../../interfaces/iuser';
 
 @Component({
   selector: 'app-use-edit',
@@ -11,8 +13,9 @@ import {UserService} from '../../services/user.service';
 })
 export class UseEditComponent implements OnInit {
   formUser: FormGroup;
-  protected id;
+  protected user: IUser;
   protected message: string;
+  validators: IValidators = {};
 
   constructor(private auService: AuthService,
               private fb: FormBuilder,
@@ -23,7 +26,6 @@ export class UseEditComponent implements OnInit {
     this.getInfoUser();
     this.formUser = this.fb.group({
       name: [''],
-      email: [''],
       old: [''],
       gender: [''],
       address: [''],
@@ -35,23 +37,23 @@ export class UseEditComponent implements OnInit {
     this.auService.getUser().subscribe((response: IResponse) => {
       this.formUser.patchValue({
         name: response.data.name,
-        email: response.data.email,
         old: response.data.old,
         gender: response.data.gender,
         address: response.data.address,
         phone: response.data.phone,
       });
-      this.id = response.data.id;
+      this.user = response.data;
     });
 
   }
 
   onSubmit() {
-    this.userService.editInfo(this.formUser.value, this.id).subscribe((response: IResponse) => {
+    this.userService.editInfo(this.formUser.value, this.user.id).subscribe((response: IResponse) => {
       if (response.status) {
         this.message = response.message;
       }
     }, error => {
+      this.validators = error.error.errors;
       console.log(error);
     });
   }

@@ -5,6 +5,9 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {IResponse} from '../../../interfaces/iresponse';
 import {CategoryService} from '../../../services/category.service';
 import {IError} from '../../../interfaces/ierror';
+import {IAsk} from '../../../interfaces/iask';
+import {ILevel} from '../../../interfaces/ilevel';
+import {LevelService} from '../../../services/level.service';
 
 @Component({
   selector: 'app-create-ask',
@@ -13,19 +16,28 @@ import {IError} from '../../../interfaces/ierror';
 })
 export class CreateAskComponent implements OnInit {
   form: FormGroup;
+  levels: ILevel[] = [];
   message: string;
   answers = [];
   errors: IError = {};
 
   constructor(private fb: FormBuilder,
               private askService: AskService,
-              private route: Router) {
+              private route: Router,
+              private levelService: LevelService) {
   }
 
   ngOnInit() {
     this.form = this.fb.group({
       content: [''],
+      level: [''],
       answer: this.fb.array([this.initAnswer()])
+    });
+    this.getAllLevel();
+  }
+  getAllLevel() {
+    this.levelService.getAll().subscribe((response: IResponse) => {
+      this.levels = response.data;
     });
   }
 
@@ -49,6 +61,7 @@ export class CreateAskComponent implements OnInit {
     });
     const formData = new FormData();
     formData.append('content', this.form.get('content').value);
+    formData.append('level_id', this.form.get('level').value);
     formData.append('answer', JSON.stringify(this.answers));
     return formData;
   }
