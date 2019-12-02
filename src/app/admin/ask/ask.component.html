@@ -16,6 +16,7 @@
                 <thead class=" text-primary">
                 <th>STT</th>
                 <th>Content</th>
+                <th>Level</th>
                 <th>Quiz</th>
                 <th></th>
                 </thead>
@@ -23,6 +24,8 @@
                 <tr *ngFor="let ask of searchedAsks | paginate : {currentPage: page, itemsPerPage: 10} ; let i = index">
                   <td style="width: 5px">{{i + 1}}</td>
                   <td class="content-ask"><a [routerLink]="['/admin/dashboard/ask/details',ask.id]">{{ask.content}}</a></td>
+                  <td *ngIf="ask.level; else notLevel" >{{ask.level.name}}</td>
+                  <ng-template #notLevel><td>Không có dữ liệu</td></ng-template>
                   <td>NONE</td>
                   <td>
                     <button *ngIf="authorization.canEditor()" class="btn btn-primary btn-sm mr-3" [routerLink]="['/admin/dashboard/ask/edit',ask.id]"><i class=" fa fa-edit"></i></button>

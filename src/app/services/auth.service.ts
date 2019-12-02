@@ -47,7 +47,6 @@ export class AuthService {
   removeRole() {
     localStorage.removeItem('role');
   }
-
   getToken(): string | boolean {
     const token = localStorage.getItem('currentToken');
     return (token === 'null' || token === 'undefined' || token === '') ? null : token;
