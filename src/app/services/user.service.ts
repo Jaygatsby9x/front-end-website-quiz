@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {environment as env} from '../../environments/environment';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {AuthService} from './auth.service';
 
 
@@ -10,27 +10,31 @@ import {AuthService} from './auth.service';
 export class UserService {
 
   protected apiUrl: string;
+  protected headers: HttpHeaders;
 
-  constructor(private client: HttpClient, private authService: AuthService) {
+  constructor(private client: HttpClient,
+              private authService: AuthService) {
     this.getApiUrl();
   }
 
   getApiUrl() {
     this.apiUrl = env.apiUrl;
+    this.setHeaders();
+  }
+
+  setHeaders() {
+    this.headers = this.authService.getHeader();
   }
 
   getById(id) {
-    const headers = this.authService.getHeader();
-    return this.client.get(this.apiUrl + '/users/' + id, {headers});
+    return this.client.get(this.apiUrl + '/users/' + id, {headers: this.headers});
   }
 
   update(formData: FormData, id: string) {
-    const headers = this.authService.getHeader();
-    return this.client.post(this.apiUrl + '/users/' + id, formData, {headers});
+    return this.client.post(this.apiUrl + '/users/' + id, formData, {headers: this.headers});
   }
 
   editInfo(data: any, id) {
-    const headers = this.authService.getHeader();
-    return this.client.put(this.apiUrl + '/users/' + id + '/edit-info', data, {headers});
+    return this.client.put(this.apiUrl + '/users/' + id + '/edit-info', data, {headers: this.headers});
   }
 }
