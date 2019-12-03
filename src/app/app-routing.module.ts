@@ -40,10 +40,12 @@ import {UserStatisticFilterComponent} from './admin/users/user-statistic-filter/
 import {UserStatisticFilterByTimeComponent} from './admin/users/user-statistic-filter-by-time/user-statistic-filter-by-time.component';
 import {EditCategoryComponent} from './admin/categories/edit-category/edit-category.component';
 import {EditUserComponent} from './admin/users/edit-user/edit-user.component';
+import {VerifyEmailComponent} from './verify/verify-email/verify-email.component';
 
 
 const routes: Routes = [
   {path: 'login', component: UserLoginComponent},
+  {path: 'verify/:id', component: VerifyEmailComponent},
   {path: 'register', component: UserRegisterComponent},
   {path: '', component: HomePageComponent},
   {path: 'categories', component: CategoryPageComponent},

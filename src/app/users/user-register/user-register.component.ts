@@ -4,6 +4,7 @@ import {AuthService} from '../../services/auth.service';
 import {IResponse} from '../../interfaces/iresponse';
 import {IValidators} from '../../interfaces/ivalidators';
 import {Router} from '@angular/router';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-user-register',
@@ -14,7 +15,8 @@ export class UserRegisterComponent implements OnInit {
 
   form: FormGroup;
   validators: IValidators = {};
-  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
+
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router, private toast: ToastrService) {
   }
 
   ngOnInit() {
@@ -29,9 +31,8 @@ export class UserRegisterComponent implements OnInit {
   onSubmit() {
     const data = this.form.value;
     this.authService.register(data).subscribe((response: IResponse) => {
-      localStorage.setItem('currentToken', response.token);
-      this.authService.setRole(response.role);
       this.router.navigate(['/']);
+      this.toast.warning('Tài khoản của bạn hiện đang chờ xác nhận , vui lòng kiểm tra mail của bạn', 'Đăng ký tài khoản thành công');
     }, error => {
       this.validators = error.error.errors;
       console.log(error);
