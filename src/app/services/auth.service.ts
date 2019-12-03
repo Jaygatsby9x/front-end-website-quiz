@@ -47,6 +47,7 @@ export class AuthService {
   removeRole() {
     localStorage.removeItem('role');
   }
+
   getToken(): string | boolean {
     const token = localStorage.getItem('currentToken');
     return (token === 'null' || token === 'undefined' || token === '') ? null : token;
@@ -84,8 +85,13 @@ export class AuthService {
     const headers = this.getHeader();
     return this.http.post(this.apiUrl + '/users/change-password', data, {headers});
   }
+
   socialiteAuthenticate(res: any) {
     const headers = this.getHeader();
-    return this.http.post(this.apiUrl + '/socialiteAuthenticate', res , {headers});
+    return this.http.post(this.apiUrl + '/socialiteAuthenticate', res, {headers});
+  }
+
+  verifyAccount($id) {
+    return this.http.get(  'http://localhost:8000/verify/' + $id);
   }
 }

@@ -54,6 +54,8 @@ import {EditUserComponent} from './admin/users/edit-user/edit-user.component';
 import {FacebookLoginComponent} from './facebook-login/facebook-login.component';
 import {SocialLoginModule, AuthServiceConfig} from 'angularx-social-login';
 import {GoogleLoginProvider, FacebookLoginProvider} from 'angularx-social-login';
+import {ToastrModule} from 'ngx-toastr';
+import { VerifyEmailComponent } from './verify/verify-email/verify-email.component';
 
 const configSocialite = new AuthServiceConfig([
   {
@@ -108,6 +110,7 @@ export function provideConfig() {
     EditUserComponent,
     EditCategoryComponent,
     FacebookLoginComponent,
+    VerifyEmailComponent,
 
   ],
   imports: [
@@ -122,7 +125,11 @@ export function provideConfig() {
     FormsModule,
     MatAutocompleteModule,
     MatOptionModule,
-    SocialLoginModule
+    SocialLoginModule,
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      positionClass: 'toast-bottom-right'
+    })
   ], providers: [
     {
       provide: AuthServiceConfig,
