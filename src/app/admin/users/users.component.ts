@@ -4,6 +4,7 @@ import {AuthService} from '../../services/auth.service';
 import {IResponse} from '../../interfaces/iresponse';
 import {RoleService} from '../../services/role.service';
 import {$e} from "codelyzer/angular/styles/chars";
+import {AuthorizationService} from "../../services/authorization.service";
 
 @Component({
   selector: 'app-users',
@@ -14,7 +15,8 @@ export class UsersComponent implements OnInit {
   users: IUser[];
   private roles;
 
-  constructor(private userService: AuthService) { }
+  constructor(private userService: AuthService,
+              protected authorizationService: AuthorizationService) { }
 
   ngOnInit() {
     this.getAll();

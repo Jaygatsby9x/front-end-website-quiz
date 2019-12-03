@@ -20,7 +20,7 @@
           <td>{{user.email}}</td>
           <td>{{user.role.name}}</td>
           <td><a [routerLink]="['/admin/dashboard/users',user.id]">Quiz Tested</a></td>
-          <td><a [routerLink]="['/admin/dashboard/users', user.id,'edit']">Sửa</a></td>
+          <td><a [routerLink]="['/admin/dashboard/users', user.id,'edit']" *ngIf="authorizationService.isSuperAdmin()">Sửa</a></td>
         </tr>
         </tbody>
       </table>
