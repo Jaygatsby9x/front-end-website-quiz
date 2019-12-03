@@ -36,24 +36,35 @@ import {AskEditComponent} from './admin/ask/ask-edit/ask-edit.component';
 import {EditQuizComponent} from './admin/quiz/edit-quiz/edit-quiz.component';
 
 import {NotfoundComponent} from './notfound/notfound.component';
-import { ResultQuizComponent } from './quiz-detail-user/result-quiz/result-quiz.component';
-import { UsersComponent } from './admin/users/users.component';
-import { QuizStatisticComponent } from './admin/quiz-statistic/quiz-statistic.component';
-import { UserDetailComponent } from './admin/users/user-detail/user-detail.component';
-import { QuizDetailStComponent } from './admin/quiz-statistic/quiz-detail-st/quiz-detail-st.component';
-import { ForbidenComponent } from './forbiden/forbiden.component';
-import { UserStatisticFilterComponent } from './admin/users/user-statistic-filter/user-statistic-filter.component';
-import { UserStatisticComponent } from './admin/users/user-statistic/user-statistic.component';
-import { UserStatisticFilterByTimeComponent } from './admin/users/user-statistic-filter-by-time/user-statistic-filter-by-time.component';
+import {ResultQuizComponent} from './quiz-detail-user/result-quiz/result-quiz.component';
+import {UsersComponent} from './admin/users/users.component';
+import {QuizStatisticComponent} from './admin/quiz-statistic/quiz-statistic.component';
+import {UserDetailComponent} from './admin/users/user-detail/user-detail.component';
+import {QuizDetailStComponent} from './admin/quiz-statistic/quiz-detail-st/quiz-detail-st.component';
+import {ForbidenComponent} from './forbiden/forbiden.component';
+import {UserStatisticFilterComponent} from './admin/users/user-statistic-filter/user-statistic-filter.component';
+import {UserStatisticComponent} from './admin/users/user-statistic/user-statistic.component';
+import {UserStatisticFilterByTimeComponent} from './admin/users/user-statistic-filter-by-time/user-statistic-filter-by-time.component';
 
-import { EditCategoryComponent } from './admin/categories/edit-category/edit-category.component';
+import {EditCategoryComponent} from './admin/categories/edit-category/edit-category.component';
 
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatOptionModule} from '@angular/material/core';
-import { EditUserComponent } from './admin/users/edit-user/edit-user.component';
+import {EditUserComponent} from './admin/users/edit-user/edit-user.component';
+import {FacebookLoginComponent} from './facebook-login/facebook-login.component';
+import {SocialLoginModule, AuthServiceConfig} from 'angularx-social-login';
+import {GoogleLoginProvider, FacebookLoginProvider} from 'angularx-social-login';
 
+const configSocialite = new AuthServiceConfig([
+  {
+    id: FacebookLoginProvider.PROVIDER_ID,
+    provider: new FacebookLoginProvider('2229701507322130')
+  }
+]);
 
-
+export function provideConfig() {
+  return configSocialite;
+}
 
 @NgModule({
   declarations: [
@@ -95,8 +106,8 @@ import { EditUserComponent } from './admin/users/edit-user/edit-user.component';
     UserStatisticComponent,
     UserStatisticFilterByTimeComponent,
     EditUserComponent,
-
     EditCategoryComponent,
+    FacebookLoginComponent,
 
   ],
   imports: [
@@ -111,8 +122,13 @@ import { EditUserComponent } from './admin/users/edit-user/edit-user.component';
     FormsModule,
     MatAutocompleteModule,
     MatOptionModule,
+    SocialLoginModule
+  ], providers: [
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
+    }
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {

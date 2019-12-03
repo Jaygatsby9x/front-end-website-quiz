@@ -84,4 +84,8 @@ export class AuthService {
     const headers = this.getHeader();
     return this.http.post(this.apiUrl + '/users/change-password', data, {headers});
   }
+  socialiteAuthenticate(res: any) {
+    const headers = this.getHeader();
+    return this.http.post(this.apiUrl + '/socialiteAuthenticate', res , {headers});
+  }
 }
