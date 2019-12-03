@@ -70,12 +70,15 @@ export class EditUserComponent implements OnInit {
 
   onSubmit() {
     const formData = this.initFormData();
-    this.userService.update(formData, this.id).subscribe((response: IResponse) => {
+    this.userService.changeRole(formData, this.id).subscribe((response: IResponse) => {
       if (response.status) {
         this.router.navigate(['/admin/dashboard/users']);
       }
     }, error => {
-      console.log(error);
+
+      if (error.status === 403) {
+        this.router.navigate(['/forbidden']);
+      }
     });
   }
 }

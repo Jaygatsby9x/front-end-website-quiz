@@ -13,12 +13,19 @@ export class AuthorizationService {
   canCreate() {
     return !!this.checkPermission('create');
   }
+
   canDelete() {
     return !!this.checkPermission('delete');
   }
+
   canEditor() {
     return !!this.checkPermission('editor');
   }
+
+  isSuperAdmin() {
+    return !!this.checkPermission('superadmin');
+  }
+
   checkPermission(ability) {
     const role = this.authService.getRole();
     const permissions = role.permissions;
