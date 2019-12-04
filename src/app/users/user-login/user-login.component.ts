@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, NgModel} from '@angular/forms';
 import {AuthService} from '../../services/auth.service';
 import {IResponse} from '../../interfaces/iresponse';
 import {ToastrService} from 'ngx-toastr';
@@ -13,9 +13,13 @@ import {ToastrService} from 'ngx-toastr';
 export class UserLoginComponent implements OnInit {
 
   form: FormGroup;
+  message;
+  email;
+
   failedAuthor = 0;
   badAuthorized: boolean;
   tokenRecaptcha: string;
+
 
   constructor(private router: Router,
               private fb: FormBuilder,
@@ -54,6 +58,10 @@ export class UserLoginComponent implements OnInit {
       this.router.navigate(['/']);
     }, error => {
       if (error.status === 401) {
+        this.toastrService.error(
+          'Tài khoản của bạn hiện đang chờ xác nhận,' +
+          ' vui lòng kiểm tra mail của bạn',
+          'Đăng nhập thất bại!');
         this.failedAuthor++;
         if (this.failedAuthor >= 3) {
           this.badAuthorized = true;
@@ -64,7 +72,31 @@ export class UserLoginComponent implements OnInit {
     });
   }
 
+
+  sendMailForgotPassword() {
+    this.authService.forgotPassword(this.formForgot()).subscribe((response: IResponse) => {
+      console.log(response);
+      this.toastrService.success('Xin vui lòng kiểm Email của bạn ', 'Gửi yêu cầu thành công');
+
+    }, error => {
+      console.log(error);
+      if (error.error.messages) {
+        this.toastrService.error(error.error.messages, 'Có gì đó sai sai');
+      }
+      this.toastrService.error(error.error.errors.email[0], 'Có gì đó sai sai');
+    });
+  }
+
+  formForgot() {
+    this.form = this.fb.group({
+      email: [this.email]
+    });
+
+    return this.form.value;
+  }
+
   handleRecaptcha(token) {
     this.tokenRecaptcha = token;
+
   }
 }

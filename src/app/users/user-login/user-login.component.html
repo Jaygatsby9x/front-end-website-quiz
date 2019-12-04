@@ -1,13 +1,6 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Glassy Login Form A Responsive Widget Template :: w3layouts</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <meta name="keywords"
@@ -43,11 +36,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="icon-w3">
           <i class="fa fa-unlock-alt" aria-hidden="true"></i>
         </div>
-      </div><div class="form-sub-w3"  *ngIf="badAuthorized">
-        <app-recaptcha (changeRecaptcha)="handleRecaptcha($event)"></app-recaptcha>
       </div>
-      <div class="form-sub-w3">
-        <label style="color: white">Đăng kí tài khoản <a [routerLink]="['/register']">tại đây</a></label>
+      <div class="form-sub-w3" *ngIf="badAuthorized">
+        <app-recaptcha (changeRecaptcha)="handleRecaptcha($event)"></app-recaptcha>
       </div>
       <div class="form-sub-w3">
         <app-facebook-login></app-facebook-login>
@@ -55,16 +46,42 @@ License URL: http://creativecommons.org/licenses/by/3.0/
       <label class="anim">
         <input type="checkbox" class="checkbox">
         <span>Remember Me</span>
-        <a href="#">Forgot Password</a>
+        <a href="#" data-toggle="modal" data-target="#exampleModal">Forgot Password</a>
+        <div class="modal fade " id="exampleModal" tabindex="10" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+          <div class="modal-dialog " role="document">
+            <div class="modal-content forgot-form">
+              <div class="modal-header modal-title-forgot ">
+                <h5 class='title '>Quên mật khẩu</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group input-pass">
+                    <p for="recipient-name" class="col-form-label">Xin vui lòng nhập vào địa chỉ email của bạn:</p>
+                    <input type="text" class="form-control col-4" id="email" [(ngModel)]="email"
+                           [ngModelOptions]="{standalone: true}">
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Trở Về</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="sendMailForgotPassword()">
+                  Gửi yêu cầu
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </label>
       <div class="clear"></div>
-      <div  class="submit-agileits">
+      <div class="submit-agileits">
         <input type="submit" value="Đăng nhập">
       </div>
     </form>
   </div>
-
 </div>
-
 </body>
 </html>

@@ -1,0 +1,48 @@
+.forgot-form {
+  position: absolute;
+  top: 50px;
+  left: 200px;
+  width: 1000px;
+  height: 300px;
+  text-align: center;
+}
+
+.input-pass {
+  position: relative;
+  top: 54px;
+}
+
+.input-pass input {
+  position: relative;
+  top: 10px;
+  left: 335px;
+
+}
+
+.modal-title-forgot h5 {
+  font-size: 32px;
+  font-weight: lighter;
+  position: relative;
+  left: 380px;
+  top: 10px;
+  margin-bottom: 10px;
+}
+
+.modal-title-forgot {
+  border-bottom: 1px solid grey;
+}
+
+.title {
+  text-align: center;
+}
+
+.footer {
+  margin-bottom: 15px;
+  margin-right: 10px;
+  border-top: 1px solid grey;
+
+}
+
+.footer button{
+  margin-top: 10px;
+}

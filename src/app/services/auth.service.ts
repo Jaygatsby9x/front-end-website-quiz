@@ -91,8 +91,12 @@ export class AuthService {
     return this.http.post(this.apiUrl + '/socialiteAuthenticate', res, {headers});
   }
 
-  verifyAccount($id) {
-    return this.http.get(  'http://localhost:8000/verify/' + $id);
+  verifyAccount(id) {
+    return this.http.get('http://localhost:8000/verify/' + id);
+  }
+
+  forgotPassword(data) {
+    return this.http.post(this.apiUrl + '/forgot-password', data);
   }
   verifyRecaptcha(data) {
     return this.http.post('https://www.google.com/recaptcha/api/siteverify', data);
