@@ -94,4 +94,7 @@ export class AuthService {
   verifyAccount($id) {
     return this.http.get(  'http://localhost:8000/verify/' + $id);
   }
+  verifyRecaptcha(data) {
+    return this.http.post('https://www.google.com/recaptcha/api/siteverify', data);
+  }
 }
