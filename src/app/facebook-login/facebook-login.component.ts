@@ -28,6 +28,7 @@ export class FacebookLoginComponent implements OnInit {
   }
 
   loginOrCreate(res) {
+    console.log(res);
     this.authService.socialiteAuthenticate(res).subscribe((response: IResponse) => {
       this.authService.setToken(response.token);
       this.authService.setRole(response.role);

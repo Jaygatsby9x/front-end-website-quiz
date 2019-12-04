@@ -50,11 +50,11 @@ export class UseEditComponent implements OnInit {
   onSubmit() {
     this.userService.editInfo(this.formUser.value, this.user.id).subscribe((response: IResponse) => {
       if (response.status) {
+        this.validators = {};
         this.message = response.message;
       }
     }, error => {
       this.validators = error.error.errors;
-      console.log(error);
     });
   }
 }
