@@ -13,7 +13,9 @@ import {ToastrService} from 'ngx-toastr';
 export class UserLoginComponent implements OnInit {
 
   form: FormGroup;
-  message;
+  failedAuthor = 0;
+  badAuthorized: boolean;
+  tokenRecaptcha: string;
 
   constructor(private router: Router,
               private fb: FormBuilder,
@@ -33,6 +35,18 @@ export class UserLoginComponent implements OnInit {
   }
 
   onSubmit() {
+    if (this.badAuthorized) {
+      if (this.tokenRecaptcha) {
+        this.sendRequest();
+      } else {
+        this.toastrService.error('Bạn chưa xác thực mã captcha', 'Đăng nhập thất bại!');
+      }
+    } else {
+      this.sendRequest();
+    }
+  }
+
+  sendRequest() {
     const data = this.form.value;
     this.authService.login(data).subscribe((response: IResponse) => {
       this.authService.setToken(response.token);
@@ -40,13 +54,17 @@ export class UserLoginComponent implements OnInit {
       this.router.navigate(['/']);
     }, error => {
       if (error.status === 401) {
-        this.toastrService.error(
-          'Tài khoản của bạn hiện đang chờ xác nhận,' +
-                  ' vui lòng kiểm tra mail của bạn',
-            'Đăng nhập thất bại!');
+        this.failedAuthor++;
+        if (this.failedAuthor >= 3) {
+          this.badAuthorized = true;
+        }
       }
-      this.message = error.error.error;
+      this.toastrService.error(error.error.message,
+        'Đăng nhập thất bại!');
     });
   }
 
+  handleRecaptcha(token) {
+    this.tokenRecaptcha = token;
+  }
 }

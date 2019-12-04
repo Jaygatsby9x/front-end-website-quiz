@@ -56,6 +56,8 @@ import {SocialLoginModule, AuthServiceConfig} from 'angularx-social-login';
 import {GoogleLoginProvider, FacebookLoginProvider} from 'angularx-social-login';
 import {ToastrModule} from 'ngx-toastr';
 import { VerifyEmailComponent } from './verify/verify-email/verify-email.component';
+import { RecaptchaComponent } from './recaptcha/recaptcha.component';
+import {NgxCaptchaModule} from "ngx-captcha";
 
 const configSocialite = new AuthServiceConfig([
   {
@@ -111,6 +113,7 @@ export function provideConfig() {
     EditCategoryComponent,
     FacebookLoginComponent,
     VerifyEmailComponent,
+    RecaptchaComponent,
 
   ],
   imports: [
@@ -126,6 +129,7 @@ export function provideConfig() {
     MatAutocompleteModule,
     MatOptionModule,
     SocialLoginModule,
+    NgxCaptchaModule,
     ToastrModule.forRoot({
       timeOut: 5000,
       positionClass: 'toast-bottom-right'
