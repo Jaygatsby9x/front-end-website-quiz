@@ -98,4 +98,7 @@ export class AuthService {
   forgotPassword(data) {
     return this.http.post(this.apiUrl + '/forgot-password', data);
   }
+  verifyRecaptcha(data) {
+    return this.http.post('https://www.google.com/recaptcha/api/siteverify', data);
+  }
 }

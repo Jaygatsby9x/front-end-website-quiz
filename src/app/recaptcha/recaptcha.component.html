@@ -1,0 +1,6 @@
+<ngx-recaptcha2 #captchaElem
+                [siteKey]="siteKey"
+                (load)="handleLoad()"
+                (success)="handleSuccess($event)"
+                [formControl]="aFormGroup">
+</ngx-recaptcha2>

@@ -16,6 +16,11 @@ export class UserLoginComponent implements OnInit {
   message;
   email;
 
+  failedAuthor = 0;
+  badAuthorized: boolean;
+  tokenRecaptcha: string;
+
+
   constructor(private router: Router,
               private fb: FormBuilder,
               private authService: AuthService,
@@ -34,6 +39,18 @@ export class UserLoginComponent implements OnInit {
   }
 
   onSubmit() {
+    if (this.badAuthorized) {
+      if (this.tokenRecaptcha) {
+        this.sendRequest();
+      } else {
+        this.toastrService.error('Bạn chưa xác thực mã captcha', 'Đăng nhập thất bại!');
+      }
+    } else {
+      this.sendRequest();
+    }
+  }
+
+  sendRequest() {
     const data = this.form.value;
     this.authService.login(data).subscribe((response: IResponse) => {
       this.authService.setToken(response.token);
@@ -45,10 +62,16 @@ export class UserLoginComponent implements OnInit {
           'Tài khoản của bạn hiện đang chờ xác nhận,' +
           ' vui lòng kiểm tra mail của bạn',
           'Đăng nhập thất bại!');
+        this.failedAuthor++;
+        if (this.failedAuthor >= 3) {
+          this.badAuthorized = true;
+        }
       }
-      this.message = error.error.error;
+      this.toastrService.error(error.error.message,
+        'Đăng nhập thất bại!');
     });
   }
+
 
   sendMailForgotPassword() {
     this.authService.forgotPassword(this.formForgot()).subscribe((response: IResponse) => {
@@ -70,5 +93,10 @@ export class UserLoginComponent implements OnInit {
     });
 
     return this.form.value;
+  }
+
+  handleRecaptcha(token) {
+    this.tokenRecaptcha = token;
+
   }
 }
