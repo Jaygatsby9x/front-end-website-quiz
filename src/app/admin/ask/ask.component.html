@@ -1,0 +1,78 @@
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title ">ASK manager</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <button class="col-md-7" *ngIf="authorization.canCreate()" class="btn btn-primary btn-sm mb-2" routerLink="/admin/dashboard/ask/create">Create</button>
+              <mat-form-field class="col-md-5 ml-5 " style="position: relative; left: 0">
+                <input  class="col-md-5" type="text" placeholder="Tìm kiếm câu hỏi" [(ngModel)]="keyWord" (ngModelChange)="search()" matInput>
+              </mat-form-field>
+              <table class="table col-form-label">
+                <thead class=" text-primary">
+                <th>STT</th>
+                <th>Content</th>
+                <th>Level</th>
+                <th>Quiz</th>
+                <th></th>
+                </thead>
+                <tbody *ngIf="searchedAsks.length>0;else notdata">
+                <tr *ngFor="let ask of searchedAsks | paginate : {currentPage: page, itemsPerPage: 10} ; let i = index">
+                  <td style="width: 5px">{{i + 1}}</td>
+                  <td class="content-ask"><a [routerLink]="['/admin/dashboard/ask/details',ask.id]">{{ask.content}}</a></td>
+                  <td *ngIf="ask.level; else notLevel" >{{ask.level.name}}</td>
+                  <ng-template #notLevel><td>Không có dữ liệu</td></ng-template>
+                  <td>NONE</td>
+                  <td>
+                    <button *ngIf="authorization.canEditor()" class="btn btn-primary btn-sm mr-3" [routerLink]="['/admin/dashboard/ask/edit',ask.id]"><i class=" fa fa-edit"></i></button>
+                    <!-- Button trigger model -->
+
+                    <button *ngIf="authorization.canDelete()" type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                            data-target="#exampleModal +"
+                            [attr.data-target]="'#exampleModal'+ask.id"
+                    >
+                      <i class="fa fa-trash"></i>
+                    </button>
+
+                    <!-- Modal -->
+                    <div  class="modal fade" id="exampleModal{{ask.id}}" tabindex="-1" role="dialog"
+                         aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title text-warning" id="exampleModalLabel">Cảnh báo</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            Bạn có chắc chắn muốn xóa câu hỏi này ?.
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Trở Về</button>
+                            <button *ngIf="authorization.canDelete()" type="button" (click)="delete(ask.id)" data-dismiss="modal" class="btn btn-danger">Xóa</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+                <ng-template #notdata>
+                  <tr>
+                    <td style="text-align: center" colspan="3">Không có dữ liệu</td>
+                  </tr>
+                </ng-template>
+              </table>
+              <pagination-controls (pageChange)="page = $event"></pagination-controls>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

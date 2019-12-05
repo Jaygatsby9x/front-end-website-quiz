@@ -1,0 +1,29 @@
+<div class="text-center"><h1></h1></div>
+<div>.</div>
+
+<div class="card">
+  <h5 class="card-header">Quiz Statistic</h5>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table">
+        <thead class="text-primary" >
+        <tr>
+          <th scope="col">STT</th>
+          <th scope="col">Name</th>
+          <th scope="col">Users do test</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let quiz of quizs | paginate: { itemsPerPage: 5, currentPage: p }; let i = index">
+          <th scope="row">{{i +1}}</th>
+          <td>{{quiz.name}}</td>
+          <td><a [routerLink]="['/admin/dashboard/quiz-statistic',quiz.id]">click</a></td>
+        </tr>
+        </tbody>
+      </table>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+
+    </div>
+  </div>
+</div>

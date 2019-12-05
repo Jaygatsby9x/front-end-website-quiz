@@ -1,0 +1,16 @@
+.point {
+  position: relative;
+  right: 30px;
+  max-width: 50px;
+}
+.filter {
+  position: relative;
+  right: 170px;
+  margin-bottom: 15px;
+}
+
+.center {
+
+  position: relative;
+  left: 150px;
+}

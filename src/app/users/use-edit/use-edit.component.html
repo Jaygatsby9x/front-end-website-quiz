@@ -1,0 +1,59 @@
+<div class="tab-pane ml-5">
+  <div class="col-md-6 alert alert-success" *ngIf="message">
+    *{{message}}
+  </div>
+  <form [formGroup]="formUser" (ngSubmit)="onSubmit()">
+  <div class="form-group row">
+    <mat-form-field class="col-md-6">
+      <input matInput placeholder="Họ và Tên" id="name" type="text" formControlName="name">
+    </mat-form-field>
+    <label class="text-danger col-md-12" for="name" *ngIf="validators.hasOwnProperty('name')">
+      {{validators.name[0]}}
+    </label>
+  </div>
+  <div class="form-group row">
+      <mat-form-field disabled class="col-md-6">
+      <input disabled matInput type="email" id="email" placeholder="Email" value="{{user.email}}" >
+      </mat-form-field>
+  </div>
+  <div class="form-group row">
+      <mat-form-field class="col-md-6">
+        <input matInput type="number" id="old" placeholder="Tuổi" formControlName="old">
+      </mat-form-field>
+    <label class="text-danger col-md-12" for="old" *ngIf="validators.hasOwnProperty('old')">
+      {{validators.old[0]}}
+    </label>
+  </div>
+  <div class="form-group row">
+    <label class="col-lg-7 col-form-label form-control-label">Giới Tính: </label>
+    <br>
+    <div class="col-lg-6">
+      <select formControlName="gender" id="" class="form-control">
+        <option value="">Giới tính</option>
+        <option>Nam</option>
+        <option>Nữ</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group row">
+      <mat-form-field class="col-md-6">
+        <input matInput placeholder="Địa Chỉ " type="text" formControlName="address">
+      </mat-form-field>
+  </div>
+
+  <div class="form-group row">
+      <mat-form-field class="col-md-6">
+        <input matInput type="text" id="phone" placeholder="Số Điện Thoại" formControlName="phone">
+      </mat-form-field>
+    <label class="text-danger col-md-12" for="phone" *ngIf="validators.hasOwnProperty('phone')">
+      {{validators.phone[0]}}
+    </label>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-lg-9">
+      <input [disabled]="!formUser.touched" type="submit" class="btn btn-primary" value="Lưu Thay Đổi">
+    </div>
+  </div>
+  </form>
+</div>

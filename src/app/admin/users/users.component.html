@@ -1,0 +1,32 @@
+<div class="card">
+  <h5 class="card-header">Featured</h5>
+  <div class="card-body">
+    <div class="table-responsive">
+
+      <table class="table">
+        <thead class="text-primary">
+        <tr>
+          <th scope="col">STT</th>
+          <th scope="col">Tên người dùng</th>
+          <th scope="col">Email</th>
+          <th scope="col">Chức vụ</th>
+          <th scope="col">Quiz Test</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of users; let i = index">
+          <th scope="row">{{i + 1}}</th>
+          <td>{{user.name}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.role.name}}</td>
+          <td><a [routerLink]="['/admin/dashboard/users',user.id]">Quiz Tested</a></td>
+          <td><a [routerLink]="['/admin/dashboard/users', user.id,'edit']" *ngIf="authorizationService.isSuperAdmin()">Sửa</a></td>
+        </tr>
+        </tbody>
+      </table>
+
+
+    </div>
+
+  </div>
+</div>

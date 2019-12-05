@@ -1,0 +1,30 @@
+<div class="text-center"><h1></h1></div>
+<div>.</div>
+
+<div class="card">
+  <h5 class="card-header">Người Làm: <span><strong> {{user.name}}</strong></span></h5>
+  <div class="card-body">
+    <div class="float-md-right ">
+      <div id="main">
+        <div class="container">
+          <div class="filter">
+            <div class="circlecheck float-left">
+              <input type="radio" id="f-option" class="circle-1 mr-1" name="selector"
+                     routerLink="statistic-time">
+              <label for="f-option">Làm gần đây nhất</label>
+
+              <div class="outer-circle"></div>
+            </div>
+            <div class="circlecheck float-left ml-3 ">
+              <input type="radio" id="g-option" class="circle-2 mr-1" name="selector" routerLink="statistic-filter">
+              <label for="g-option">Điểm số cao nhất</label>
+
+              <div class="outer-circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+</div>

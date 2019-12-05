@@ -1,0 +1,34 @@
+<img src="../../../assets/home-page/images/teachers_background.jpg">
+<app-nav-bar ></app-nav-bar>
+<div class="  align-items-center">
+  <div class="text-center"><h1>Thông tin cá nhân</h1></div>
+  <div class="row my-2 ">
+    <div class="col-lg-8 order-lg-2">
+      <ul class="nav nav-tabs mt-5">
+        <li class="nav-item">
+          <a routerLink="/user" data-toggle="tab" class="nav-link active">Thông Tin</a>
+        </li>
+        <li class="nav-item" >
+          <a routerLink="result"   data-toggle="tab" class="nav-link">Thống kê kết quả</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="edit"   data-toggle="tab" class="nav-link">Edit</a>
+        </li>
+        <li class="nav-item" *ngIf="!user.provider">
+          <a routerLink="change-password"   data-toggle="tab" class="nav-link">Đổi mật khẩu</a>
+        </li>
+      </ul>
+      <div class="tab-content py-4">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+    <div class="col-lg-4 order-lg-1 text-center mt-5">
+      <label for="file">
+        <img style="min-width: 200px" [src]="user.image" *ngIf="user.image" class="mx-auto img-fluid img-circle d-block" alt="avatar">
+      </label>
+      <label class="custom-file">
+        <input type="file" id="file" class="custom-file-input">
+      </label>
+    </div>
+  </div>
+</div>
